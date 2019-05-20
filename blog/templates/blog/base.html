@@ -1,14 +1,14 @@
 {% load static %}
 <html>
     <head>
-        <title>플러그아웃</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>플러그</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
         <div class="page-header">
-            <h1><a href="/">플러그인앤아웃</a></h1>
+            <h1><a href="/">플러그인</a> <a href="{% url 'post_new' %}"><button type="button" class="btn btn-primary">글쓰기</button></a></h1>
         </div>
         <div class="content container">
             <div class="row">
