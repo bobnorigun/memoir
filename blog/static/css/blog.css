@@ -4,6 +4,10 @@ body {
     line-height: 1.6rem;
 }
 
+a, a:visited, a:active {
+    overflow: hidden;
+    word-break: break-all;
+}
 .page-header {
     margin-top: 0;
     padding: 10px 10px 10px 10px;
