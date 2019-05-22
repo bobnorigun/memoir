@@ -12,7 +12,8 @@ a, a:visited, a:active {
 
 .page-header {
     margin-top: 0;
-    padding: 15px 15px 15px 15px;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
