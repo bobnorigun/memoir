@@ -1,33 +1,26 @@
 body {
     font-weight: normal;
     font-family: 'Noto Sans KR', sans-serif;
-    line-height: 1.6rem;
+    line-height: normal;
 }
 
 a, a:visited, a:active {
     overflow: hidden;
     word-break: break-all;
+    color: #000000;
 }
+
 .page-header {
     margin-top: 0;
-    padding: 10px 10px 10px 10px;
+    padding: 15px 15px 15px 15px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     text-decoration: none;
 }
 
-.content {
-    margin-left: 1rem;
-}
-
-h2 {
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-}
-
 .date {
-    font-size: small;
+    font-size: x-small;
     color: #828282;
 }
 
@@ -44,7 +37,7 @@ h2 {
 }
 
 .post {
-    margin-bottom: 70px;
+    margin-bottom: 2rem;
 }
 
 .post a, .post a:visited {
