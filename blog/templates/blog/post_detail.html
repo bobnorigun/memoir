@@ -13,7 +13,7 @@
         <a href="{% url 'post_edit' pk=post.pk %}"><button type="button" class="btn btn-light btn-sm">편집하기</button></a>
         <a href="{% url 'post_remove' pk=post.pk %}"><button type="button" class="btn btn-light btn-sm">삭제하기</button></a>
         {% endif %}
-        <h2 class="post-title">{{ post.title }}</h2>
+        <h3 class="post-title">{{ post.title }}</h3>
         <!-- 내용글은 여기 -->
         <p>{{ post.text|linebreaksbr|urlize }}</p>
     </div>
