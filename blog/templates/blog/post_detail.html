@@ -5,15 +5,15 @@
         {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
-            </div>
+            </div> 
         {% else %}
-            <a class="btn btn-primary" href="{% url 'post_publish' pk=post.pk %}">공개하기</a>
+            <a class="btn btn-light btn-sm" href="{% url 'post_publish' pk=post.pk %}">올리기</a>
         {% endif %}
         {% if user.is_authenticated %}
-        <a href="{% url 'post_edit' pk=post.pk %}"><button type="button" class="btn btn-primary">편집하기</button></a>
-        <a href="{% url 'post_remove' pk=post.pk %}"><button type="button" class="btn btn-primary">삭제하기</button></a>
+        <a href="{% url 'post_edit' pk=post.pk %}"><button type="button" class="btn btn-light btn-sm">편집하기</button></a>
+        <a href="{% url 'post_remove' pk=post.pk %}"><button type="button" class="btn btn-light btn-sm">삭제하기</button></a>
         {% endif %}
-        <h2>{{ post.title }}</h2>
+        <h2 class="post-title">{{ post.title }}</h2>
         <!-- 내용글은 여기 -->
         <p>{{ post.text|linebreaksbr|urlize }}</p>
     </div>
