@@ -2,11 +2,13 @@ body {
     font-weight: normal;
     font-family: 'Noto Sans KR', sans-serif;
     line-height: normal;
+    color: #343a40;
 }
 
 a, a:visited, a:active {
     overflow: hidden;
     word-break: break-all;
+    color: #000000;
 }
 
 .page-header {
@@ -21,7 +23,7 @@ a, a:visited, a:active {
 
 .date {
     font-size: x-small;
-    color: #828282;
+    color: #e83e8c;
 }
 
 .save {
