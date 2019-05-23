@@ -7,7 +7,6 @@ body {
 a, a:visited, a:active {
     overflow: hidden;
     word-break: break-all;
-    color: #000000;
 }
 
 .page-header {
@@ -26,7 +25,7 @@ a, a:visited, a:active {
 }
 
 .save {
-    float: right;
+    float: center;
 }
 
 .post-form textarea, .post-form input {
@@ -39,12 +38,4 @@ a, a:visited, a:active {
 
 .post {
     margin-bottom: 2rem;
-}
-
-.post a, .post a:visited {
-    color: #000000;
-}
-
-.post h2 a, .post h2 a:visited {
-    color: #000000;
 }
