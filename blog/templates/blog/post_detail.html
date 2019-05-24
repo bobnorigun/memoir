@@ -18,14 +18,14 @@
         <p>{{ post.text|linebreaksbr|urlize }}</p>
     </div>
     <hr>
-    <a class="btn btn-sm" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글</a>
+    <a class="btn btn-sm" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글쓰기</a>
     {% for comment in post.comments.all %}
         {% if user.is_authenticated or comment.approved_comment %}
         <div class="comment">
             <div class="date">
                 {{ comment.created_date }}
                 {% if not comment.approved_comment %}
-                    <a class="btn btn-sm" href="{% url 'comment_remove' pk=comment.pk %}">삭제</a>
+                    <a class="btn btn-sm" href="{% url 'comment_remove' pk=comment.pk %}">제거</a>
                     <a class="btn btn-sm" href="{% url 'comment_approve' pk=comment.pk %}">허용</a>
                 {% endif %}
             </div>
@@ -34,6 +34,6 @@
         </div>
         {% endif %}
     {% empty %}
-        <p>무플</p>
+        <p>No comment</p>
     {% endfor %}
 {% endblock %}

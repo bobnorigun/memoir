@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-	<h5>무플은 무관심</h5>
+	<h5>댓글</h5>
 	<form method="POST" class="post-form">{% csrf_token %}
 		{{ form.as_p }}
 		<button type="submit" class="save btn btn-primary btn-block">달기</button>
