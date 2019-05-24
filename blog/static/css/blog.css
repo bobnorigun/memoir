@@ -1,7 +1,5 @@
 body {
-    font-weight: normal;
     font-family: 'Noto Sans KR', sans-serif;
-    line-height: normal;
     color: #343a40;
 }
 
@@ -23,7 +21,10 @@ a, a:visited, a:active {
 
 .date {
     font-size: x-small;
-    color: #e83e8c;
+}
+
+h4, h5, h6 {
+    font-weight: bolder;
 }
 
 .save {

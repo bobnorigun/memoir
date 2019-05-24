@@ -6,7 +6,7 @@
             <div class="date">
             {{ post.created_date|date:'m/d h:m' }}
             </div>
-            <h4><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h4>
+            <h5><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h5>
             <p>{{ post.text|truncatechars:200|urlize }}</p>
         </div>
     {% endfor %}

@@ -10,9 +10,9 @@
     <body>
         <div class="container-fluid">
             <div class="page-header">
-                <h4>
+                <h5>
                     {% if user.is_authenticated %}
-                    <a href="/"><strong>{{ user.username }}</strong></a>
+                    <a href="/">{{ user.username }}</a>
                     <p class="top-menu">
                     <a href="{% url 'logout' %}"><button type="button" class="btn btn-light btn-sm">로그아웃</button></a>
                     <a href="{% url 'post_draft_list' %}"><button type="button" class="btn btn-light btn-sm">습작</button></a>
@@ -24,7 +24,7 @@
                     <a href="{% url 'login' %}"><button type="button" class="btn btn-light btn-sm">로그인</button></a>
                     </p>
                     {% endif %}
-                </h4>
+                </h5>
             </div>
             <div>
                 {% block content %}
