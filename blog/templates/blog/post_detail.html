@@ -17,23 +17,33 @@
         <!-- 내용글은 여기 -->
         <p>{{ post.text|linebreaksbr|urlize }}</p>
     </div>
-    <hr>
-    <a class="btn btn-sm" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글쓰기</a>
+    <div align="right"><a class="btn btn-light btn-sm" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글쓰기</a></div>
+    <!--
     {% for comment in post.comments.all %}
         {% if user.is_authenticated or comment.approved_comment %}
         <div class="comment">
             <div class="date">
-                {{ comment.created_date }}
+                {{ comment.created_date|date:'m/d h:m' }}
                 {% if not comment.approved_comment %}
-                    <a class="btn btn-sm" href="{% url 'comment_remove' pk=comment.pk %}">제거</a>
-                    <a class="btn btn-sm" href="{% url 'comment_approve' pk=comment.pk %}">허용</a>
+                    <a class="btn btn-light btn-sm" href="{% url 'comment_remove' pk=comment.pk %}">삭제</a>
+                    <a class="btn btn-light btn-sm" href="{% url 'comment_approve' pk=comment.pk %}">허용</a>
                 {% endif %}
             </div>
             <strong>{{ comment.author }}</strong>
-            <p>{{ comment.text|linebreaks }}</p>
+            {{ comment.text|linebreaks }}
         </div>
         {% endif %}
     {% empty %}
-        <p>No comment</p>
+        no comment
+    {% endfor %}
+    -->
+    {% for comment in post.comments.all %}
+        <div class="comment">
+            <div class="date">{{ comment.created_date|date:'m/d h:m' }}</div>
+            <strong>{{ comment.author }}</strong>
+            {{ comment.text|linebreaks }}
+        </div>
+    {% empty %}
+        <!-- <p>No comments yet :(</p> -->
     {% endfor %}
 {% endblock %}

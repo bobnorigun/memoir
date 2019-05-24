@@ -15,7 +15,7 @@
                     <a href="/">{{ user.username }}</a>
                     <p class="top-menu">
                     <a href="{% url 'logout' %}"><button type="button" class="btn btn-light btn-sm">로그아웃</button></a>
-                    <a href="{% url 'post_draft_list' %}"><button type="button" class="btn btn-light btn-sm">습작</button></a>
+                    <a href="{% url 'post_draft_list' %}"><button type="button" class="btn btn-light btn-sm">쓰다만</button></a>
                     <a href="{% url 'post_new' %}"><button type="button" class="btn btn-primary btn-sm">글쓰기</button></a>
                     </p>
                     {% else %}

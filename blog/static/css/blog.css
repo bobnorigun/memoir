@@ -25,6 +25,7 @@ a, a:visited, a:active {
 
 h4, h5, h6 {
     font-weight: bolder;
+    line-height: normal;
 }
 
 .post-form textarea, .post-form input {
@@ -40,5 +41,5 @@ h4, h5, h6 {
 }
 
 .comment {
-    margin: 20px 0px 20px 20px;
+    margin: 1em 1em 1em 1em;
 }
