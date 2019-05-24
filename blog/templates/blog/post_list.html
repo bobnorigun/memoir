@@ -2,16 +2,17 @@
 
 {% block content %}
     {% for post in posts %}
-        <div class="post">
-            
-            <h5><strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong></h5>
+        <div class="post">            
+            <h5>
+                <strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong>
+            </h5>
             <p>{{ post.text|linebreaksbr|urlize }}</p>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.approved_comments.count }}</a>
         </div>
     {% endfor %}
     <div>
     	<address>
-			<small><a href="mailto:bobthedesigner@gmail.com">Opened a dot hole to connect the world</a></small>
+			<small><a href="mailto:bobthedesigner@gmail.com">A dot hole to connect the world</a></small>
     	</address>
     </div>
 {% endblock %}
-
