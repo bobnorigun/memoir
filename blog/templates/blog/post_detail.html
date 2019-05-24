@@ -18,7 +18,7 @@
         <p>{{ post.text|linebreaksbr|urlize }}</p>
     </div>
     <div align="right"><a class="btn btn-light btn-sm" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글쓰기</a></div>
-    
+    <!--
     {% for comment in post.comments.all %}
         {% if user.is_authenticated or comment.approved_comment %}
         <div class="comment">
@@ -36,14 +36,14 @@
     {% empty %}
         no comment
     {% endfor %}
-    <!--
+    -->
     {% for comment in post.comments.all %}
         <div class="comment">
             <div class="date">{{ comment.created_date|date:'m/d h:m' }}</div>
             <strong>{{ comment.author }}</strong>
             {{ comment.text|linebreaks }}
         </div>
-    {% empty %}-->
-        <!-- <p>No comments yet :(</p>
-    {% endfor %} -->
+    {% empty %}
+        <!-- <p>No comments yet :(</p> -->
+    {% endfor %}
 {% endblock %}
