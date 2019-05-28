@@ -6,7 +6,7 @@
             <h5>
                 <strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong>
             </h5>
-            <p>{{ post.text|linebreaksbr|urlize }}</p>
+            <p>{{ post.text|linebreaksbr|urlize|truncatechars:600 }}</p>
             <a href="{% url 'post_detail' pk=post.pk %}"><small>댓글 {{ post.comments.count }}</small></a>
         </div>
     {% endfor %}
