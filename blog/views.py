@@ -9,7 +9,7 @@ from .forms import PostForm, CommentForm
 # Create your views here.
 def post_list(request):
     post_all = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    paginator = Paginator(post_all, 4)
+    paginator = Paginator(post_all, 7)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     return render(request, 'blog/post_list.html', {'posts': posts})
