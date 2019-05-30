@@ -14,8 +14,8 @@
     <div class="pagination">
         <span class="step-links">
             {% if posts.has_previous %}
-                <a href="?page=1">&laquo; 처음</a> |
-                <a href="?page={{ posts.previous_page_number }}">이전</a>
+                <!-- <a href="?page=1">&laquo; 처음</a> | -->
+                <a href="?page={{ posts.previous_page_number }}"><strong>이전</strong></a>
             {% endif %}
 
             <span class="current">
@@ -23,8 +23,10 @@
             </span>
 
             {% if posts.has_next %}
-                <a href="?page={{ posts.next_page_number }}">다음</a> | 
-                <a href="?page={{ posts.paginator.num_pages }}">마지막 &raquo;</a>
+                <a href="?page={{ posts.next_page_number }}"><strong>다음</strong></a> 
+                <!-- | 
+                <a href="?page={{ posts.paginator.num_pages }}">마지막 &raquo;</a> 
+                -->
             {% endif %}
         </span>
     </div>
