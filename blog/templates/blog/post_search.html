@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <p>{{ q.title }}에 대한 검색결과</p>
+        {% for post in a %}
+        <h5><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h5>
+        <p>{{ post.text|linebreaksbr|urlize }}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

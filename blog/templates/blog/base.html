@@ -26,6 +26,10 @@
                     </p>
                     {% endif %}
                 </h5>
+                <form action="{% url 'post_search' %}" method="get">
+                    {% csrf_token %}
+                    <input type="text" name="q" value="{{q}}" placeholder="찾기">
+                </form>
             </div>
             <div>
                 {% block content %}

@@ -1,3 +1,5 @@
+## python 3.6.5 django 2.0.13
+
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
