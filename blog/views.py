@@ -92,5 +92,4 @@ def post_search(request):
     q = request.GET.get('q','')
     if q:
         a = a.filter(title__icontains=q)
-        return render(request, 'blog/post_search.html', {'a':a, 'q':q})
-    pass
+    return render(request, 'blog/post_search.html', {'a':a, 'q':q})
