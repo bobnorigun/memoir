@@ -1,6 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<!-- 제목검색 -->
+    <div class="form-group">
+        <form action="{% url 'post_search' %}" method="get">
+            {% csrf_token %}
+            <input class="form-control" type="text" name="q" value="{{q}}"placeholder="제목검색">
+        </form>
+    </div>
+<!-- 제목검색 끝-->
     {% for post in posts %}
         <div class="post">            
             <h5>
