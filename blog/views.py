@@ -12,7 +12,8 @@ def post_list(request):
     paginator = Paginator(post_all, 7)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
+    return render(request, 'blog/post_list.html', {'posts': posts, 'modified': modified})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)

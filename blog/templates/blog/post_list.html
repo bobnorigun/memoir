@@ -9,6 +9,13 @@
         </form>
     </div>
 <!-- 제목검색 끝-->
+<!-- 최근편집글 -->    
+    <div class="post">            
+        {% for post in modified|slice:":3" %}
+            <button type="button" class="btn btn-light" href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:10 }}</button>
+        {% endfor %}
+    </div>
+<!-- 최근편집글 끝 -->
     {% for post in posts %}
         <div class="post">            
             <h5>
