@@ -12,7 +12,7 @@
 <!-- 최근편집글 -->    
     <div class="post">            
         {% for post in modified|slice:":3" %}
-            <button type="button" class="btn btn-light" href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:10 }}</button>
+            <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-light" >{{ post.title|truncatechars:10 }}</button></a>
         {% endfor %}
     </div>
 <!-- 최근편집글 끝 -->
