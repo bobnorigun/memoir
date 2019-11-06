@@ -2,6 +2,7 @@
 
 {% block content %}
     <div class="post">
+        <p class="top-menu">
         {% if post.published_date %}
             <!-- <div class="date">
                 {{ post.published_date|date:'m/d h:m' }}
@@ -10,9 +11,10 @@
             <a class="btn btn-light btn-sm" href="{% url 'post_publish' pk=post.pk %}">공개</a>
         {% endif %}
         {% if user.is_authenticated %}
-        <a href="{% url 'post_edit' pk=post.pk %}"><button type="button" class="btn btn-light btn-sm">편집</button></a>
-        <a href="{% url 'post_remove' pk=post.pk %}"><button type="button" class="btn btn-light btn-sm">삭제</button></a>
+        <a href="{% url 'post_edit' pk=post.pk %}"><button type="button" class="btn btn-secondary btn-sm">쓰기</button></a>
+        <!-- <a href="{% url 'post_remove' pk=post.pk %}"><button type="button" class="btn btn-danger btn-sm">삭제</button></a> -->
         {% endif %}
+        </p>
         <h5>{{ post.title }}</h5>
         <!-- 내용글은 여기 -->
         <p>{{ post.text|linebreaksbr|urlize }}</p>
