@@ -48,3 +48,10 @@ h4, h5, h6 {
 .comment {
     margin: 0em 1em 1em 1em;
 }
+
+.btn-add .btn {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+    background-color: #258eff;
+    border-color: #258eff;
+}
