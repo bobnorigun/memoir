@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
+from django.db.models import Q
 
 # Create your views here.
 def post_list(request):
@@ -91,6 +92,8 @@ def comment_remove(request, pk):
 def post_search(request):
     a = Post.objects.all()
     q = request.GET.get('q','')
+    title_q = Q(title__icontains = q)
+    text_q = Q(text__icontains = q)
     if q:
-        a = a.filter(title__icontains=q)
+        a = a.filter(title_q | text_q)
     return render(request, 'blog/post_search.html', {'a':a, 'q':q})
