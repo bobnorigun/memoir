@@ -95,5 +95,8 @@ def post_search(request):
     title_q = Q(title__icontains = q)
     text_q = Q(text__icontains = q)
     if q:
-        a = a.filter(title_q | text_q)
-    return render(request, 'blog/post_search.html', {'a':a, 'q':q})
+        a = a.filter(title_q | text_q).order_by('-published_date')
+        paginator = Paginator(a, 7)
+    page = request.GET.get('page')
+    aas = paginator.get_page(page)
+    return render(request, 'blog/post_search.html', {'aas':aas, 'q':q})

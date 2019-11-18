@@ -8,8 +8,8 @@ class PostForm(forms.ModelForm):
         fields = ('title', 'text',)
 
         widgets = {
-        	'title' : forms.TextInput(attrs={'placeholder': '제목'}),
-        	'text' : forms.Textarea(attrs={'placeholder': '내용'})
+            'title' : forms.TextInput(attrs={'placeholder': '제목'}),
+            'text' : forms.Textarea(attrs={'placeholder': '내용'})
         }
         
 class CommentForm(forms.ModelForm):
@@ -17,3 +17,8 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ('author', 'text',)
+
+        widgets = {
+            'author' : forms.TextInput(attrs={'placeholder': '이름'}),
+            'text' : forms.Textarea(attrs={'placeholder': '내용'})
+        }
