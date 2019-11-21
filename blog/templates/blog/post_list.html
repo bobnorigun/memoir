@@ -14,7 +14,6 @@
         {% for post in modified|slice:":5" %}
             <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
         {% endfor %}
-        <hr>
     </div>
 <!-- 최근편집글 끝 -->
     {% for post in posts %}
