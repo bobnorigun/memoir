@@ -37,7 +37,7 @@ h4, h5, h6 {
 }
 
 .post {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .comment_btn {
@@ -50,7 +50,7 @@ h4, h5, h6 {
 }
 
 .btn-add {
-    margin-bottom: 35px;
+    margin-bottom: 1rem;
 }
 
 .btn-add .btn {
