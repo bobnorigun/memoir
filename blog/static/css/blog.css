@@ -53,9 +53,16 @@ h4, h5, h6 {
     margin-bottom: 1rem;
 }
 
-.btn-add .btn {
+.btn-add .btn-primary {
     margin-top: .25rem;
     margin-bottom: .25rem;
     background-color: #258eff;
     border-color: #258eff;
+}
+
+.btn-add .btn-secondary {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+    background-color: #7bbbff;
+    border-color: #7bbbff;
 }
