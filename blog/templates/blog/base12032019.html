@@ -4,36 +4,25 @@
         <title>Memo</title>
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="icon" href="{% static 'favicon/favicon.ico' %}"/>
     </head>
     <body>
         <div class="container">
-            <!-- 최근편집글 -->
-            <div class="page-header">    
-                <div class="btn-add">            
-                    {% for post in modified|slice:":9" %}
-                        <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
-                    {% endfor %}
-                </div>
-            </div>
-            <!-- 최근편집글 끝 -->
             <div class="page-header">
                 <h5>
                     {% if user.is_authenticated %}
-                    <a href="/"><i class="material-icons md-48 md-light">healing</i></a>
+                    <a href="/">{{ user.username }}</a>
                     <p class="top-menu">
-                    <!-- <a href="{% url 'logout' %}"><i class="material-icons md-48">lock_open</i></a>-->
-                    <a href="{% url 'post_draft_list' %}"><i class="material-icons md-48">short_text</i></a>
-                    <a href="{% url 'post_new' %}"><i class="material-icons md-48">arrow_upward</i></a>
+                    <!-- <a href="{% url 'logout' %}"><button type="button" class="btn btn-light btn-sm">로가웃</button></a> -->
+                    <a href="{% url 'post_draft_list' %}"><button type="button" class="btn btn-light btn-sm">쓰다만</button></a>
+                    <a href="{% url 'post_new' %}"><button type="button" class="btn btn-primary btn-sm">글쓰기</button></a>
                     </p>
                     {% else %}
                     <a href="/">memo</a>
                     <p class="top-menu">
-                    <a href="{% url 'login' %}"><i class="material-icons md-48">vpn_key</i></a>
+                    <a href="{% url 'login' %}"><button type="button" class="btn btn-light btn-sm">로그인</button></a>
                     </p>
                     {% endif %}
                 </h5>

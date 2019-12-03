@@ -1,14 +1,25 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<!-- 제목검색 
+<!-- 제목검색 -->
     <div class="form-group">
         <form action="{% url 'post_search' %}" method="get">
             {% csrf_token %}
             <input class="form-control" type="text" name="q" value="{{q}}"placeholder="찾기">
         </form>
     </div>
- 제목검색 끝-->
+<!-- 제목검색 끝-->
+<!-- 최근편집글 -->    
+    <div class="btn-add">            
+        {% for post in modified|slice:":5" %}
+            <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
+        {% endfor %}
+        {% for post in modified|slice:"6:10" %}
+            <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-secondary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
+        {% endfor %}
+    </div>
+
+<!-- 최근편집글 끝 -->
     {% for post in posts %}
         <div class="post">            
             <h5>

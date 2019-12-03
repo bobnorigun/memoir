@@ -66,3 +66,8 @@ h4, h5, h6 {
     background-color: #7bbbff;
     border-color: #7bbbff;
 }
+
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-light { color: rgba(175, 175, 175, 1); }
