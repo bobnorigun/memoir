@@ -21,8 +21,8 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_recent_list(request):
-    posts = Post.objects.filter(published_date__isnull=True).order_by('-last_modified')
-    return render(request, 'blog/post_draft_list.html', {'posts': posts})
+    modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
+    return render(request, 'blog/post_recent_list.html', {'modified': modified})
 
 @login_required
 def post_draft_list(request):

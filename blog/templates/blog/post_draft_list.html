@@ -5,7 +5,7 @@
     <div class="form-group">
         <form action="{% url 'post_search' %}" method="get">
             {% csrf_token %}
-            <input class="form-control" type="text" name="q" value="{{q}}"placeholder="찾기">
+            <input class="form-control form-control-lg" type="text" name="q" value="{{q}}" placeholder="Q...">
         </form>
     </div>
 <!-- 찾기 끝-->
