@@ -20,6 +20,10 @@ def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
 
+def post_recent_list(request):
+    posts = Post.objects.filter(published_date__isnull=True).order_by('-last_modified')
+    return render(request, 'blog/post_draft_list.html', {'posts': posts})
+
 @login_required
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('-created_date')

@@ -50,24 +50,21 @@ h4, h5, h6 {
 }
 
 .btn-add {
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
 }
 
 .btn-add .btn-primary {
     margin-top: .25rem;
     margin-bottom: .25rem;
-    background-color: #258eff;
-    border-color: #258eff;
-}
-
-.btn-add .btn-secondary {
-    margin-top: .25rem;
-    margin-bottom: .25rem;
-    background-color: #7bbbff;
-    border-color: #7bbbff;
+    background-color: #007bff;
+    border-color: #007bff;
 }
 
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 .material-icons.md-light { color: rgba(175, 175, 175, 1); }
+
+.form-control .lineless{
+    border: 0px;
+}

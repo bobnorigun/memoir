@@ -9,10 +9,10 @@
         </form>
     </div>
 <!-- 찾기 끝-->
-    {% for post in posts %}
+    {% for post in posts|slice:":9" %}
         <div class="post">
             <div class="date">
-            {{ post.created_date|date:'m/d h:m' }}
+            {{ post.last_modified|date:'m/d h:m' }}
             </div>
             <h5><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h5>
             <p>{{ post.text|truncatechars:200|urlize }}</p>
