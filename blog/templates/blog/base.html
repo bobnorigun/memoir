@@ -24,7 +24,7 @@
             <div>
                 <h6>
                     {% if user.is_authenticated %}
-                    ---
+                    <a href="/">{{ user.username }}</a>
                     <p class="top-menu">
                     <!-- <a href="{% url 'logout' %}"><i class="material-icons md-36">lock_open</i></a>-->
                     <a href="{% url 'post_recent_list' %}"><i class="material-icons md-36">search</i></a>
