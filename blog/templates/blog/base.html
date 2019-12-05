@@ -21,23 +21,25 @@
                 </div>
             </div>
             <!-- 최근편집글 끝 -->
-            <div class="page-header">
-                <h5>
+            <div>
+                <h6>
                     {% if user.is_authenticated %}
-                    <a href="{% url 'post_recent_list' %}"><i class="material-icons md-48">search</i></a>
+                    <a href="/">{{ user.username }}</a>
                     <p class="top-menu">
-                    <!-- <a href="{% url 'logout' %}"><i class="material-icons md-48">lock_open</i></a>-->
-                    <a href="{% url 'post_draft_list' %}"><i class="material-icons md-48">short_text</i></a>
-                    <a href="{% url 'post_new' %}"><i class="material-icons md-48">arrow_upward</i></a>
+                    <!-- <a href="{% url 'logout' %}"><i class="material-icons md-36">lock_open</i></a>-->
+                    <a href="{% url 'post_recent_list' %}"><i class="material-icons md-36">search</i></a>
+                    <a href="{% url 'post_draft_list' %}"><i class="material-icons md-36">short_text</i></a>
+                    <a href="{% url 'post_new' %}"><i class="material-icons md-36">playlist_add</i></a>
                     </p>
                     {% else %}
                     <a href="/">memo</a>
                     <p class="top-menu">
-                    <a href="{% url 'login' %}"><i class="material-icons md-48">vpn_key</i></a>
+                    <a href="{% url 'login' %}"><i class="material-icons md-36">vpn_key</i></a>
                     </p>
                     {% endif %}
-                </h5>
+                </h6>
             </div>
+            <div>---</div>
             <div>
                 {% block content %}
                 {% endblock %}
