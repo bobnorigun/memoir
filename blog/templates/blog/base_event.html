@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+    <head>
+        <title>Memo</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="icon" href="{% static 'favicon/favicon.ico' %}"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h6>
+                    <small>recordExpenses app <a href="#" class="badge badge-danger">close beta</a></small>
+                </h6>
+            <div>
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
