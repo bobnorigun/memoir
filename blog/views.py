@@ -97,6 +97,8 @@ def comment_remove(request, pk):
     return redirect('post_detail', pk=comment.post.pk)
 
 def post_search(request):
+    global paginator
+    
     a = Post.objects.all()
     q = request.GET.get('q','')
     title_q = Q(title__icontains = q)
