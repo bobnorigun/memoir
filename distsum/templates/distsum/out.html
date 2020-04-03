@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+
+
+{% block content %}
+
+<div class="text2">
+
+	<h1>
+	<u>{{distance}} km</u><br>is the distance between these {{places}} locations.
+	</h1>
+
+	<br>
+
+
+	<b><a href="{% url 'distsum:imhere' %}">back</a></b>
+
+</div>
+{% endblock %}

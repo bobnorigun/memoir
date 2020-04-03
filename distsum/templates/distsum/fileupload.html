@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+
+{% block content %}
+
+{% if messages %}
+    {% for message in message %}
+        <div>{{ message }}</div>
+    {% endfor %}
+
+{% else %}
+{{ order }}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="file1"> Upload a file</label>
+    <input type="file" id="file1" name="file">
+    <button type="submit">Upload</button>
+</form>
+{% endif %}
+
+{{ loca_count }} locations
+<br>
+<a href="{% url 'distsum:out' %}">Distance between first two locations</a>
+
+{% endblock %}
