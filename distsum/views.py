@@ -9,7 +9,6 @@ import pandas as pd
 import numpy as np
 
 
-
 def distsum(request):
 	template = "distsum/fileupload.html"
 	data = Mylocation.objects.all()
