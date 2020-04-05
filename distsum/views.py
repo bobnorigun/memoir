@@ -35,10 +35,7 @@ def distsum(request):
 		)
 	context = {}
 
-	aa = sqlite3.connect('db.sqlite3')
-	lala = pd.read_sql_query("SELECT * FROM auth_user", aa)
-
-	return render(request, template, context, {'lala': lala})
+	return render(request, template, context)
 
 def calc_dist(lat1, lon1, lat2, lon2):
 	lat1 = math.radians(lat1)
@@ -59,7 +56,6 @@ def calc_dist(lat1, lon1, lat2, lon2):
 """아래 수작업으로 불러 온 좌표값들을 자동으로 생성하고 결과값을 뽑아내는 공식을 만들고 싶어요!!!"""
 
 """pd.read_csv("./distsum/태국0323Maps.csv", engine='python') """
-
 
 def caldistview(request):
 	aa = sqlite3.connect('db.sqlite3')
