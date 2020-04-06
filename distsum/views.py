@@ -58,11 +58,15 @@ def calc_dist(lat1, lon1, lat2, lon2):
 """pd.read_csv("./distsum/태국0323Maps.csv", engine='python') """
 
 
-'''data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)'''
+'''1st was is data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)'''
+'''2nd was conn = sqlite3.connect("/memoir.pythonanywhere.com/db.sqlite3")
+	data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)'''
+
+from django_pandas.io import read_frame
 
 def caldistview(request):
-	conn = sqlite3.connect("/memoir.pythonanywhere.com/db.sqlite3")
-	data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)
+	qs = Mylocation.objects.all()
+	data = read_frame(qs)
 	places = len(data)
 	mydist = []
 	for i in range(len(data)-1):
