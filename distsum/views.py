@@ -61,7 +61,7 @@ def calc_dist(lat1, lon1, lat2, lon2):
 '''data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)'''
 
 def caldistview(request):
-	conn = sqlite3.connect("/db.sqlite3")
+	conn = sqlite3.connect("/memoir.pythonanywhere.com/db.sqlite3")
 	data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)
 	places = len(data)
 	mydist = []
