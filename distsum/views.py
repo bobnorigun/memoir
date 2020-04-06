@@ -61,6 +61,7 @@ conn = sqlite3.connect("./db.sqlite3")
 '''data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)'''
 
 def caldistview(request):
+	data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)
 	places = len(data)
 	mydist = []
 	for i in range(len(data)-1):
