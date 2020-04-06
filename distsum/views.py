@@ -57,10 +57,10 @@ def calc_dist(lat1, lon1, lat2, lon2):
 
 """pd.read_csv("./distsum/태국0323Maps.csv", engine='python') """
 
+conn = sqlite3.connect("db.sqlite3")
+data = pd.read_sql_query("SELECT * FROM distsum_mylocation", conn)
+
 def caldistview(request):
-	aa = sqlite3.connect('db.sqlite3')
-	data = pd.read_sql_query("SELECT * FROM distsum_mylocation", aa)
-	"""data = pd.read_csv("./distsum/태국0307Maps.csv", engine='python')"""
 	places = len(data)
 	mydist = []
 	for i in range(len(data)-1):
