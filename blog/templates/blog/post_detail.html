@@ -40,7 +40,7 @@
         no comment
     {% endfor %}
     -->
-    {% for comment in post.comments.all %}
+    {% for comment in post.comments.all reversed %}
         <div class="comment">
             <div class="date">{{ comment.created_date|date:'m/d h:m' }}</div>
             <strong>{{ comment.author }}</strong>
