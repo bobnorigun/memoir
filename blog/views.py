@@ -24,6 +24,9 @@ def post_detail(request, pk):
 def post_event(request):
     return render(request, 'blog/post_event.html')
 
+def post_app_later(request):
+    return render(request, 'blog/post_app_later.html')
+
 def post_recent_list(request):
     modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
     return render(request, 'blog/post_recent_list.html', {'modified': modified})
@@ -99,7 +102,7 @@ def comment_remove(request, pk):
 
 def post_search(request):
     global paginator
-    
+
     a = Post.objects.all()
     q = request.GET.get('q','')
     title_q = Q(title__icontains = q)

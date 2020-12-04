@@ -16,6 +16,14 @@
                 <h6>
                     <small>recordExpenses app <a href="#" class="badge badge-primary">open beta</a></small>
                 </h6>
+            </div>
+          </div>
+          <div class="row">
+                  <div class="col-auto">
+                  <a href="{% url 'post_event' %}" role="button" class="btn btn-success btn-sm btn-block">여행환전가계부</a>
+                  <a href="{% url 'post_app_later' %}" role="button" class="btn btn-success btn-sm btn-block">나중에</a>
+                  </div>
+          </div>
             <div>
                 {% block content %}
                 {% endblock %}

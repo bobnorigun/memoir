@@ -13,8 +13,8 @@
     <body>
         <div class="container">
             <!-- 최근편집글 -->
-            <div class="page-header">    
-                <div class="btn-add">            
+            <div class="page-header">
+                <div class="btn-add">
                     {% for post in modified|slice:":10" %}
                         <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
                     {% endfor %}
@@ -28,7 +28,7 @@
                     </div>
                     <div class="col-auto">
                     <!-- <a href="{% url 'logout' %}"><i class="material-icons md-36">lock_open</i></a>-->
-                    <a href="{% url 'distsum:imhere' %}"><i class="material-icons md-36">straighten</i></a>
+
                     <a href="{% url 'post_recent_list' %}"><i class="material-icons md-36">search</i></a>
                     <a href="{% url 'post_draft_list' %}"><i class="material-icons md-36">short_text</i></a>
                     <a href="{% url 'post_new' %}"><i class="material-icons md-36">playlist_add</i></a>
