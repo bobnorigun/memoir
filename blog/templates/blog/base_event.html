@@ -12,14 +12,14 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffc040;">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ff7d61;">
           <a class="navbar-brand mb-0 h1" href="#">PapaMob</a>
           <div class="navbar navbar-expand" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item">
+              <li class="nav-item {{ post_event }}">
                 <a class="nav-link" href="{% url 'post_event' %}" >여행환전가계부</a>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item {{ post_app_later }}">
                 <a class="nav-link" href="{% url 'post_app_later' %}">나중에</a>
               </li>
             </ul>

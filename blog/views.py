@@ -22,10 +22,12 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 def post_event(request):
-    return render(request, 'blog/post_event.html')
+    context = {"post_event": "active"}
+    return render(request, 'blog/post_event.html', context)
 
 def post_app_later(request):
-    return render(request, 'blog/post_app_later.html')
+    context = {"post_app_later": "active"}
+    return render(request, 'blog/post_app_later.html', context)
 
 def post_recent_list(request):
     modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
