@@ -25,6 +25,7 @@ def post_event(request):
     context = {"post_event": "active"}
     return render(request, 'blog/post_event.html', context)
 
+# pk를 강제로 호출해보자. 265번.
 def post_app_later(request):
     context = {"post_app_later": "active"}
     return render(request, 'blog/post_app_later.html', context)
