@@ -9,6 +9,16 @@
         <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="icon" href="{% static 'favicon/favicon.ico' %}"/>
+        <script>
+          function onoffMenus() {
+            var x = document.getElementById("moreMenus");
+            if (x.style.display === "none"){
+              x.style.display = "block";
+            } else {
+              x.style.display = "none";
+            }
+          }
+        </script>
     </head>
     <body>
         <div class="container">
@@ -18,8 +28,15 @@
                     {% for post in modified|slice:":10" %}
                         <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
                     {% endfor %}
+                    <button  class="btn btn-primary btn-sm" onclick="onoffMenus()">...</button>
+                </div>
+                <div id="moreMenus" style="display: none;">
+                    {% for post in modified|slice:"11:20" %}
+                        <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
+                    {% endfor %}
                 </div>
             </div>
+
             <!-- 최근편집글 끝 -->
             <div class="row">
                 {% if user.is_authenticated %}
