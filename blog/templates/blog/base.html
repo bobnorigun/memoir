@@ -30,7 +30,7 @@
                     {% endfor %}
                     <button  class="btn btn-primary btn-sm" onclick="onoffMenus()">...</button>
                 </div>
-                <div id="moreMenus" style="display: none;">
+                <div class="btn-add" id="moreMenus" style="display: none;">
                     {% for post in modified|slice:"11:20" %}
                         <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
                     {% endfor %}
