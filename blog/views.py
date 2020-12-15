@@ -19,7 +19,8 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
+    return render(request, 'blog/post_detail.html', {'post': post, 'modified': modified})
 
 def post_event(request):
     context = {"post_event": "active"}
@@ -36,8 +37,9 @@ def post_recent_list(request):
 
 @login_required
 def post_draft_list(request):
+    modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
     posts = Post.objects.filter(published_date__isnull=True).order_by('-created_date')
-    return render(request, 'blog/post_draft_list.html', {'posts': posts})
+    return render(request, 'blog/post_draft_list.html', {'posts': posts, 'modified': modified})
 
 @login_required
 def post_new(request):
