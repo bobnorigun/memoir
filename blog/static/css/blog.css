@@ -57,9 +57,9 @@ h4, h5, h6 {
 .btn-add .btn-primary {
     margin-top: .25rem;
     margin-bottom: .25rem;
-    background-color: #f4d64c;
-    border-color: #f4d64c;
-    color: #9b1ec6;
+    background-color: #9E46D7;
+    border-color: #9E46D7;
+    color: #FFC7C7;
 }
 
 .material-icons.md-36 { font-size: 36px; }
