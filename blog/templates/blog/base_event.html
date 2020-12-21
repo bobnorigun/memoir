@@ -12,7 +12,7 @@
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffc040;">
+        <!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffc040;">
           <a class="navbar-brand mb-0 h1" href="#">PapaMob</a>
           <div class="navbar navbar-expand" id="navbarNav">
             <ul class="navbar-nav">
@@ -27,11 +27,17 @@
               </li>
             </ul>
           </div>
-        </nav>
-      <div class="page-header">
-      </div>
-        <div class="container">
+        </nav> -->
 
+        <div class="container">
+          <div class="page-header">
+            <div class="btn-add">
+              <a href="#"><button type="button" class="btn btn-warning btn-sm">PapaMob</button></a>
+                <a href="{% url 'post_app_memolang' %}"><button type="button" class="btn btn-primary btn-sm">메모랑</button></a>
+                <a href="{% url 'post_event' %}"><button type="button" class="btn btn-primary btn-sm">여행환전가계부</button></a>
+                <a href="{% url 'post_app_later' %}"><button type="button" class="btn btn-primary btn-sm">데이즈</button></a>
+            </div>
+          </div>
             <div>
                 {% block content %}
                 {% endblock %}
