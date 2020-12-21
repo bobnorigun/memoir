@@ -31,6 +31,11 @@ def post_app_later(request):
     context = {"post_app_later": "active"}
     return render(request, 'blog/post_app_later.html', context)
 
+def post_app_memolang(request):
+    #메뉴 온/오프는 context로 조종.
+    context = {"post_app_memolang": "active"}
+    return render(request, 'blog/post_app_memolang.html', context)
+
 def post_recent_list(request):
     modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
     return render(request, 'blog/post_recent_list.html', {'modified': modified})
