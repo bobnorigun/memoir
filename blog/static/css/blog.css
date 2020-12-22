@@ -1,7 +1,11 @@
+.backup {
+    backgorund-color: ##e6f0f0;
+}
+
 body {
     font-family: 'Noto Sans KR', sans-serif;
     color: #343a40;
-    background-color: #e6f0f0;
+    background-color: #ffffff; 
 }
 
 a, a:visited, a:active {
