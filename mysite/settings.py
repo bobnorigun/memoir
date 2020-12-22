@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'im^9tp6$2&tyfn2ay!&13w(168vtf)mzx7qvc8am^^na*e2@s!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['memoir.pythonanywhere.com', '127.0.0.1', 'localhost', 'pythonanywhere.com']
+ALLOWED_HOSTS = ['www.papamob.net', 'www.papamob.co.kr', 'memoir.pythonanywhere.com', '127.0.0.1', 'localhost', 'pythonanywhere.com']
 
 
 # Application definition
