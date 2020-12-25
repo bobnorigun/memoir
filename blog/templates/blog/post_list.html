@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-<!-- 제목검색 
+<!-- 제목검색
     <div class="form-group">
         <form action="{% url 'post_search' %}" method="get">
             {% csrf_token %}
@@ -10,8 +10,8 @@
     </div>
  제목검색 끝-->
     {% for post in posts %}
-        <div class="post"> 
-        <div class="card"><div class="card-body">           
+        <div class="post">
+        <div class="card"><div class="card-body">
             <h5>
                 <strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong>
             </h5>
@@ -33,9 +33,9 @@
             </span>
 
             {% if posts.has_next %}
-                <a href="?page={{ posts.next_page_number }}"><strong>다음</strong></a> 
-                <!-- | 
-                <a href="?page={{ posts.paginator.num_pages }}">마지막 &raquo;</a> 
+                <a href="?page={{ posts.next_page_number }}"><strong>다음</strong></a>
+                <!-- |
+                <a href="?page={{ posts.paginator.num_pages }}">마지막 &raquo;</a>
                 -->
             {% endif %}
         </span>
@@ -43,7 +43,7 @@
     <div>
         <p>
     	<address>
-			<small><a href="mailto:bobthedesigner@gmail.com">A dot hole to connect the world</a></small>
+			<small><a href="mailto:bobthedesigner@gmail.com">@2020 PapaMob community</a></small>
     	</address>
         </p>
     </div>
