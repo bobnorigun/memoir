@@ -1,3 +1,17 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px
+);
+
+$container-max-widths: (
+  sm: 420px,
+  md: 720px,
+  lg: 720px
+);
+
+
 .backup {
     backgorund-color: ##e6f0f0;
 }
@@ -5,7 +19,7 @@
 body {
     font-family: 'Noto Sans KR', sans-serif;
     color: #343a40;
-    background-color: #ffffff; 
+    background-color: #ffffff;
 }
 
 a, a:visited, a:active {
