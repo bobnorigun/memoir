@@ -20,7 +20,7 @@
           }
         </script>
     </head>
-    
+
     <body class="d-flex flex-column h-100">
         <div class="container">
             <!-- 최근편집글 -->
@@ -65,22 +65,21 @@
                 {% endblock %}
             </div>
         </div>
+        <div></div>
       <footer class="footer mt-auto py-3 bg-light text-white">
         <div class="container">
           <div class="row justify-content-between">
-            <div class="col-4">
-              <div>
-                <p>
-                  <address>
-                  <h6><a href="mailto:bobthedesigner@gmail.com">@2020 PapaMob</a></h6>
-                  </address>
-                  <a href="{% url 'post_list' %}">blog</a><br>
-                  <a href="{% url 'post_event' %}">PapaMob</a>
-                </p>
-              </div>
+            <div class="col">
+              <address>
+                <h6><a href="mailto:bobthedesigner@gmail.com">@2020 PapaMob</a></h6>
+              </address>
+              <p>
+                <a href="{% url 'post_list' %}">blog</a><br>
+                <a href="{% url 'post_event' %}">PapaMob</a>
+              </p>
             </div>
-            <div class="col-4">
-              <img src="/media/images/papamob_footer.png" class="img-fluid" width="300px" alt="papamob by Seong Ha">
+            <div class="col">
+              <img src="/media/images/papamob_footer.png" class="img-fluid" align="right" width="60%" alt="papamob by Seong Ha">
             </div>
           </div>
         </div>
