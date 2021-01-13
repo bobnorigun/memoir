@@ -16,6 +16,7 @@ urlpatterns = [
     path('event/', views.post_event, name='post_event'),
     path('app_later/', views.post_app_later, name='post_app_later'),
     path('app_memolang/', views.post_app_memolang, name='post_app_memolang'),
+    path('app_nalsilang/', views.post_app_nalsilang, name='post_app_nalsilang'),
     path('post/<pk>/remove/', views.post_remove, name='post_remove'),
     path('post/<int:pk>/comment/', views.add_comment_to_post, name='add_comment_to_post'),
     path('comment/<int:pk>/approve/', views.comment_approve, name='comment_approve'),

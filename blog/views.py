@@ -31,6 +31,10 @@ def post_app_later(request):
     context = {"post_app_later": "active"}
     return render(request, 'blog/post_app_later.html', context)
 
+def post_app_nalsilang(request):
+    context = {"post_app_nalsilang": "active"}
+    return render(request, 'blog/post_app_nalsilang.html', context)
+
 def post_app_memolang(request):
     #메뉴 온/오프는 context로 조종.
     context = {"post_app_memolang": "active"}
