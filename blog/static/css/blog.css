@@ -68,6 +68,14 @@ h4, h5, h6 {
     color: #FFC7C7;
 }
 
+.btn-add .btn-secondary {
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+    background-color: #196acf;
+    border-color: #196acf;
+    color: #FFF;
+}
+
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }

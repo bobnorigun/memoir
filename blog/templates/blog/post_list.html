@@ -9,36 +9,36 @@
         </form>
     </div>
  제목검색 끝-->
-    {% for post in posts %}
-        <div class="post">
-        <div class="card"><div class="card-body">
-            <h5>
-                <strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong>
-            </h5>
-            <p class="card-text">{{ post.text|linebreaksbr|urlize|truncatechars:600 }}</p>
-            <a href="{% url 'post_detail' pk=post.pk %}"><small>댓글 {{ post.comments.count }}</small></a>
-        </div></div>
-        </div>
-    {% endfor %}
+{% for post in posts %}
+  <div class="post">
+    <div class="card"><div class="card-body">
+      <h5>
+        <strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong>
+      </h5>
+      <p class="card-text">{{ post.text|linebreaksbr|urlize|truncatechars:600 }}</p>
+      <a href="{% url 'post_detail' pk=post.pk %}"><small>댓글 {{ post.comments.count }}</small></a>
+    </div></div>
+  </div>
+{% endfor %}
+<div class="col-md-8">
+  <div class="pagination">
+    <span class="step-links">
+      {% if posts.has_previous %}
+          <!-- <a href="?page=1">&laquo; 처음</a> | -->
+          <a href="?page={{ posts.previous_page_number }}"><strong>이전</strong></a>
+      {% endif %}
 
-    <div class="pagination">
-        <span class="step-links">
-            {% if posts.has_previous %}
-                <!-- <a href="?page=1">&laquo; 처음</a> | -->
-                <a href="?page={{ posts.previous_page_number }}"><strong>이전</strong></a>
-            {% endif %}
+      <span class="current">
+          {{ posts.number }} / {{ posts.paginator.num_pages }}
+      </span>
 
-            <span class="current">
-                {{ posts.number }} / {{ posts.paginator.num_pages }}
-            </span>
-
-            {% if posts.has_next %}
-                <a href="?page={{ posts.next_page_number }}"><strong>다음</strong></a>
-                <!-- |
-                <a href="?page={{ posts.paginator.num_pages }}">마지막 &raquo;</a>
-                -->
-            {% endif %}
-        </span>
-        <p></p>
-    </div>
+      {% if posts.has_next %}
+          <a href="?page={{ posts.next_page_number }}"><strong>다음</strong></a>
+          <!-- |
+          <a href="?page={{ posts.paginator.num_pages }}">마지막 &raquo;</a>
+          -->
+      {% endif %}
+    </span>
+  </div>
+</div>
 {% endblock %}
