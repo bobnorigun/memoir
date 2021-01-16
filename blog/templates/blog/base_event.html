@@ -29,17 +29,17 @@
     <footer class="footer mt-auto py-3 bg-light text-white">
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col">
+          <div class="col" style="margin-left:1.25rem; margin-top:0.5rem;">
             <address>
-              <h6><a href="mailto:bobthedesigner@gmail.com">@2020 PapaMob</a></h6>
+              <h6><a href="mailto:bobthedesigner@gmail.com">@2021 PapaMob</a></h6>
             </address>
-            <p>
-              <a href="{% url 'post_list' %}">blog</a><br>
-              <a href="{% url 'post_event' %}">PapaMob</a>
-            </p>
+            <ul class="list-unstyled">
+              <li><a href="{% url 'post_list' %}">blog</a></li>
+              <li><a href="{% url 'post_event' %}">PapaMob</a></li>
+            <ul>
           </div>
           <div class="col">
-            <img src="/media/images/papamob_footer.png" class="img-fluid" align="right" width="60%" alt="papamob by Seong Ha">
+            <img src="/media/images/papamob_footer.png" class="img-fluid" align="right" width="70%" alt="papamob by Seong Ha">
           </div>
         </div>
       </div>

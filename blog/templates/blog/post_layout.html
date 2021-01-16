@@ -1,0 +1,40 @@
+{% extends 'blog/base_new.html' %}
+
+{% block content %}
+<!-- 윗 div 클라스 배경과 겹침. 이건 패딩이 있어야 할 듯. -->
+<div class="col-md-8 bg-primary">
+  <div class="bg-warning mt-3">
+    <h1><b>제목</b></h1>
+  </div>
+  <div class="bg-light mt-3">
+    <p>내용</p>
+  </div>
+</div>
+
+<div class="col-md-4 bg-dark" align="center">
+  <a href='https://play.google.com/store/apps/details?id=appinventor.ai_bobthedesigner.exChange73&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+  <img alt='여행환전가계부 다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="80px"/></a>
+</div>
+
+<div class="col-md-8 bg-light">
+  썸네일 영역
+</div>
+
+<div class="col-md-8 mt-3 bg-light">
+  <h6>Release Notes</h6>
+  <ul>
+    <li>2020/3/.. 구글 플레이스토어 출시 이후 '오픈베타' 격리중</li>
+  </ul>
+</div>
+
+<div class="col-md-8 mt-3 mb-3 bg-light">
+  <script src="https://utteranc.es/client.js"
+    repo="bobnorigun/papamob_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>s
+  </script>
+</div>
+
+{% endblock %}

@@ -1,8 +1,17 @@
-{% extends 'blog/base_new.html' %}
+{% extends 'blog/base.html' %}
 
 {% block content %}
+<!-- 제목검색
+    <div class="form-group">
+        <form action="{% url 'post_search' %}" method="get">
+            {% csrf_token %}
+            <input class="form-control" type="text" name="q" value="{{q}}"placeholder="찾기">
+        </form>
+    </div>
+ 제목검색 끝-->
 {% for post in posts %}
-<div class="col-md-8 mt-3">
+
+<div class="col-md-8 mb-3">
   <div class="card">
     <div class="card-body">
       <h5>
@@ -15,7 +24,7 @@
 </div>
 {% endfor %}
 
-<div class="col-md-8 mb-4 mt-3">
+<div class="col-md-8 mb-4">
   <div class="pagination" style="margin-left:1.5rem;">
     <span class="step-links">
       {% if posts.has_previous %}

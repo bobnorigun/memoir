@@ -22,6 +22,10 @@ def post_detail(request, pk):
     modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
     return render(request, 'blog/post_detail.html', {'post': post, 'modified': modified})
 
+def post_layout(request):
+    context = {"post_layout": "active"}
+    return render(request, 'blog/post_layout.html', context)
+
 def post_event(request):
     context = {"post_event": "active"}
     return render(request, 'blog/post_event.html', context)

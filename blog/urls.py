@@ -14,6 +14,7 @@ urlpatterns = [
     path('recent/', views.post_recent_list, name='post_recent_list'),
     path('', views.post_event, name='post_event'),
     path('event/', views.post_event, name='post_event'),
+    path('layout/', views.post_layout, name='post_layout'),
     path('app_later/', views.post_app_later, name='post_app_later'),
     path('app_memolang/', views.post_app_memolang, name='post_app_memolang'),
     path('app_nalsilang/', views.post_app_nalsilang, name='post_app_nalsilang'),
