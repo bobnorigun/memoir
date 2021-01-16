@@ -18,6 +18,7 @@
     <div class="container ">
       <!-- 탑메뉴 -->
       <div class="page-header ">
+        {% if user.is_authenticated %}
             <div class="btn-add">
             {% for post in modified|slice:":8" %}
               <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
@@ -29,6 +30,14 @@
               <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
             {% endfor %}
             </div>
+        {% else %}
+            <div class="btn-add">
+              <a href="{% url 'post_app_memolang' %}"><button type="button" class="btn btn-secondary btn-sm mb-1">메모랑</button></a>
+              <a href="{% url 'post_app_nalsilang' %}"><button type="button" class="btn btn-secondary btn-sm mb-1">날씨랑</button></a>
+              <a href="{% url 'post_event' %}"><button type="button" class="btn btn-secondary btn-sm mb-1">여행환전가계부</button></a>
+              <a href="{% url 'post_app_later' %}"><button type="button" class="btn btn-secondary btn-sm mb-1">데이즈</button></a>
+            </div>
+        {% endif %}
       </div>
       <!-- 탑메뉴 끝 -->
       <!-- 툴바 -->
@@ -49,8 +58,9 @@
         </div>
         <div class="col-md-4 " align="right">
             <a href="{% url 'login' %}"><i class="material-icons">lock</i></a>
-        </div>
-        {% endif %}
+
+          </div>
+      {% endif %}
       </div>
       <!-- 툴바 끝 -->
       <!-- 제목영역 -->
