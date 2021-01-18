@@ -20,7 +20,7 @@ from django.contrib.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('', include('blog.urls')),
+    path('', include('blog.urls')),
     #path('catalog/', include('catalog.urls')),
     #path('papamob/', include('papamob.urls')),
     #path('distsum/', include('distsum.urls')),
