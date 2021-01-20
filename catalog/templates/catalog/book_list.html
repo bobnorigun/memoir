@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h1>Book List</h1>
+  {% if book_list %}
+  <ul>
+    {% for book in book_list %}
+    <li>
+    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> <br>
+    {{ book.author }}<br>
+    <!-- this bookcover attribute has no file associated with it. 이 에러문구를 잘못 해석함.
+    북커버 이미지가 없을 때를 추가해야.
+    if book.bookcover 이걸로 해결했음.
+    -->
+    {% if book.bookcover %}
+    <img src="{{ book.bookcover.url }}">
+    {% else %}
+    [[[ NO IMAGE ]]]
+    {% endif %}
+
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no books in the library.</p>
+  {% endif %}
+{% endblock %}

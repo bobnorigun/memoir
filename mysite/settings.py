@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    #'catalog.apps.CatalogConfig', #added app
+    'catalog.apps.CatalogConfig', #added app
     #'papamob',
     #'distsum',
 ]

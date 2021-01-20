@@ -27,22 +27,23 @@ def post_layout(request):
     return render(request, 'blog/post_layout.html', context)
 
 def post_event(request):
-    context = {"post_event": "active"}
-    return render(request, 'blog/post_event.html', context)
+    modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
+    #메뉴 온/오프는 context로 조종.
+    #context = {"post_event": "active"}
+    return render(request, 'blog/post_event.html', {'modified': modified})
 
 # pk를 강제로 호출해보자. 265번.
 def post_app_later(request):
-    context = {"post_app_later": "active"}
-    return render(request, 'blog/post_app_later.html', context)
+    modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
+    return render(request, 'blog/post_app_later.html', {'modified': modified})
 
 def post_app_nalsilang(request):
-    context = {"post_app_nalsilang": "active"}
-    return render(request, 'blog/post_app_nalsilang.html', context)
+    modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
+    return render(request, 'blog/post_app_nalsilang.html', {'modified': modified})
 
 def post_app_memolang(request):
-    #메뉴 온/오프는 context로 조종.
-    context = {"post_app_memolang": "active"}
-    return render(request, 'blog/post_app_memolang.html', context)
+    modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
+    return render(request, 'blog/post_app_memolang.html', {'modified': modified})
 
 def post_recent_list(request):
     modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
