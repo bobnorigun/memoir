@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>PapaMob App List</h1>
+  {% if papaabb_list %}
+  <ul>
+    {% for papaabb in papaabb_list %}
+    <li>
+      <img src="{{ papaabb.coverimage.url }}" style="width:100px"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>{{ papaabb.summary }}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>There are no books in the library.</p>
+  {% endif %}
+{% endblock %}

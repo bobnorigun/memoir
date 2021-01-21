@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>PapaMob Apps</title>
+{% endblock %}
+
+{% block content %}
+  <h1>PapaMob Apps Home</h1>
+  <p>Welcome to PapaMob Apps home, a website developed by papamob</p>
+  <h2>Dynamic content</h2>
+  <p>The library has the following record counts:</p>
+  <ul>
+    <li><strong>Posts:</strong> {{ num_posts }}</li>
+    <li><strong>Abbs:</strong> {{ num_abbs }}</li>
+  </ul>
+{% endblock %}

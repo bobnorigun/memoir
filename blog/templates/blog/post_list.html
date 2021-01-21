@@ -2,20 +2,20 @@
 
 {% block content %}
 {% for post in posts %}
-<div class="col-md-8 mt-3">
+<div class="col-md-8 mb-3">
   <div class="card">
     <div class="card-body">
       <h5>
         <strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong>
       </h5>
-      <p class="card-text">{{ post.text|linebreaksbr|urlize|truncatechars:600 }}</p>
+      <p class="card-text mt-3">{{ post.text|linebreaksbr|urlize|truncatechars:300 }}</p>
       <a href="{% url 'post_detail' pk=post.pk %}"><small>댓글 {{ post.comments.count }}</small></a>
     </div>
   </div>
 </div>
 {% endfor %}
 
-<div class="col-md-8 mb-4 mt-3">
+<div class="col-md-8 mb-4">
   <div class="pagination" style="margin-left:1.5rem;">
     <span class="step-links">
       {% if posts.has_previous %}

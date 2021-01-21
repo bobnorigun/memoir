@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>{{ papaabb.title }}</h1>
+  <p>{{ papaabb.summary }}</p>
+  <p>
+    {% if papaabb.coverimage %}
+    <img src="{{ papaabb.coverimage.url }}" style="width:200px">
+    {% else %}
+    No Image
+    {% endif %}
+    {% if papaabb.coverimage2 %}
+    <img src="{{ papaabb.coverimage2.url }}" style="width:200px">
+    {% else %}
+    No Image
+    {% endif %}
+  </p>
+  <p>
+    {% for note in papaabb.releasenote_as_list %}
+    {{ note }}<br>
+    {% endfor %}
+  </p>
+{% endblock %}
