@@ -40,6 +40,7 @@ class PapaAbb(models.Model):
     summary = models.TextField(max_length=1000, help_text="Enter a brief description of the app")
 
     #Cover images
+    iconimage = models.ImageField(upload_to='images/', blank=True, null=True)
     coverimage = models.ImageField(upload_to='images/', blank=True, null=True)
     coverimage2 = models.ImageField(upload_to='images/', blank=True, null=True)
     #Download url

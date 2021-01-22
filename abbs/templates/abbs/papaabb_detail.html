@@ -19,7 +19,7 @@
   {% endif %}
 </div>
 
-<div class="col-md-8">
+<div class="col-md-8 mb-3">
   {% if papaabb.coverimage %}
   <img src="{{ papaabb.coverimage.url }}" style="width:49%">
   {% else %}
@@ -29,6 +29,13 @@
   <img src="{{ papaabb.coverimage2.url }}" style="width:49%">
   {% else %}
   No Image
+  {% endif %}
+</div>
+
+<div class="col-md-4" align="center">
+  {% if papaabb.iconimage %}
+  <img src="{{ papaabb.iconimage.url }}" width="52%" height="auto"/>
+  {% else %}
   {% endif %}
 </div>
 
