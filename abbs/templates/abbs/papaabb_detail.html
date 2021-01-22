@@ -1,23 +1,61 @@
-{% extends "base_generic.html" %}
+{% extends "blog/base_new.html" %}
 
 {% block content %}
-  <h1>{{ papaabb.title }}</h1>
-  <p>{{ papaabb.summary }}</p>
+<div class="col-md-8">
+  <div class="bg-light mt-1">
+    <h1><b>{{ papaabb.title }}</b></h1>
+  </div>
+  <div class="mt-3">
+    <p>{{ papaabb.summary }}</p>
+  </div>
+</div>
+
+<div class="col-md-4 mb-3" align="center">
+  {% if papaabb.downloadurl %}
+  <a href='{{ papaabb.downloadurl }}'>
+  <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="80px"/>
+  </a>
+  {% else %}
+  {% endif %}
+</div>
+
+<div class="col-md-8">
+  {% if papaabb.coverimage %}
+  <img src="{{ papaabb.coverimage.url }}" style="width:49%">
+  {% else %}
+  No Image
+  {% endif %}
+  {% if papaabb.coverimage2 %}
+  <img src="{{ papaabb.coverimage2.url }}" style="width:49%">
+  {% else %}
+  No Image
+  {% endif %}
+</div>
+
+<div class="col-md-8 mt-3">
+  <h6>Release Notes</h6>
   <p>
-    {% if papaabb.coverimage %}
-    <img src="{{ papaabb.coverimage.url }}" style="width:200px">
-    {% else %}
-    No Image
-    {% endif %}
-    {% if papaabb.coverimage2 %}
-    <img src="{{ papaabb.coverimage2.url }}" style="width:200px">
-    {% else %}
-    No Image
-    {% endif %}
-  </p>
-  <p>
+    <small>
+    <ul class="list-group">
     {% for note in papaabb.releasenote_as_list %}
-    {{ note }}<br>
+
+      <li class="list-group-item">
+        {{ note }}
+      </li>
+
     {% endfor %}
+    </ul>
+    </small>
   </p>
+</div>
+
+<div class="col-md-8 mt-3 mb-3">
+  <script src="https://utteranc.es/client.js"
+    repo="bobnorigun/papamob_comments"
+    issue-term="pathname"
+    theme="github-light"
+    crossorigin="anonymous"
+    async>s
+  </script>
+</div>
 {% endblock %}

@@ -1,19 +1,74 @@
-<!DOCTYPE html>
-<html lang="ko">
+{% load static %}
+<!--
+1. 부트스트랩은 4.5.3으로 업
+2.
+-->
+<html>
   <head>
-    {% block title %}
-    {% endblock %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PapaMob</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=0" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <!-- Add additional CSS in static file -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="icon" href="{% static 'favicon/favicon.ico' %}"/>
+<!-- 탑 바로가기 접었다 폈다 -->
+    <script>
+      function onoffMenus() {
+        var x = document.getElementById("moreMenus");
+        if (x.style.display === "none"){
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
   </head>
-  <body>
-    <div class="container-fluid">
+
+  <body class="d-flex flex-column h-100">
+    <div class="container">
+      <!-- 탑메뉴 -->
+      <div class="page-header ">
+        {% if user.is_authenticated %}
+            <div class="btn-add">
+            {% for post in modified|slice:":8" %}
+              <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
+            {% endfor %}
+              <button class="btn btn-light btn-sm" onclick="onoffMenus()">...</button>
+            </div>
+            <div class="btn-add" id="moreMenus" style="display: none;">
+            {% for post in modified|slice:"8:20" %}
+              <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
+            {% endfor %}
+            </div>
+        {% else %}
+            <div class="btn-add">
+              <a href="{% url 'post_app_memolang' %}"><button type="button" class="btn btn-secondary btn-sm mb-1">메모랑</button></a>
+              <a href="{% url 'post_app_nalsilang' %}"><button type="button" class="btn btn-secondary btn-sm mb-1">날씨랑</button></a>
+              <a href="{% url 'post_event' %}"><button type="button" class="btn btn-secondary btn-sm mb-1">여행환전가계부</button></a>
+              <a href="{% url 'post_app_later' %}"><button type="button" class="btn btn-secondary btn-sm mb-1">데이즈</button></a>
+            </div>
+
+        {% endif %}
+            <div class="btm-add">
+              {% if papaabb_list %}
+              <ul>
+                {% for papaabb in papaabb_list %}
+                <li>
+                  <img src="{{ papaabb.coverimage.url }}" style="width:100px"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>{{ papaabb.summary }}
+                </li>
+                {% endfor %}
+              </ul>
+              {% else %}
+              <p>There are no apps in the papaabb.</p>
+              {% endif %}
+            </div>
+      </div>
+      <!-- 탑메뉴 끝 -->
+      {% block content %}
+      {% endblock %}
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-md-4 mb-3">
           {% block sidebar %}
           <ul class="sidebar-nav">
             <li><a href="{% url 'index' %}">Home</a></li>
@@ -21,13 +76,10 @@
             <li><a href="{% url 'post_list' %}">blog</a></li>
             <!-- 프로젝트 두 앱 사이에 링크걸기. 이렇게 쉬운거였어? -->
             <!-- 현재 앱 url에 서술한 링크가 아닌데 그냥 됨. -->
-            
+
           </ul>
           {% endblock %}
         </div>
-      <div class="col-sm-10">
-        {% block content %}
-        {% endblock %}
       </div>
     </div>
   </body>

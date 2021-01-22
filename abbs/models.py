@@ -38,8 +38,14 @@ class PapaAbb(models.Model):
     """Model representing a Book"""
     title = models.CharField(max_length=200)
     summary = models.TextField(max_length=1000, help_text="Enter a brief description of the app")
+
+    #Cover images
     coverimage = models.ImageField(upload_to='images/', blank=True, null=True)
     coverimage2 = models.ImageField(upload_to='images/', blank=True, null=True)
+    #Download url
+    downloadurl = models.URLField(max_length=200, blank=True, null=True)
+
+    #Release Note
     releasenote = models.TextField(max_length=1000, help_text="Enter a brief description of the app")
 
     # Metadata

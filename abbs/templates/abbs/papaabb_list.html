@@ -1,16 +1,30 @@
-{% extends "base_generic.html" %}
+{% extends "blog/base_new.html" %}
 
 {% block content %}
-  <h1>PapaMob App List</h1>
+<div class="col-md-8">
+  <div class="bg-light mt-1">
+  <h1><b>PapaMob App List</b></h1>
+  </div>
   {% if papaabb_list %}
-  <ul>
+  <div class="row mt-4">
     {% for papaabb in papaabb_list %}
-    <li>
-      <img src="{{ papaabb.coverimage.url }}" style="width:100px"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>{{ papaabb.summary }}
-    </li>
+      <div class="col-6 col-md-4 mb-4">
+        <div class="card">
+          <a href="{{ papaabb.get_absolute_url }}">
+            <img src="{{ papaabb.coverimage.url }}" style="width:100%">
+          </a>
+          <div class="card-body">
+            <p><b><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a></b><br>
+            {{ papaabb.summary|truncatechars:50 }}
+            </p>
+          </div>
+        </div>
+      </div>
     {% endfor %}
-  </ul>
+  </div>
   {% else %}
-  <p>There are no books in the library.</p>
+  <p>There are no apps in the papaabb.</p>
   {% endif %}
+
+</div>
 {% endblock %}

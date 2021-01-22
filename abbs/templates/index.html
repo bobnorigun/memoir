@@ -1,16 +1,21 @@
-{% extends "base_generic.html" %}
+{% extends "blog/base_new.html" %}
 
 {% block title %}
 <title>PapaMob Apps</title>
 {% endblock %}
 
 {% block content %}
-  <h1>PapaMob Apps Home</h1>
-  <p>Welcome to PapaMob Apps home, a website developed by papamob</p>
-  <h2>Dynamic content</h2>
+<div class="col-md-8">
+  <div class="bg-light mt-1">
+  <h1><b>PapaMob Community</b></h1>
+  </div>
+
+  <p>Welcome to PapaMob community.</p>
+  <h3>Content</h3>
   <p>The library has the following record counts:</p>
   <ul>
     <li><strong>Posts:</strong> {{ num_posts }}</li>
-    <li><strong>Abbs:</strong> {{ num_abbs }}</li>
+    <li><strong>Apps:</strong> {{ num_abbs }}</li>
   </ul>
+</div>
 {% endblock %}
