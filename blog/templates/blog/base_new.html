@@ -58,7 +58,7 @@
       <div class="row">
         {% if user.is_authenticated %}
         <div class="col-md-4 ">
-            <h5><a href="{% url 'post_list' %}">{{ user.username }}</a></h5>
+            <h5><a href="{% url 'index' %}">{{ user.username }}</a></h5>
         </div>
         <div class="col-md-4 " align="right">
             <!-- <a href="{% url 'logout' %}"><i class="material-icons md-36">lock_open</i></a>-->
@@ -101,7 +101,7 @@
           <div class="col-md-6 ">
             <h6><b>@2021 PapaMob</b></h6>
             <ul>
-              <li><a href="{% url 'index' %}">About</a></li>
+              <li><a href="{% url 'about' %}">About</a></li>
               <li><a href="{% url 'abbs' %}">All apps</a></li>
               <li><a href="{% url 'post_list' %}">blog</a></li>
               <li><a href="mailto:bobthedesigner@gmail.com">Contact Us</a></li>

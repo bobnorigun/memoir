@@ -4,7 +4,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    #path('', views.post_list, name='post_list'),
+    path('', views.post_list, name='post_list'),
     path('blog/', views.post_list, name='post_list'),
     path('post/<int:pk>/', views.post_detail, name='post_detail'),
     path('post/new/', views.post_new, name='post_new'),
@@ -12,7 +12,6 @@ urlpatterns = [
     path('post/<pk>/publish/', views.post_publish, name='post_publish'),
     path('drafts/', views.post_draft_list, name='post_draft_list'),
     path('recent/', views.post_recent_list, name='post_recent_list'),
-    path('', views.post_event, name='post_event'),
     path('event/', views.post_event, name='post_event'),
     path('layout/', views.post_layout, name='post_layout'),
     path('app_later/', views.post_app_later, name='post_app_later'),
