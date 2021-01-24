@@ -1,9 +1,12 @@
 {% extends 'blog/base_new.html' %}
 
 {% block content %}
+
+
+
+<div class="col-md-8">
 {% for post in posts %}
-<div class="col-md-8 mb-3">
-  <div class="card">
+  <div class="card mb-3">
     <div class="card-body">
       <h5>
         <strong><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></strong>
@@ -12,8 +15,23 @@
       <a href="{% url 'post_detail' pk=post.pk %}"><small>댓글 {{ post.comments.count }}</small></a>
     </div>
   </div>
-</div>
 {% endfor %}
+</div>
+
+<div class="col-md-4 mb-3">
+  <div class="ml-4">
+  <h6><b>최근 글</b></h6>
+  {% for post in modified|slice:":3" %}
+    <hr>
+    <p class="card-text mt-3">
+      <strong><a href="{% url 'post_detail' pk=post.pk %}">
+      {{ post.title }}<br>
+      </a></strong>
+      <small>{{ post.text|linebreaksbr|urlize|truncatechars:100 }}</small>
+    </p>
+  {% endfor %}
+  </div>
+</div>
 
 <div class="col-md-8 mb-4">
   <div class="pagination" style="margin-left:1.5rem;">

@@ -25,4 +25,21 @@
   {% endif %}
 
 </div>
+
+<div class="col-md-4 mb-3">
+  <div class="ml-4">
+  <h6><b>Release Note</b></h6>
+  {% for papaabb in papaabb_list|slice:":3" %}
+    <hr>
+    <p class="card-text mt-3">
+      <strong><a href="{{ papaabb.get_absolute_url }}">
+      {{ papaabb.title }}<br>
+      </a></strong>
+      <small>{{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:70 }}</small>
+    </p>
+  {% endfor %}
+  </div>
+</div>
+
+
 {% endblock %}
