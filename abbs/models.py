@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 
 # Genre 필요한가? 카테고리 나중에 필요할지도
 class Genre(models.Model):
@@ -39,6 +40,10 @@ class PapaAbb(models.Model):
     title = models.CharField(max_length=200)
     summary = models.TextField(max_length=1000, help_text="Enter a brief description of the app")
 
+    #timezone
+    last_modified = models.DateTimeField(auto_now=True, blank=True, null=True)
+    created_date = models.DateTimeField(default=timezone.now)
+
     #Cover images
     iconimage = models.ImageField(upload_to='images/', blank=True, null=True)
     coverimage = models.ImageField(upload_to='images/', blank=True, null=True)
@@ -50,8 +55,8 @@ class PapaAbb(models.Model):
     releasenote = models.TextField(max_length=1000, help_text="Enter a brief description of the app")
 
     # Metadata
-    class Meta:
-        ordering = ['-title']
+    # class Meta:
+    #     ordering = ['-created_date']
 
     #releasenote split, 소 뒷걸음치다가 쥐잡은 격._as_list가 명령어로군.
     def releasenote_as_list(self):
