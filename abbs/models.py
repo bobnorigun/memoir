@@ -60,7 +60,7 @@ class PapaAbb(models.Model):
 
     #releasenote split, 소 뒷걸음치다가 쥐잡은 격._as_list가 명령어로군.
     def releasenote_as_list(self):
-        return self.releasenote.split('br')
+        return self.releasenote.split('∗')
 
     def __str__(self):
         """String for representing the Model object (in Admin site etc.)"""
