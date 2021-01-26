@@ -29,11 +29,11 @@
     <div class="container ">
       <!-- 탑메뉴 -->
       <div class="page-header row">
-        <div class="col-md-8 btn-add mb-1">
-          <a href="{% url 'post_list' %}"><button type="button" class="btn btn-dark btn-sm">blog</button></a>
-          <a href="{% url 'abbs' %}"><button type="button" class="btn btn-dark btn-sm">All apps</button></a>
-        </div>
         {% if user.is_authenticated %}
+          <div class="col-md-8 btn-add mb-1">
+            <a href="{% url 'post_list' %}"><button type="button" class="btn btn-dark btn-sm">blog</button></a>
+            <a href="{% url 'abbs' %}"><button type="button" class="btn btn-dark btn-sm">All apps</button></a>
+          </div>
           <div class="btn-add col-md-8">
           {% for post in modified|slice:":8" %}
             <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
@@ -46,6 +46,9 @@
           {% endfor %}
           </div>
         {% else %}
+          <div class="col-md-8 btn-add mb-1">
+            <a href="{% url 'abbs' %}"><button type="button" class="btn btn-dark btn-sm">All apps</button></a>
+          </div>
         {% endif %}
       </div>
       <!-- 탑메뉴 끝 -->
@@ -98,7 +101,10 @@
             <ul>
               <li><a href="{% url 'about' %}">About</a></li>
               <li><a href="{% url 'abbs' %}">All apps</a></li>
+              {% if user.is_authenticated %}
               <li><a href="{% url 'post_list' %}">blog</a></li>
+              {% else %}
+              {% endif %}
               <li><a href="mailto:bobthedesigner@gmail.com">Contact</a></li>
             </ul>
           </div>
