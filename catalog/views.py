@@ -37,6 +37,6 @@ from django.views import generic
 class BookListView(generic.ListView):
     model =  Book
 
-# 레코드가 없으면 자동으로 404페이지 호출. 
+# 레코드가 없으면 자동으로 404페이지 호출.
 class BookDetailView(generic.DetailView):
     model = Book

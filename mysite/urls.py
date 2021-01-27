@@ -21,18 +21,11 @@ from django.contrib.auth import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
-    path('catalog/', include('catalog.urls')),
     path('', include('abbs.urls')),
+    path('catalog/', include('catalog.urls')),
     #path('distsum/', include('distsum.urls')),
     path('accounts/login/', views.LoginView.as_view(), name='login'),
     path('accounts/logout/', views.LogoutView.as_view(), name='logout'),
-]
-
-#리다이렉트를 사용하는 것과 그냥 패쓰의 ''에 include('catalog.urls')지정하는게 달라?
-#Add URL maps to redirect the base URL to our application
-from django.views.generic import RedirectView
-urlpatterns += [
-    path('', RedirectView.as_view(url='catalog/', permanent=True)),
 ]
 
 # Use static() to add url mapping to serve static files during development (only)
