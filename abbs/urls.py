@@ -5,7 +5,7 @@ from . import views
 #path에 정의한 name은 템플릿에서 reverse 매핑하는 링크경로에 해당.
 urlpatterns = [
     path('', views.AbbListView.as_view(), name='index'),
-    path('about/', views.index, name='about'),
+    path('about/', views.about, name='about'),
     path('abbs/', views.AbbListView.as_view(), name='abbs'), #/는 왜?
     path('abb/<int:pk>', views.AbbDetailView.as_view(), name='abb-detail'),
 ]

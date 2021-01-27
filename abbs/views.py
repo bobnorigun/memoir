@@ -2,7 +2,7 @@ from django.shortcuts import render
 from abbs.models import Genre, Book, PapaAbb
 from blog.models import Post
 
-def index(request):
+def about(request):
     """View function for home page of site."""
 
     # Generate counts of some of the main objects
@@ -17,7 +17,7 @@ def index(request):
     }
 
     # Render the HTML template index.html with the data in the context variable
-    return render(request, 'index.html', context=context)
+    return render(request, 'about.html', context=context)
 
 
 # Create your views here.
