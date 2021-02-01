@@ -16,4 +16,11 @@
     <li><strong>Authors: </strong> {{ num_authors }}</li>
     <li><strong>Is comedy Genre?: </strong> {{ num_genre_comedy }}</li>
   </ul>
+
+  <p>You have visited this page {{ num_visits }} time{% if num_visits > 1 %}s{% endif %}.</p>
+    <form action="/team_name_url/" method="post">
+      <label for="team_name">Enter name:</label>
+      <input id="team_name" type="text" name="name_field" value="default name for team">
+      <input type="submit" value="OK">
+    </form>
 {% endblock %}
