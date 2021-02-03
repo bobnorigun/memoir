@@ -49,14 +49,15 @@ class BookDetailView(generic.DetailView):
 # Form filed용
 import datetime
 
+from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from catalog.forms import RenewBookForm
 
-#@login_required
-#@permission_required('catalog.can_mark_returned', raise_exception=True)
+@login_required
+@permission_required('catalog.can_mark_returned', raise_exception=True)
 def renew_book_librarian(request, pk):
     book_instance = get_object_or_404(BookInstance, pk=pk)
 
@@ -75,7 +76,7 @@ def renew_book_librarian(request, pk):
             # redirect to a new URL:
             return HttpResponseRedirect(reverse('all-borrowed'))
 
-        # If this is a GET (or any other method) create the default form.
+    # If this is a GET (or any other method) create the default form.
     else:
         proposed_renewal_date = datetime.date.today() + datetime.timedelta(weeks=3)
         form = RenewBookForm(initial={'renewal_date': proposed_renewal_date})

@@ -7,9 +7,10 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('books/', views.BookListView.as_view(), name='books'), #/는 왜?
     path('book/<int:pk>', views.BookDetailView.as_view(), name='book-detail'),
-    path('book/<uuid:pk>/renew/', views.renew_book_librarian, name='renew-book-librarian'),
 ]
 
+# uuid는 bookinstance_id에 해당함. model에서 id를 UUIDField로 만듦. uuid의 primary_key라는 해석.
 urlpatterns += [
+    path('book/<uuid:pk>/renew/', views.renew_book_librarian, name='renew-book-librarian'),
     path('mybooks/', views.LoanedBooksByUserListView.as_view(), name='my-borrowed'),
 ]
