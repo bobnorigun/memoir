@@ -46,6 +46,13 @@ class BookListView(generic.ListView):
 class BookDetailView(generic.DetailView):
     model = Book
 
+# Author용 generic list view
+class AuthorListView(generic.ListView):
+    model =  Author
+
+class AuthorDetailView(generic.DetailView):
+    model =  Author
+
 # Form filed용
 import datetime
 
@@ -88,7 +95,7 @@ def renew_book_librarian(request, pk):
 
     return render(request, 'catalog/book_renew_librarian.html', context)
 
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
     """Generic class-based view listing books on loan to current user."""
@@ -98,3 +105,12 @@ class LoanedBooksByUserListView(LoginRequiredMixin,generic.ListView):
 
     def get_queryset(self):
         return BookInstance.objects.filter(borrower=self.request.user).filter(status__exact='o').order_by('due_back')
+
+class AllBorrowedBooksListView(PermissionRequiredMixin,generic.ListView):
+    permission_required = 'catalog.can_mark_returned'
+    model = BookInstance
+    template_name = 'catalog/bookinstance_list_all_borrowed.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return BookInstance.objects.filter(status__exact='o').order_by('due_back')

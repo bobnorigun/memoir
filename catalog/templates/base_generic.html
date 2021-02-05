@@ -19,17 +19,20 @@
           <ul class="sidebar-nav">
             <li><a href="{% url 'index' %}">Home</a></li>
             <li><a href="{% url 'books' %}">All books</a></li>
-            <li><a href="">All authors</a></li>
+            <li><a href="{% url 'authors' %}">All authors</a></li>
             <!-- 프로젝트 두 앱 사이에 링크걸기. 이렇게 쉬운거였어? -->
             <!-- 현재 앱 url에 서술한 링크가 아닌데 그냥 됨. -->
-            <li><a href="">blog</a></li>
-
+            <li><a href="">blog</a></li><hr>
           {% if user.is_authenticated %}
-            <li>User: {{ user.get_username }}</li>
-            <li><a href="{% url 'my-borrowed' %}">My Borrowed</a>
+            <li>User: <b>{{ user.get_username }}</b></li>
+            <li><a href="{% url 'my-borrowed' %}">My Borrowed</a><hr>
             <li><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
           {% else %}
             <li><a href="{% url 'login' %}?next={{request.path}}">Login</a></li>
+          {% endif %}
+          {% if perms.catalog.can_mark_returned %}
+            <hr><li><b>Staff</b></li>
+            <li><a href="{% url 'all-borrowed' %}">All Borrowed</a>
           {% endif %}
           </ul>
           {% endblock %}

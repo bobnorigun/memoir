@@ -28,6 +28,9 @@ class Book(models.Model):
     # Genre class has already been defined so we can specify the object above.
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
 
+    class Meta:
+        ordering = ['title']
+
     def __str__(self):
         """String for representing the Model object."""
         return self.title
@@ -62,6 +65,7 @@ class BookInstance(models.Model):
         help_text='Book availability',
     )
 
+    # 퍼미션은 모델의 메타에서 permissions 필드로 정의함.
     class Meta:
         ordering = ['due_back']
         permissions = (("can_mark_returned", "Set book as returned"),)
@@ -70,6 +74,7 @@ class BookInstance(models.Model):
         """String for representing the Model object."""
         return f'{self.id} ({self.book.title})'
 
+    # 대여날짜 지난 책에 경고표시하기 template에서 사용.
     @property
     def is_overdue(self):
         if self.due_back and date.today() > self.due_back:

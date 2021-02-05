@@ -4,18 +4,20 @@
   {% if book_list %}
   <div class="row">
     {% for book in book_list %}
-    <div class="col-md-3 mt-3">
-    <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> <br>
-    {{ book.author }}<br>
-    <!-- this bookcover attribute has no file associated with it. 이 에러문구를 잘못 해석함.
-    북커버 이미지가 없을 때를 추가해야.
-    if book.bookcover 이걸로 해결했음.
-    -->
-    {% if book.bookcover %}
-    <img src="{{ book.bookcover.url }}" width="100%" height="auto">
-    {% else %}
-    [[[ NO IMAGE ]]]
-    {% endif %}
+    <div class="col-md-2 mt-3">
+      {% if book.bookcover %}
+      <img src="{{ book.bookcover.url }}" width="100%" height="auto"><br>
+      {% else %}
+      [[[ NO IMAGE ]]]<br>
+      {% endif %}
+
+      <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> <br>
+      <small>{{ book.author }}</small><br>
+      <!-- this bookcover attribute has no file associated with it. 이 에러문구를 잘못 해석함.
+      북커버 이미지가 없을 때를 추가해야.
+      if book.bookcover 이걸로 해결했음.
+      -->
+
 
     </div>
     {% endfor %}
