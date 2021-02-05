@@ -19,6 +19,8 @@ def about(request):
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'about.html', context=context)
 
+def privacypolicy(request):
+    return render(request, 'privacypolicy.html')
 
 # Create your views here.
 from django.views import generic
