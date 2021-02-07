@@ -38,26 +38,23 @@
   {% else %}
   {% endif %}
 </div>
-
 <div class="col-md-8 mt-3">
-  <h6>Release Notes</h6>
-  <p>
-    <small>
-    <ul class="list-group">
-    {% for note in papaabb.releasenote_as_list %}
-
-      <li class="list-group-item">
-        {{ note }}
-      </li>
-
-    {% endfor %}
-    </ul>
-    {% if user.is_authenticated %}
-    <a href="{% url 'abb-update' pk=papaabb.pk %}">edit</a>
-    {% else %}
-    {% endif %}
-    </small>
+  {% if user.is_authenticated %}
+  <p class="top-menu">
+    <a href="{% url 'abb-update' pk=papaabb.pk %}"><button type="button" class="btn btn-secondary btn-sm">편집</button></a>
   </p>
+  {% else %}
+  {% endif %}
+  <h6>Release Notes</h6>
+</div>
+<div class="col-md-8">
+  <ul class="list-group">
+    {% for note in papaabb.releasenote_as_list %}
+      <li class="list-group-item">
+        <small>{{ note }}</small>
+      </li>
+    {% endfor %}
+  </ul>
 </div>
 
 <div class="col-md-8 mt-3 mb-3">
