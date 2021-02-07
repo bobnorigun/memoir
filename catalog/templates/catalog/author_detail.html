@@ -2,4 +2,7 @@
 
 {% block content %}
   <h1>Title: {{ author.first_name }} {{ author.last_name }}</h1>
+  <p><strong>Books:</strong> <a href="">{{ book.author }}</a></p>
+  <p><a href="{% url 'author-update' pk=author.pk %}">편집</a>
+  <a href="{% url 'author-delete' pk=author.pk %}">삭제</a></p>
 {% endblock %}

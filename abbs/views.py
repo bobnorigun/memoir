@@ -33,3 +33,11 @@ class AbbListView(generic.ListView):
 # 레코드가 없으면 자동으로 404페이지 호출.
 class AbbDetailView(generic.DetailView):
     model = PapaAbb
+
+# Releasenote 편집화면
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+class AbbUpdate(UpdateView):
+    model = PapaAbb
+    fields = ['releasenote']

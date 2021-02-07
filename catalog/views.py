@@ -67,6 +67,7 @@ from catalog.forms import RenewBookForm
 @permission_required('catalog.can_mark_returned', raise_exception=True)
 def renew_book_librarian(request, pk):
     book_instance = get_object_or_404(BookInstance, pk=pk)
+    uuid = BookInstance.id
 
     # If this is a POST request then process the Form Data
     if request.method == 'POST':
@@ -114,3 +115,38 @@ class AllBorrowedBooksListView(PermissionRequiredMixin,generic.ListView):
 
     def get_queryset(self):
         return BookInstance.objects.filter(status__exact='o').order_by('due_back')
+
+#Author
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+from catalog.models import Author
+
+class AuthorCreate(CreateView):
+    model = Author
+    fields = ['first_name', 'last_name', 'date_of_birth', 'date_of_death']
+    #initial = {'date_of_death': '11/06/2020'}
+
+class AuthorUpdate(UpdateView):
+    model = Author
+    fields = '__all__' # Not recommended (potential security issue if more fields added)
+
+class AuthorDelete(DeleteView):
+    model = Author
+    success_url = reverse_lazy('authors')
+
+#Book
+from catalog.models import Book
+
+class BookCreate(CreateView):
+    model = Book
+    fields = '__all__'
+    #initial = {'date_of_death': '11/06/2020'}
+
+class BookUpdate(UpdateView):
+    model = Book
+    fields = '__all__' # Not recommended (potential security issue if more fields added)
+
+class BookDelete(DeleteView):
+    model = Book
+    success_url = reverse_lazy('authors')

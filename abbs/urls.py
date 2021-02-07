@@ -10,3 +10,8 @@ urlpatterns = [
     path('abbs/', views.AbbListView.as_view(), name='abbs'), #/는 왜?
     path('abb/<int:pk>', views.AbbDetailView.as_view(), name='abb-detail'),
 ]
+
+#releasenote Edit
+urlpatterns += [
+    path('abb/<int:pk>/update/', views.AbbUpdate.as_view(), name='abb-update'),
+]

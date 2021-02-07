@@ -52,6 +52,10 @@
 
     {% endfor %}
     </ul>
+    {% if user.is_authenticated %}
+    <a href="{% url 'abb-update' pk=papaabb.pk %}">edit</a>
+    {% else %}
+    {% endif %}
     </small>
   </p>
 </div>
