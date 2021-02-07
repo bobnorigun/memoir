@@ -108,9 +108,10 @@
               {% if user.is_authenticated %}
               <li><a href="{% url 'post_list' %}">blog</a></li>
               {% else %}
+              <li><a href="{% url 'login' %}">Login</a></li>
               {% endif %}
               <li><a href="mailto:bobthedesigner@gmail.com">Contact</a></li>
-              <li><a href="{% url 'login' %}">Login</a></li>
+
             </ul>
           </div>
           <div class="col-md-6">
