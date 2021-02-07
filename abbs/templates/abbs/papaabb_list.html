@@ -4,7 +4,7 @@
 <div class="col-md-8 mt-1">
 
   {% if papaabb_list %}
-  <div class="row">
+  <div class="row row-cols-sm-2 g-3">
     {% for papaabb in papaabb_list %}
       <div class="col-6 col-md-4 mb-4">
         <div class="card">
@@ -26,8 +26,8 @@
 
 </div>
 <!--오른쪽 날개-->
-<div class="col-md-4 mb-4">
-  <div class="ml-4">
+<div class="col-md-4 mb-5">
+  <div class="ms-3">
   <h6><b>Release Note</b></h6>
   {% for papaabb in papaabb_list|slice:":3" %}
     <hr>

@@ -11,6 +11,7 @@ body {
 }
 
 a, a:visited, a:active {
+    text-decoration: none;
     overflow: hidden;
     word-break: break-all;
     color: #000000;
@@ -74,6 +75,10 @@ h4, h5, h6 {
     background-color: #2ebd33;
     border-color: #2ebd33;
     color: #ffe642;
+}
+
+hr {
+  opacity: .1;
 }
 
 .material-icons.md-36 { font-size: 36px; }
