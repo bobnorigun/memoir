@@ -107,7 +107,7 @@
               <li><a href="{% url 'abbs' %}">All apps</a></li>
               {% if user.is_authenticated %}
               <li><a href="{% url 'post_list' %}">blog</a></li>
-              <li><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
               {% else %}
               <li><a href="{% url 'login' %}">Login</a></li>
               {% endif %}
