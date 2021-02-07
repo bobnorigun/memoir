@@ -1,10 +1,11 @@
-{% extends "base_generic.html" %}
+{% extends "blog/base_new.html" %}
 
 {% block content %}
-  <div class="col-md-8 mt-2">
-  {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-  {% endif %}
+
+<div class="col-md-8 mt-2">
+	{% if form.errors %}
+		<p>이름이나 암호가 일치하지 않습니다. 재시도</p>
+	{% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
@@ -14,7 +15,26 @@
       <p>Please login to see this page.</p>
     {% endif %}
   {% endif %}
-  </div>
+
+	<form method="POST" action="{% url 'login' %}">
+	{% csrf_token %}
+		<div class="mb-3">
+			<!--  {{ form.username.label_tag}}{{ form.username }} -->
+			<input class="form-control" id="{{ form.username.id_for_label }}" maxlength="15" name="{{ form.username.html_name }}" type="text" placeholder="아이디" />
+		</div>
+		<div class="mb-3">
+		  <input class="form-control" id="{{ form.password.id_for_label }}" maxlength="120" name="{{ form.password.html_name }}" type="password" placeholder="패스워드" />
+		</div>
+    <div align="center">
+  		<input type="submit" value="로그인" class="btn btn-primary btn-block" />
+  		<input type="hidden" name="next" value="{{ next }}" />
+    </div>
+	</form>
+</div>
+<div class="col-md-8 mt-4 mb-4" align="center">
+	<small>Papamob Community</small>
+</div>
+<!--
   <div class="col-md-8">
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
@@ -32,9 +52,10 @@
     <input type="hidden" name="next" value="{{ next }}" />
   </form>
   </div>
+
   <div class="col-md-8">
   {# Assumes you setup the password_reset view in your URLconf #}
   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
   </div>
-
+  -->
 {% endblock %}
