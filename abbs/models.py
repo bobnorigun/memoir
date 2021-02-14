@@ -33,7 +33,7 @@ class Book(models.Model):
 
 #BookInstance는 불필요.
 #Author는 불필요.
-
+from datetime import date
 # Create your models here.
 class PapaAbb(models.Model):
     """Model representing a Book"""
@@ -69,3 +69,8 @@ class PapaAbb(models.Model):
     def get_absolute_url(self):
         """Returns the url to access a particular instance of the model."""
         return reverse('abb-detail', args=[str(self.id)])
+
+    def is_new(self):
+        if self.last_modified.date() == date.today():
+            return True
+        return False

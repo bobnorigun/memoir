@@ -19,6 +19,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def is_new(self):
+        if self.last_modified.date() == date.today():
+            return True
+        return False
+
+from datetime import date
+
 class Comment(models.Model):
     post = models.ForeignKey('blog.Post', on_delete=models.CASCADE, related_name='comments')
     author = models.CharField('',max_length=200)

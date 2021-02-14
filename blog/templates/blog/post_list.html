@@ -26,8 +26,12 @@
     <hr>
     <p class="card-text mt-3">
       <strong><a href="{% url 'post_detail' pk=post.pk %}">
-      {{ post.title }}<br>
+      {{ post.title }}
       </a></strong>
+      {% if post.is_new %}
+      <span class="badge bg-info"><small>New</small></span>
+      {% endif %}
+      <br>
       <small>{{ post.text|linebreaksbr|urlize|truncatechars:100 }}</small>
       <br>
     </p>

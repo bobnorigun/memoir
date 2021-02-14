@@ -12,7 +12,10 @@
             <img src="{{ papaabb.coverimage.url }}" style="width:100%">
           </a>
           <div class="card-body">
-            <p><b><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a></b><br>
+            <p><b><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a></b>
+              {% if papaabb.is_new %}
+              <span class="badge bg-info"><small>New</small></span>
+              {% endif %}<br>
             {{ papaabb.summary|truncatechars:50 }}
             </p>
           </div>
@@ -33,8 +36,9 @@
     <hr>
     <p class="card-text mt-3">
       <strong><a href="{{ papaabb.get_absolute_url }}">
-      {{ papaabb.title }}<br>
+      {{ papaabb.title }}
       </a></strong>
+      <br>
       <small>{{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:70 }}</small>
       <br>
     </p>
