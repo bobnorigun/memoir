@@ -26,11 +26,11 @@ def post_layout(request):
     context = {"post_layout": "active"}
     return render(request, 'blog/post_layout.html', context)
 
-def post_event(request):
+def post_map(request):
     modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
     #메뉴 온/오프는 context로 조종.
     #context = {"post_event": "active"}
-    return render(request, 'blog/post_event.html', {'modified': modified})
+    return render(request, 'blog/post_map.html', {'modified': modified})
 
 # pk를 강제로 호출해보자. 265번.
 def post_app_later(request):
