@@ -89,3 +89,7 @@ hr {
 .form-control .lineless{
     border: 0px;
 }
+
+#map {
+  height: 100%;
+}

@@ -6,7 +6,7 @@
     <h1><b>투어랑 큰지도보기</b></h1>
   </div>
   <div class="mt-3">
-    <p>지도 크게 보기</p>
+    <p>지도에서 여행지 확인하세요</p>
   </div>
 </div>
 
@@ -15,12 +15,20 @@
   <img alt='여행환전가계부 다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="80px"/></a>
 </div>
 
-<div class="col-md-8">
-  <img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
-&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
-&markers=color:red%7Clabel:C%7C40.718217,-73.998284
+<!-- <div class="col-md-8">
+  <img src="https://maps.googleapis.com/maps/api/staticmap?center=37.3770783,127.1216018&zoom=13&size=800x600&maptype=roadmap
+&markers=color:blue%7Clabel:S%7C37.372623,127.130099&markers=color:green%7Clabel:G%7C37.373294,127.147029
+&markers=color:red%7Clabel:C%7C37.371815,127.139753
 &key=AIzaSyBQDuUl56S7oFeBY7poOJ6ai06rUE5xfwY">
-</div>
+</div> -->
+
+<div class="col-md-8" id="map"></div>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQDuUl56S7oFeBY7poOJ6ai06rUE5xfwY&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
 
 <div class="col-md-8 mt-3">
   <h6>Release Notes</h6>
