@@ -1,1 +1,1 @@
-[{"highPrice":35.42}]
+[{"highPrice":1}]
