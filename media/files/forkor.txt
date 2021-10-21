@@ -1,1 +1,1 @@
-[{"highPrice":1}]
+[{"highPrice":1,}]
