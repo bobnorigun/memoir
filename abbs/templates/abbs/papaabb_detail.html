@@ -16,16 +16,22 @@
   </div>
 
 </div>
-
-<div class="col-md-4 mb-3" align="center">
-  {% if papaabb.downloadurl %}
-  <a href='{{ papaabb.downloadurl }}'>
-  <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="80px"/>
-  </a>
+<div class="col-md-4" align="center">
+  {% if papaabb.iconimage %}
+  <img src="{{ papaabb.iconimage.url }}" width="36%" height="auto"/>
   {% else %}
   {% endif %}
 
-  <div class="col-md-10 mb-3" align="center">
+  <div class="col-md-12 mb-3">
+    {% if papaabb.downloadurl %}
+    <a href='{{ papaabb.downloadurl }}'>
+    <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="80px"/>
+    </a>
+    {% else %}
+    {% endif %}
+  </div>
+
+  <div class="col-md-12 mb-3">
     {% if papaabb.badgeimage %}
     <img src="{{ papaabb.badgeimage.url }}" style="width:12%">
     {% else %}
@@ -70,13 +76,7 @@
   {% endif %}
 </div>
 
-<div class="col-md-4" align="center">
-  {% if papaabb.iconimage %}
-  <img src="{{ papaabb.iconimage.url }}" width="52%" height="auto"/>
-  {% else %}
-  {% endif %}
 
-</div>
 
 <div class="col-md-8 mt-3">
   {% if user.is_authenticated %}
