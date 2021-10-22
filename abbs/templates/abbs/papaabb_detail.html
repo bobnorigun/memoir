@@ -2,12 +2,19 @@
 
 {% block content %}
 <div class="col-md-8">
+
   <div class="bg-light mt-1">
     <h1><b>{{ papaabb.title }}</b></h1>
   </div>
+
+  <div class="mt-3">
+    <p>{{ papaabb.subtitle }}</p>
+  </div>
+
   <div class="mt-3">
     <p>{{ papaabb.summary }}</p>
   </div>
+
 </div>
 
 <div class="col-md-4 mb-3" align="center">
@@ -17,6 +24,25 @@
   </a>
   {% else %}
   {% endif %}
+
+  <div class="col-md-10 mb-3" align="center">
+    {% if papaabb.badgeimage %}
+    <img src="{{ papaabb.badgeimage.url }}" style="width:12%">
+    {% else %}
+    No Image
+    {% endif %}
+    {% if papaabb.badgeimage2 %}
+    <img src="{{ papaabb.badgeimage2.url }}" style="width:12%">
+    {% else %}
+    No Image
+    {% endif %}
+    {% if papaabb.badgeimage3 %}
+    <img src="{{ papaabb.badgeimage3.url }}" style="width:12%">
+    {% else %}
+    No Image
+    {% endif %}
+  </div>
+
 </div>
 
 <div class="col-md-8 mb-3">
@@ -31,13 +57,27 @@
   No Image
   {% endif %}
 </div>
+<div class="col-md-8 mb-3">
+  {% if papaabb.coverimage3 %}
+  <img src="{{ papaabb.coverimage3.url }}" style="width:49%">
+  {% else %}
+  No Image
+  {% endif %}
+  {% if papaabb.coverimage4 %}
+  <img src="{{ papaabb.coverimage4.url }}" style="width:49%">
+  {% else %}
+  No Image
+  {% endif %}
+</div>
 
 <div class="col-md-4" align="center">
   {% if papaabb.iconimage %}
   <img src="{{ papaabb.iconimage.url }}" width="52%" height="auto"/>
   {% else %}
   {% endif %}
+
 </div>
+
 <div class="col-md-8 mt-3">
   {% if user.is_authenticated %}
   <p class="top-menu">

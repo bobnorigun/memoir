@@ -38,6 +38,7 @@ from datetime import date
 class PapaAbb(models.Model):
     """Model representing a Book"""
     title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=200)
     summary = models.TextField(max_length=1000, help_text="Enter a brief description of the app")
 
     #timezone
@@ -48,6 +49,11 @@ class PapaAbb(models.Model):
     iconimage = models.ImageField(upload_to='images/', blank=True, null=True)
     coverimage = models.ImageField(upload_to='images/', blank=True, null=True)
     coverimage2 = models.ImageField(upload_to='images/', blank=True, null=True)
+    coverimage3 = models.ImageField(upload_to='images/', blank=True, null=True)
+    coverimage4 = models.ImageField(upload_to='images/', blank=True, null=True)
+    badgeimage = models.ImageField(upload_to='images/', blank=True, null=True)
+    badgeimage2 = models.ImageField(upload_to='images/', blank=True, null=True)
+    badgeimage3 = models.ImageField(upload_to='images/', blank=True, null=True)
     #Download url
     downloadurl = models.URLField(max_length=200, blank=True, null=True)
 
