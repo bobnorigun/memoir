@@ -22,16 +22,7 @@
   {% else %}
   {% endif %}
 
-  <div class="col-md-12 mb-3">
-    {% if papaabb.downloadurl %}
-    <a href='{{ papaabb.downloadurl }}'>
-    <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="80px"/>
-    </a>
-    {% else %}
-    {% endif %}
-  </div>
-
-  <div class="col-md-12 mb-3">
+  <div class="col-md-12 mt-3 mb-3">
     {% if papaabb.badgeimage %}
     <img src="{{ papaabb.badgeimage.url }}" style="width:12%">
     {% else %}
@@ -46,6 +37,15 @@
     <img src="{{ papaabb.badgeimage3.url }}" style="width:12%">
     {% else %}
     No Image
+    {% endif %}
+  </div>
+
+  <div class="col-md-12 mb-3">
+    {% if papaabb.downloadurl %}
+    <a href='{{ papaabb.downloadurl }}'>
+    <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="80px"/>
+    </a>
+    {% else %}
     {% endif %}
   </div>
 
