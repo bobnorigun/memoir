@@ -32,14 +32,14 @@
 <div class="col-md-4 mb-5">
   <div class="ms-3">
   <h6><b>Release Note</b></h6>
-  {% for papaabb in papaabb_list|slice:":3" %}
+  {% for papaabb in papaabb_list|slice:":8" %}
     <hr>
     <p class="card-text mt-3">
       <strong><a href="{{ papaabb.get_absolute_url }}">
       {{ papaabb.title }}
       </a></strong>
       <br>
-      <small>{{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:70 }}</small>
+      <small>{{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}</small>
       <br>
     </p>
   {% endfor %}
