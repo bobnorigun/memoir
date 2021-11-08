@@ -14,7 +14,7 @@
           <div class="card-body">
             <p><b><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a></b>
               {% if papaabb.is_new %}
-              <span class="badge bg-info"><small>New</small></span>
+              <span class="badge bg-danger"><small>New</small></span>
               {% endif %}<br>
             {{ papaabb.summary|truncatechars:50 }}
             </p>
@@ -37,6 +37,9 @@
     <p class="card-text mt-3">
       <strong><a href="{{ papaabb.get_absolute_url }}">
       {{ papaabb.title }}
+      {% if papaabb.is_new %}
+      <span class="badge bg-danger"><small>New</small></span>
+      {% endif %}
       </a></strong>
       <br>
       <small>{{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}</small>
