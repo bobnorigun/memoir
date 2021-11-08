@@ -33,7 +33,7 @@ class Book(models.Model):
 
 #BookInstance는 불필요.
 #Author는 불필요.
-from datetime import date
+from datetime import date, timedelta
 # Create your models here.
 class PapaAbb(models.Model):
     """Model representing a Book"""
@@ -78,5 +78,7 @@ class PapaAbb(models.Model):
 
     def is_new(self):
         if self.last_modified.date() == date.today():
+            return True
+        elif self.last_modified.date() == date.today() - timedelta(1):
             return True
         return False
