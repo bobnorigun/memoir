@@ -1,0 +1,1 @@
+appupdaterTEST,1,nalciLang,1,tourLang,1,roadLang,1
