@@ -1,1 +1,1 @@
-appupdaterTEST,2,nalciLang,131,tourLang,122,roadLang,820
+appupdaterTEST,2,nalciLang,131,tourLang,122,roadLang,820,malLang,122
