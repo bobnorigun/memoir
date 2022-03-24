@@ -1,42 +1,45 @@
-{% extends 'blog/base_new.html' %}
+{% extends 'blog/base_detail.html' %}
 
 {% block content %}
-<div class="col-md-8 mb-3">
-  <div class="card">
-    <div class="card-body">
-      <p class="top-menu">
-      {% if post.published_date %}
-          <!-- <div class="date">
-              {{ post.published_date|date:'m/d h:m' }}
-          </div> -->
-      {% else %}
-          <a class="btn btn-light btn-sm ml-2" href="{% url 'post_publish' pk=post.pk %}">공개</a>
-      {% endif %}
-      {% if user.is_authenticated %}
-      <a href="{% url 'post_edit' pk=post.pk %}"><button type="button" class="btn btn-secondary btn-sm">편집</button></a>
+<div class="row justify-content-md-center">
+  <div class="col-md-10 col-lg-8">
 
-      <!-- <a href="{% url 'post_remove' pk=post.pk %}"><button type="button" class="btn btn-danger btn-sm">삭제</button></a> -->
-      {% endif %}
-      </p>
-      <h5><a href="">{{ post.title }}</a></h5>
-      <!-- 내용글은 여기 -->
-      <div class="post mt-3"><p>{{ post.text|linebreaksbr|urlize }}</p></div>
+    <div class="card">
+      <div class="card-body">
+        <p class="top-menu">
+        {% if post.published_date %}
+            <!-- <div class="date">
+                {{ post.published_date|date:'m/d h:m' }}
+            </div> -->
+        {% else %}
+            <a class="btn btn-light btn-sm ml-2" href="{% url 'post_publish' pk=post.pk %}">공개</a>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <a href="{% url 'post_edit' pk=post.pk %}"><button type="button" class="btn btn-secondary btn-sm">편집</button></a>
+
+        <!-- <a href="{% url 'post_remove' pk=post.pk %}"><button type="button" class="btn btn-danger btn-sm">삭제</button></a> -->
+        {% endif %}
+        </p>
+        <h5><a href="">{{ post.title }}</a></h5>
+        <!-- 내용글은 여기 -->
+        <div class="post mt-3"><p>{{ post.text|linebreaksbr|urlize }}</p></div>
+      </div>
+    </div>
+    <div class="comment_btn">
+      <a class="btn btn-secondary btn-sm" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글쓰기</a>
     </div>
   </div>
-  <div class="comment_btn">
-    <a class="btn btn-light btn-sm" href="{% url 'add_comment_to_post' pk=post.pk %}">댓글쓰기</a>
-  </div>
-</div>
 
-<div class="col-md-8 mb-5">
-{% for comment in post.comments.all reversed %}
-  <div class="comment">
-      <div class="date">{{ comment.created_date|date:'m/d h:m' }}</div>
-      <strong>{{ comment.author }}</strong>
-      {{ comment.text|urlize|linebreaks }}
+  <div class="col-md-8 mb-5">
+  {% for comment in post.comments.all reversed %}
+    <div class="comment">
+        <div class="date">{{ comment.created_date|date:'m/d h:m' }}</div>
+        <strong>{{ comment.author }}</strong>
+        {{ comment.text|urlize|linebreaks }}
+    </div>
+  {% empty %}
+      <!-- <p>No comments yet :(</p> -->
+  {% endfor %}
   </div>
-{% empty %}
-    <!-- <p>No comments yet :(</p> -->
-{% endfor %}
 </div>
 {% endblock %}

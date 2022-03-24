@@ -1,13 +1,8 @@
 
-
-.backup {
-    backgorund-color: #e6f0f0;
-}
-
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    color: #343a40;
-    background-color: #e6f0f0;
+    color: #005959;
+    background-color: #343A40;
 }
 
 a, a:visited, a:active {
@@ -32,8 +27,13 @@ a, a:visited, a:active {
 }
 
 h4, h5, h6 {
-    font-weight: bolder;
+    font-weight: normal;
     line-height: normal;
+}
+
+h5 {
+  font-size: 20;
+  font-weight: normal;
 }
 
 .post-form textarea, .post-form input {

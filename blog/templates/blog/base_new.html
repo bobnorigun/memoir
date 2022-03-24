@@ -30,83 +30,83 @@
   </head>
 
   <body class="d-flex flex-column h-100">
-    <div class="container ">
+    <div class="container-fluid" style="background-color:#e0fbfb">
       <!-- 탑메뉴 -->
-      <div class="page-header row">
+      <div class="page-header row" style="background-color:#FBEF27">
+        <div class="container">
+        <div class="row justify-content-md-center">
         {% if user.is_authenticated %}
-          <div class="col-md-8 btn-add mb-1">
-            <a href="{% url 'post_list' %}"><button type="button" class="btn btn-dark btn-sm">blog</button></a>
-            <a href="{% url 'abbs' %}"><button type="button" class="btn btn-dark btn-sm">All apps</button></a>
+          <div class="col-8 col-md-7 col-lg-5" style="font-size:20; font-weight:bolder;">
+            <a href="{% url 'post_list' %}">블로그</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'abbs' %}">PapaApps</a>
           </div>
-          <div class="btn-add col-md-8">
-          {% for post in modified|slice:":8" %}
-            <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
-          {% endfor %}
-            <button class="btn btn-light btn-sm" onclick="onoffMenus()">...</button>
-          </div>
-          <div class="btn-add col-md-8" id="moreMenus" style="display: none;">
-          {% for post in modified|slice:"8:20" %}
-            <a href="{% url 'post_detail' pk=post.pk %}"><button type="button" class="btn btn-primary btn-sm">{{ post.title|truncatechars:20 }}</button></a>
-          {% endfor %}
+          <div class="col-4 col-md-3" align="right">
+              <a href="{% url 'post_recent_list' %}">찾기</a>&nbsp;|
+              <a href="{% url 'post_draft_list' %}">목록</a>&nbsp;|
+              <a href="{% url 'post_new' %}">새글</a>
           </div>
         {% else %}
-          <div class="col-md-8 btn-add mb-1">
-            <a href="{% url 'abbs' %}"><button type="button" class="btn btn-dark btn-sm">All apps</button></a>
+          <div class="col-8 col-md-7 col-lg-5" style="font-size:20; font-weight:bold;">
+            <a href="{% url 'abbs' %}">PapaMob</a>
+          </div>
+          <div class="col-4 col-md-3" align="right">
+            격리에디션
           </div>
         {% endif %}
-      </div>
-      <!-- 탑메뉴 끝 -->
-      <!-- 툴바 -->
-      <div class="row">
-        {% if user.is_authenticated %}
-        <div class="col-md-4 ">
-            <h5><a href="{% url 'abbs' %}">{{ user.username }}</a></h5>
         </div>
-        <div class="col-md-4 " align="right">
-            <!-- <a href="{% url 'logout' %}"><i class="material-icons md-36">lock_open</i></a>-->
-            <a href="{% url 'post_recent_list' %}"><i class="material-icons md-36">search</i></a>
-            <a href="{% url 'post_draft_list' %}"><i class="material-icons md-36">short_text</i></a>
-            <a href="{% url 'post_new' %}"><i class="material-icons md-36">playlist_add</i></a>
-        </div>
-        {% else %}
-        <div class="col-md-4">
-            <h5><a href="/">PapaMob</a></h5>
-        </div>
-        <!-- 로그인은 푸터에, 앱에서 접근할 방법이 없음.
-        <div class="col-md-4 " align="right">
-            <a href="{% url 'login' %}"><i class="material-icons">lock</i></a>
-        </div>
-        -->
-      {% endif %}
-      </div>
-      <!-- 툴바 끝 -->
-      <!-- 제목영역 -->
-      <div class="row">
-        {% block content %}
-        {% endblock %}
       </div>
     </div>
 
-    <footer class="footer mt-auto py-3 bg-light">
-      <div class="container ">
-        <!-- container와 row justify 등등 클라스 크기가 겹치네 -->
-        <div class="row justify-content-between">
-          <div class="col-md-6 ">
-            <h6><b>@2021 PapaMob</b></h6>
-            <ul>
-              <li><a href="{% url 'about' %}">About</a></li>
-              <li><a href="{% url 'abbs' %}">All apps</a></li>
-              {% if user.is_authenticated %}
-              <li><a href="{% url 'post_list' %}">blog</a></li>
-              <li><a href="{% url 'logout' %}">Logout</a></li>
-              {% else %}
-              <li><a href="{% url 'login' %}">Login</a></li>
-              {% endif %}
-              <li><a href="mailto:bobthedesigner@gmail.com">Contact</a></li>
+      <!-- 탑메뉴 끝 -->
 
-            </ul>
+      <!-- 숏컷 -->
+      <div class="container">
+      <div class="row justify-content-md-center">
+
+        {% if user.is_authenticated %}
+          <div class="btn-add col-sm-10 col-md-10 col-lg-8 mt-4 mb-4" style="font-size:20;">
+          {% for post in modified|slice:":8" %}
+            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:20 }}</a>&nbsp;|
+          {% endfor %}
+            <button class="btn btn-light btn-sm" onclick="onoffMenus()">...</button>
           </div>
-          <div class="col-md-6">
+          <div class="btn-add col-sm-10 col-md-10 col-lg-8 mb-4" id="moreMenus" style="font-size:20;display: none;">
+          {% for post in modified|slice:"8:20" %}
+            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:20 }}</a>&nbsp;|
+          {% endfor %}
+          </div>
+        {% else %}
+          <div class="btn-add col-sm-10 col-md-10 col-lg-8 mt-2 mb-2" style="font-size:20;">
+            &nbsp;
+          </div>
+        {% endif %}
+
+      </div>
+      </div>
+        <!-- 숏컷 끝 -->
+        <!-- 제목영역 -->
+        <div class="container">
+      {% block content %}
+      {% endblock %}
+</div>
+
+    <footer class="footer mt-auto py-3 bg-light" style="background-color:red;">
+      <div class="container">
+        <!-- container와 row justify 등등 클라스 크기가 겹치네 -->
+        <div class="row justify-content-md-center">
+          <div class="col-md-4" style="font-size:14;">
+            <h6><b>@2021-2022 PapaMob</b></h6>
+            <a href="{% url 'about' %}">About</a>&nbsp;|
+            <a href="{% url 'abbs' %}">PapaApps</a>&nbsp;|
+              {% if user.is_authenticated %}
+              <a href="{% url 'post_list' %}">blog</a>&nbsp;|
+              <a href="{% url 'logout' %}">Logout</a>&nbsp;|
+              {% else %}
+              <a href="{% url 'login' %}">Login</a>&nbsp;|
+              {% endif %}
+              <a href="mailto:bobthedesigner@gmail.com">Contact</a>
+          </div>
+          <div class="col-md-4">
             <img src="/media/images/papamob_footer.png" class="img-fluid" align="right" width="40%" alt="papamob by Seong Ha">
           </div>
         </div>

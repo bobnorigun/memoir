@@ -2,7 +2,8 @@
 
 {% block content %}
 <!-- 찾기 -->
-<div class="col-md-8 mt-3">
+<div class="row justify-content-md-center">
+  <div class="col-md-10 col-lg-8">
   <div class="form-group">
     <form action="{% url 'post_search' %}" method="get">
       {% csrf_token %}
@@ -13,7 +14,7 @@
 <!-- 찾기 끝-->
 
 {% for post in modified|slice:":9" %}
-  <div class="col-md-8 mb-3">
+  <div class="col-md-10 col-lg-8 mb-3">
     <div class="date">
     {{ post.last_modified|date:'m/d h:m' }}
     </div>
@@ -21,4 +22,5 @@
     <p>{{ post.text|truncatechars:200|urlize }}</p>
   </div>
 {% endfor %}
+</div>
 {% endblock %}

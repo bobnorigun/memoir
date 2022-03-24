@@ -1,7 +1,8 @@
 {% extends "blog/base_new.html" %}
 
 {% block content %}
-<div class="col-md-8 mt-1">
+<div class="row justify-content-md-center">
+  <div class="col-md-10 col-lg-6 col-md-offset-2">
 
   {% if papaabb_list %}
   <div class="row row-cols-sm-2 g-3">
@@ -29,9 +30,11 @@
 
 </div>
 <!--오른쪽 날개-->
-<div class="col-md-4 mb-5">
+<div class="col-md-8 col-lg-2 mb-5">
+
   <div class="ms-3">
-  <h6><b>Release Note</b></h6>
+
+  <h5>기록</h5>
   {% for papaabb in papaabb_list|slice:":8" %}
     <hr>
     <p class="card-text mt-3">
@@ -47,6 +50,7 @@
     </p>
   {% endfor %}
   </div>
+</div>
 </div>
 <!-- 오른쪽 날개 끝 -->
 
