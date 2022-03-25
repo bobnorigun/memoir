@@ -1,13 +1,15 @@
 {% extends 'blog/base_new.html' %}
 
 {% block content %}
-<div class="col-md-8 mt-2">
-	<h5>댓글</h5>
-	<div class="form-group">
-		<form method="POST" class="post-form">{% csrf_token %}
-			{{ form.as_p }}
-			<button type="submit" class="save btn btn-primary btn-block">저장하기</button>
-		</form>
+<div class="row justify-content-md-center">
+  <div class="col-md-10 col-lg-8">
+		<h5>댓글</h5>
+		<div class="form-group">
+			<form method="POST" class="post-form">{% csrf_token %}
+				{{ form.as_p }}
+				<button type="submit" class="save btn btn-primary btn-block">저장하기</button>
+			</form>
+		</div>
 	</div>
 </div>
 {% endblock %}

@@ -1,8 +1,20 @@
 {% extends 'blog/base_new.html' %}
 
 {% block content %}
+
+<!--
 <div class="row justify-content-md-center">
-  <div class="col-md-10 col-lg-6">
+  <div class="col-md-10 col-lg-8 col-xl-6" style="background-color:red;">
+    left
+  </div>
+  <div class="col-md-9 col-lg-7 col-xl-2 mb-4" style="background-color:green;">
+    right
+  </div>
+</div>
+-->
+
+<div class="row justify-content-md-center">
+  <div class="col-md-10 col-lg-8 col-xl-6">
   {% for post in posts %}
     <div class="card mb-3">
       <div class="card-body">
@@ -16,8 +28,9 @@
   {% endfor %}
   </div>
 
+
 <!--오른쪽 날개-->
-  <div class="col-md-8 col-lg-2 mb-4">
+  <div class="col-md-9 col-lg-7 col-xl-2 mb-4">
     <div class="ms-3">
     <h6><b>최근 글</b></h6>
     {% for post in modified|slice:":3" %}
@@ -40,7 +53,7 @@
 
 
 
-  <div class="col-md-8 mb-4">
+  <div class="col-md-9 col-lg-7 mb-4">
     <div class="pagination" style="margin-left:1.5rem;">
       <span class="step-links">
         {% if posts.has_previous %}

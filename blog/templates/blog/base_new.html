@@ -1,5 +1,6 @@
 {% load static %}
 
+
 <html>
   <head>
     <meta name="google-site-verification" content="0uDh4A2F6AMlHxlZpSOTQVJ-7mwGiGlOwzNB4J_G87E" />
@@ -42,7 +43,7 @@
           </div>
           <div class="col-4 col-md-3" align="right">
               <a href="{% url 'post_recent_list' %}">찾기</a>&nbsp;|
-              <a href="{% url 'post_draft_list' %}">목록</a>&nbsp;|
+              <a href="{% url 'post_draft_list' %}">서랍</a>&nbsp;|
               <a href="{% url 'post_new' %}">새글</a>
           </div>
         {% else %}
@@ -66,13 +67,13 @@
         {% if user.is_authenticated %}
           <div class="btn-add col-sm-10 col-md-10 col-lg-8 mt-4 mb-4" style="font-size:20;">
           {% for post in modified|slice:":8" %}
-            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:20 }}</a>&nbsp;|
+            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:20 }}</a>&nbsp;&nbsp;/&nbsp;
           {% endfor %}
             <button class="btn btn-light btn-sm" onclick="onoffMenus()">...</button>
           </div>
           <div class="btn-add col-sm-10 col-md-10 col-lg-8 mb-4" id="moreMenus" style="font-size:20;display: none;">
           {% for post in modified|slice:"8:20" %}
-            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:20 }}</a>&nbsp;|
+            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:20 }}</a>&nbsp;&nbsp;/&nbsp;
           {% endfor %}
           </div>
         {% else %}
@@ -108,8 +109,12 @@
               {% endif %}
               <a href="mailto:bobthedesigner@gmail.com">Contact</a>
           </div>
+
           <div class="col-md-4">
-            <img src="/media/images/papamob_footer.png" class="img-fluid" align="right" width="40%" alt="papamob by Seong Ha">
+            {% with "images/papamob_footer.png,images/papamob2.png"|random as image %}
+            <img src="{% static 'images/papamob_footer.png' %}" class="img-fluid" align="right" width="40%" alt="papamob by Seong Ha">
+            <!--src="/media/images/papamob_footer.png" -->
+            {% endwith %}
           </div>
         </div>
       </div>
