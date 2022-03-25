@@ -28,7 +28,7 @@ from django.views import generic
 # 호출하는 페이지 링크는 model명이 앞에 붙고 _list 즉, papaabb_list.html임.
 class AbbListView(generic.ListView):
     model = PapaAbb
-    ordering = ['-created_date']
+    ordering = ['-last_modified']
 
 # 레코드가 없으면 자동으로 404페이지 호출.
 class AbbDetailView(generic.DetailView):
