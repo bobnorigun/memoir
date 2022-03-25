@@ -31,24 +31,22 @@
 </div>
 <!--오른쪽 날개-->
 <div class="col-md-8 col-lg-2 mb-5">
-
-  <div class="ms-3">
-
-  <h5>기록</h5>
-  {% for papaabb in papaabb_list|slice:":8" %}
-    <hr>
-    <p class="card-text mt-3">
-      <strong><a href="{{ papaabb.get_absolute_url }}">
-      {{ papaabb.title }}
-      {% if papaabb.is_new %}
-      <span class="badge bg-danger"><small>New</small></span>
-      {% endif %}
-      </a></strong>
-      <br>
-      <small>{{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}</small>
-      <br>
-    </p>
-  {% endfor %}
+  <div class="ms-3" style="font-size:14;">
+    <h5>기록</h5>
+    {% for papaabb in papaabb_list|slice:":8" %}
+      <hr>
+      <p class="card-text mt-3">
+        <b><a href="{{ papaabb.get_absolute_url }}">
+        {{ papaabb.title }}
+        {% if papaabb.is_new %}
+        <span class="badge bg-danger"><small>New</small></span>
+        {% endif %}
+        </a></b>
+        <br>
+        {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
+        <br>
+      </p>
+    {% endfor %}
   </div>
 </div>
 </div>
