@@ -7,7 +7,7 @@
   {% if papaabb_list %}
   <div class="row row-cols-sm-2 g-3">
     {% for papaabb in papaabb_list %}
-      <div class="col-6 col-md-4 mb-4">
+      <div class="col-6 col-md-4 col-lg-6 col-xl-4 mb-4">
         <div class="card">
           <a href="{{ papaabb.get_absolute_url }}">
             <img src="{{ papaabb.coverimage.url }}" style="width:100%">
@@ -53,6 +53,7 @@
 </div>
 </div>
 <div style="height:70">
+  <!-- 여백 -->
 </div>
 <!-- 오른쪽 날개 끝 -->
 
