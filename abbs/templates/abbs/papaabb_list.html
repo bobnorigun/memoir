@@ -24,10 +24,11 @@
             </a>
             <div class="card-body">
               <p><b><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a></b>
-                {% if papaabb.is_new %}
-                <span class="badge bg-danger"><small>N</small></span>
-                {% endif %}<br>
+                <br>
               {{ papaabb.summary|truncatechars:28 }}
+              {% if papaabb.is_new %}
+              <br><span class="badge bg-danger"><small>N</small></span>
+              {% endif %}
               </p>
             </div>
           </div>
