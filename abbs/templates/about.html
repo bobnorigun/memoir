@@ -6,10 +6,7 @@
 
 {% block content %}
 <div class="row justify-content-md-center">
-  <div class="col-md-10 col-lg-8 mb-4" style="font-size:20;">
-    간단하고 당연하지!
-    <hr>
-  </div>
+
     <div class="col-md-10 col-lg-8 mb-3">
       <div class="card" align="center">
         <img src="/media/images/teamshot.png" width="100%" height="auto">
@@ -31,8 +28,9 @@
 
     <div class="col-md-8 col-lg-7">
       <h5>Contents since 2021</h5>
-      Blog Posts: {{ num_posts }} | PapaApps: {{ num_abbs }}
-
+      <p>Blog Posts: {{ num_posts }} | PapaApps: {{ num_abbs }}</p>
+      <hr>
+      <p style="mt-4">{{ read |truncatechars:300 }}</p>
     </div>
   </div>
 

@@ -6,9 +6,11 @@ from . import views
 urlpatterns = [
     path('', views.AbbListView.as_view(), name='index'),
     path('about/', views.about, name='about'),
+    path('read/', views.read, name='read'),
     path('privacypolicy/', views.privacypolicy, name='privacypolicy'),
     path('abbs/', views.AbbListView.as_view(), name='abbs'), #/는 왜?
     path('abb/<int:pk>', views.AbbDetailView.as_view(), name='abb-detail'),
+    path('current/', views.current_datetime, name='current_datetime'),
 ]
 
 #releasenote Edit

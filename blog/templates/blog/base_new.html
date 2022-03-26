@@ -60,37 +60,38 @@
 
       <!-- 탑메뉴 끝 -->
 
-      <!-- 숏컷 -->
+      <!--숏컷 -->
     <div class="container">
       <div class="row justify-content-md-center">
 
         {% if user.is_authenticated %}
-          <div class="btn-add col-sm-10 col-md-10 col-lg-8 mt-4 mb-4" style="font-size:18;line-height:2.1rem;">
+          <div class="col-md-10 col-lg-8 col-xl-8 mt-4 mb-4" style="font-size:18;line-height:2.1rem;">
           {% for post in modified|slice:":8" %}
             <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:20 }}</a>&nbsp;&nbsp;/&nbsp;
           {% endfor %}
-            <button class="btn btn-light btn-sm" onclick="onoffMenus()">...</button>
+            <a onclick="onoffMenus()">...</a>
           </div>
-          <div class="btn-add col-sm-10 col-md-10 col-lg-8 mb-4" id="moreMenus" style="font-size:16;line-height:2rem;display: none;">
+          <div class="col-md-10 col-lg-8 col-xl-8 mb-4" id="moreMenus" style="font-size:14;line-height:2rem;display: none;">
           {% for post in modified|slice:"8:20" %}
             <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title|truncatechars:20 }}</a>&nbsp;&nbsp;/&nbsp;
           {% endfor %}
           </div>
         {% else %}
-          <div class="btn-add col-sm-10 col-md-10 col-lg-8 mt-2 mb-2" style="font-size:20;">
+          <div class="col-md-10 col-lg-8 col-xl-8 mt-2 mb-2" style="font-size:20;">
             &nbsp;
           </div>
         {% endif %}
 
       </div>
     </div>
-        <!-- 숏컷 끝 -->
+   <!-- 숏컷 끝 -->
         <!-- 제목영역 -->
-    <div class="container">
-      {% block content %}
-      {% endblock %}
+
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
     </div>
-</div>
 
     <footer class="footer mt-auto py-3 bg-white">
       <div class="container">
