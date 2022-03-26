@@ -2,7 +2,8 @@
 from django.shortcuts import render
 from abbs.models import Genre, Book, PapaAbb
 from blog.models import Post
-import request
+
+import requests
 import pandas as pd
 
 def about(request):
