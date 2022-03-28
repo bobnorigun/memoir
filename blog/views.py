@@ -120,6 +120,7 @@ def comment_remove(request, pk):
     return redirect('post_detail', pk=comment.post.pk)
 
 def post_search(request):
+    modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
     global paginator
 
     a = Post.objects.all()
@@ -132,4 +133,4 @@ def post_search(request):
         paginator = Paginator(a, 7)
     page = request.GET.get('page')
     aas = paginator.get_page(page)
-    return render(request, 'blog/post_search.html', {'aas':aas, 'q':q})
+    return render(request, 'blog/post_search.html', {'aas':aas, 'q':q, 'modified': modified})
