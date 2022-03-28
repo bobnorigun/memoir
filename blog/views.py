@@ -126,6 +126,7 @@ def post_search(request):
     q = request.GET.get('q','')
     title_q = Q(title__icontains = q)
     text_q = Q(text__icontains = q)
+
     if q:
         a = a.filter(title_q | text_q).order_by('-published_date')
         paginator = Paginator(a, 7)
