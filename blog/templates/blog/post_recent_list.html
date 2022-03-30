@@ -4,13 +4,13 @@
 <!-- 찾기 -->
 <div class="row justify-content-md-center">
   <div class="col-md-10 col-lg-8">
-  <div class="form-group">
-    <form action="{% url 'post_search' %}" method="get">
-      {% csrf_token %}
-      <input class="form-control form-control-lg" type="text" name="q" value="{{q}}" placeholder="Q...">
-    </form>
+    <div class="form-group">
+      <form action="{% url 'post_search' %}" method="get">
+        {% csrf_token %}
+        <input class="form-control form-control-lg" type="text" name="q" value="{{q}}" placeholder="Q...">
+      </form>
+    </div>
   </div>
-</div>
 <!-- 찾기 끝-->
 
 {% for post in modified|slice:":9" %}
@@ -22,5 +22,8 @@
     <p>{{ post.text|truncatechars:200|urlize }}</p>
   </div>
 {% endfor %}
+</div>
+<div style="height:70">
+  <!-- 여백 -->
 </div>
 {% endblock %}
