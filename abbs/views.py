@@ -31,6 +31,7 @@ def privacypolicy(request):
 
 # Create your views here.
 from django.views import generic
+import datetime
 
 # 호출하는 페이지 링크는 model명이 앞에 붙고 _list 즉, papaabb_list.html임.
 class AbbListView(generic.ListView):
@@ -53,13 +54,25 @@ import requests
 import pandas as pd
 
 def read(request):
-    url = 'https://docs.google.com/spreadsheets/d/1xHLMpzWPP_-fIuMMGM7N8XdSrKh04CMuPzbZkkj_sek/export?format=csv'
-    readcsv = pd.read_csv(url)
-    read = {
-        'read' : readcsv
+    url = 'https://docs.google.com/spreadsheets/d/1p8JeAXTE2MWTmOZfk3WQK06iA9dkexh-KGvjMpWG_98/export?format=csv'
+    # readcsv2 = pd.read_csv(url2, skiprows = [0], usecols = [1,2])
+    readcsv2 = pd.read_csv(url, usecols = [1,2,3,4,5])
+    length = len(readcsv2)
+    # bottom = pd.read_csv(url, nrows=1)
+    # lastrow = readcsv2.iloc[: , :-1] 이건 1번 칼럼을 가져옴
+    context = {
+        'length' : length,
+        'read2' : readcsv2,
+        'bottom' : readcsv2.tail(1),
+        'cell1' : readcsv2['Name'][int(length)-1],
+        # 'cell2' : readcsv2['Rating'][3], 일반 숫자
+        'cell2' : readcsv2['SecondColor'][int(length)-1], # 목록 길이는 0부터 시작이라 len-1
+        'cell3' : readcsv2['ThirdColor'][int(length)-1],
+        'cell4' : readcsv2['FourthColor'][int(length)-1],
+        'cell5' : readcsv2['FifthColor'][int(length)-1],
     }
 
-    return render(request, 'read.html', read)
+    return render(request, 'read.html', context=context)
 
 from django.http import HttpResponse, HttpResponseNotFound
 import datetime
