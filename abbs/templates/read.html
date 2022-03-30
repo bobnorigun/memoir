@@ -6,23 +6,23 @@
 
 {% block content %}
 <div class="row justify-content-md-center">
-  <div class="card" style="width: 40rem; background-color:{{ cell1 }};">
-    <div class="card-body" style="background-color:{{ cell4 }}; color:{{ cell3 }};">
-      <h1 class="card-title"><b>RGB Color<br>HEX:{{ cell1 }}</b></h1>
+  <div class="card" style="width: 50rem; background-color:#e0fbfb;">
+    <div class="card-body" style="background-color:{{ cell4 }}; color:{{ cell3 }}; font-size:bold;">
+      <h1 class="card-title">RGB Color<br>HEX:{{ cell1 }}</h1>
     </div>
     <div class="card-body" style="background-color:{{ cell1 }}; color:{{ cell2 }};">
       <h2 class="card-title">큰 제목입니다 h2</h2>
       <h5 class="card-title">작은 제목입니다 h5</h5>
       <p> 내용입니다. 16<br><small>주석입니다.<br> 바뀐 색상을 적용하려면 화면을 다시 불러오기 해주세요.</small></p>
       <a href="#" class="btn" style="background-color:{{ cell5 }}; color:{{ cell2 }};">버튼입니다.</a>
-      <hr>
-      <p> 배경색: {{ cell1 }}<br> 글자색: {{ cell2 }}<br> 테마글자색: {{ cell3 }}<br>
-        테마배경색: {{ cell4 }}<br> 버튼배경색: {{ cell5 }}<br>
 
       <div style="height:70">
         <!-- 여백 -->
       </div>
     </div>
+  </div>
+  <div style="height:55; font-size:13;" align=center> 배경색: {{ cell1 }} / 글자색: {{ cell2 }} / 테마글자색: {{ cell3 }} /
+    테마배경색: {{ cell4 }} / 버튼배경색: {{ cell5 }}
   </div>
 </div>
 <!--
