@@ -29,10 +29,10 @@
       }
     </script>
   </head>
-
   <body class="d-flex flex-column h-100">
-    <div class="container-fluid" style="background-color:#e0fbfb">
-      <!-- 탑메뉴 -->
+    <div class="container-fluid" style="background-color:#D4EBFF">
+
+      <!-- 격리에디션 탑메뉴
       <div class="page-header row" style="background-color:#FBEF27">
         <div class="container">
         <div class="row justify-content-md-center">
@@ -57,7 +57,32 @@
         </div>
       </div>
     </div>
-
+    -->
+    <div class="page-header row" style="background-color:#24CCA1 ;">
+      <div class="container">
+        <div class="row justify-content-md-center">
+        {% if user.is_authenticated %}
+          <div class="col-8" style="font-size:20; font-weight:normal;">
+            <a href="{% url 'post_list' %}">블로그</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{% url 'abbs' %}">PapaApps</a>
+          </div>
+          <div class="col-4" align="right">
+              <a href="{% url 'read' %}">colorLang</a>&nbsp;|
+              <a href="{% url 'post_recent_list' %}">찾기</a>&nbsp;|
+              <a href="{% url 'post_draft_list' %}">서랍</a>&nbsp;|
+              <a href="{% url 'post_new' %}">새글</a>
+          </div>
+        {% else %}
+          <div class="col-8" style="font-size:20; font-weight:normal;">
+            <a href="{% url 'abbs' %}">PapaMob</a>
+          </div>
+          <div class="col-4" align="right">
+            <a href="{% url 'read' %}">colorLang</a>
+          </div>
+        {% endif %}
+        </div>
+      </div>
+    </div>
       <!-- 탑메뉴 끝 -->
 
       <!--숏컷 -->
@@ -98,7 +123,7 @@
         <!-- justify-content-between -->
         <!-- justify-content-md-center -->
         <div class="row justify-content-md-center">
-          <div class="col-md-4" style="font-size:14;">
+          <div class="col-8" style="font-size:14;">
             <h6><b>@2021-2022 PapaMob</b></h6>
             <a href="{% url 'about' %}">About</a>&nbsp;|
             <a href="{% url 'abbs' %}">PapaApps</a>&nbsp;|
@@ -111,7 +136,7 @@
               <a href="mailto:bobthedesigner@gmail.com">Contact</a>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-4">
             {% with "images/papamob_footer.png,images/papamob2.png"|random as image %}
             <img src="/media/images/papamob_footer.png" class="img-fluid" align="right" width="40%" alt="papamob by Seong Ha">
             <!--src="/media/images/papamob_footer.png" -->
