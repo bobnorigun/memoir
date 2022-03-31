@@ -1,24 +1,59 @@
 {% extends "blog/base_new.html" %}
 
 {% block content %}
-<!--
-<div class="row justify-content-md-center">
-  <div class="col-md-10 col-lg-6 col-md-offset-2" style="background-color:red;">
-    left
-  </div>
-  <div class="col-md-8 col-lg-2 mb-5" style="background-color:green;">
-    right
-  </div>
+
+<div class="row">
+    <div class="col-12 col-lg-9 col-xl-10">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+          <!-- <div class="col">Column</div> -->
+            {% for papaabb in papaabb_list %}
+                <div class="col mb-4">
+                  <div class="card border-light">
+                    <a href="{{ papaabb.get_absolute_url }}">
+                      <img src="{{ papaabb.coverimage.url }}" style="width:100%">
+                    </a>
+                    <div class="card-body">
+                      <p><b><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a></b>
+                        <br>
+                      {{ papaabb.summary|truncatechars:28 }}
+                      {% if papaabb.is_new %}
+                      <br><span class="badge bg-danger"><small>N</small></span>
+                      {% endif %}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col-12 col-lg-3 col-xl-2" style="font-size:14;">
+        <p style="font-size:20;">최근기록</p>
+            <p style="mt-4">{{ context }}</p>
+            {% for papaabb in papaabb_list|slice:":3" %}
+
+              <p class="card-text mt-3">
+                <b><a href="{{ papaabb.get_absolute_url }}">
+                {{ papaabb.title }}
+                {% if papaabb.is_new %}
+                <span class="badge bg-danger"><small>N</small></span>
+                {% endif %}
+                </a></b>
+                <br>
+                {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
+                <br>
+              </p>
+        {% endfor %}
+    </div>
 </div>
--->
-<div class="row justify-content-md-center">
-  <div class="col-md-10 col-lg-6 col-md-offset-2">
+
+<!-- 이전
+  <div class="col-10" style="background-color:red;">
 
     {% if papaabb_list %}
-    <div class="row row-cols-sm-2 g-3">
+    <div class="row row-cols-sm-4">
       {% for papaabb in papaabb_list %}
-        <div class="col-6 col-md-4 col-lg-6 col-xl-4 mb-4">
-          <div class="card">
+        <div class="col mb-4">
+          <div class="card" style="width:16rem;">
             <a href="{{ papaabb.get_absolute_url }}">
               <img src="{{ papaabb.coverimage.url }}" style="width:100%">
             </a>
@@ -40,10 +75,11 @@
     {% endif %}
 
   </div>
-<!--오른쪽 날개-->
-<div class="col-md-8 col-lg-3 col-xl-2 mb-5">
-  <div class="ms-3" style="font-size:14;">
+
+
+  <div class="col-md-8 col-lg-3 col-xl-2 mb-5" style="font-size:14;">
     <h5>기록</h5>
+    <p style="mt-4">{{ context }}</p>
     {% for papaabb in papaabb_list|slice:":8" %}
       <hr>
       <p class="card-text mt-3">
@@ -59,8 +95,7 @@
       </p>
     {% endfor %}
   </div>
-</div>
-</div>
+-->
 <div style="height:70">
   <!-- 여백 -->
 </div>
