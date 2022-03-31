@@ -1,17 +1,45 @@
 {% extends 'blog/base_new.html' %}
 
 {% block content %}
-<!-- 찾기 -->
 <div class="row justify-content-md-center">
-  <div class="col-md-10 col-lg-8">
-    <div class="form-group">
-      <form action="{% url 'post_search' %}" method="get">
-        {% csrf_token %}
-        <input class="form-control form-control-lg" type="text" name="q" value="{{q}}" placeholder="Q...">
-      </form>
+    <div class="col-12 col-lg-9 col-xl-10">
+      <!-- 찾기 -->
+        <div class="form-group">
+          <form action="{% url 'post_search' %}" method="get">
+            {% csrf_token %}
+            <input class="form-control form-control-lg" type="text" name="q" value="{{q}}" placeholder="Q...">
+          </form>
+        </div>
+        <!-- 찾기 끝-->
+        <div class="post">
+          <p>"{{ q.title }}"에 대한 검색결과</p>
+          {% for post in aas %}
+          <h5><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h5>
+          <p>{{ post.text|linebreaksbr|urlize|truncatechars:150 }}</p>
+          {% endfor %}
+        </div>
+        <div class="pagination">
+          <span class="step-links">
+            {% if aas.has_previous %}
+
+                <a href="?page={{ aas.previous_page_number }}"><strong>이전</strong></a>
+            {% endif %}
+
+            <span class="current">
+                {{ aas.number }} / {{ aas.paginator.num_pages }}
+            </span>
+
+            {% if aas.has_next %}
+                <a href="?page={{ aas.next_page_number }}"><strong>다음</strong></a>
+
+            {% endif %}
+          </span>
+        </div>
     </div>
-  </div>
-  <!-- 찾기 끝-->
+
+</div>
+
+<!--
   <div class="col-md-10 col-lg-8">
     <div class="post">
       <p>"{{ q.title }}"에 대한 검색결과</p>
@@ -41,5 +69,8 @@
     </span>
   </div>
 </div>
+-->
+<div style="height:70">
+  <!-- 여백 -->
 </div>
 {% endblock %}

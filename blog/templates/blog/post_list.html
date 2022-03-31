@@ -2,20 +2,76 @@
 
 {% block content %}
 <!--
-<div class="row justify-content-md-center">
-  <div class="col-md-10 col-lg-8 col-xl-6" style="background-color:red;">
-    left
-  </div>
-  <div class="col-md-9 col-lg-7 col-xl-2 mb-4" style="background-color:green;">
-    right
-  </div>
-</div>
--->
+<div class="row">
+    <div class="col-12 col-lg-9 col-xl-10" style="background-color:red;">
+      col
+    </div>
+    <div class="col-12 col-lg-3 col-xl-2" style="font-size:14; background-color:yellow;">
+        <p style="font-size:20;">최근기록</p>
+    </div>
+</div>-->
 
+
+<div class="row">
+    <div class="col-12 col-lg-9 col-xl-10">
+
+        {% for post in posts %}
+          <div class="card border-light mb-3">
+            <div class="card-body">
+              <h5>
+                <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+              </h5>
+              <p class="card-text mt-3">{{ post.text|linebreaksbr|urlize|truncatechars:300 }}</p>
+              <a href="{% url 'post_detail' pk=post.pk %}"><small>댓글 {{ post.comments.count }}</small></a>
+            </div>
+          </div>
+        {% endfor %}
+
+    </div>
+    <div class="col-12 col-lg-3 col-xl-2" style="font-size:14;">
+        <p style="font-size:20;">최근기록</p>
+        {% for post in modified|slice:":3" %}
+          <p class="card-text mt-3">
+            <strong><a href="{% url 'post_detail' pk=post.pk %}">
+            {{ post.title }}
+            </a></strong>
+            {% if post.is_new %}
+            <span class="badge bg-danger"><small>N</small></span>
+            {% endif %}
+            <br>
+            {{ post.text|linebreaksbr|urlize|truncatechars:100 }}
+            <br>
+          </p>
+        {% endfor %}
+    </div>
+    <div class="col mb-4">
+      <div class="pagination" style="margin-left:1.5rem;">
+        <span class="step-links">
+          {% if posts.has_previous %}
+              <!-- <a href="?page=1">&laquo; 처음</a> | -->
+              <a href="?page={{ posts.previous_page_number }}"><strong>이전</strong></a>
+          {% endif %}
+
+          <span class="current">
+              {{ posts.number }} / {{ posts.paginator.num_pages }}
+          </span>
+
+          {% if posts.has_next %}
+              <a href="?page={{ posts.next_page_number }}"><strong>다음</strong></a>
+              <!-- |
+              <a href="?page={{ posts.paginator.num_pages }}">마지막 &raquo;</a>
+              -->
+          {% endif %}
+        </span>
+      </div>
+    </div>
+</div>
+
+<!--
 <div class="row justify-content-md-center">
   <div class="col-md-10 col-lg-8 col-xl-6">
   {% for post in posts %}
-    <div class="card mb-3">
+    <div class="card border-light mb-3">
       <div class="card-body">
         <h5>
           <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
@@ -26,9 +82,9 @@
     </div>
   {% endfor %}
   </div>
+-->
 
-
-<!--오른쪽 날개-->
+<!--오른쪽 날개
   <div class="col-md-9 col-lg-7 col-xl-2 mb-4">
     <div class="ms-3">
     <h6><b>최근 글</b></h6>
@@ -48,15 +104,15 @@
     {% endfor %}
     </div>
   </div>
-  <!-- 오른쪽 날개 끝 -->
-</div>
+오른쪽 날개 끝 -->
 
+<!-- 페이징
 <div class="row justify-content-md-center">
   <div class="col-md-9 col-lg-7 mb-4">
     <div class="pagination" style="margin-left:1.5rem;">
       <span class="step-links">
         {% if posts.has_previous %}
-            <!-- <a href="?page=1">&laquo; 처음</a> | -->
+
             <a href="?page={{ posts.previous_page_number }}"><strong>이전</strong></a>
         {% endif %}
 
@@ -66,14 +122,12 @@
 
         {% if posts.has_next %}
             <a href="?page={{ posts.next_page_number }}"><strong>다음</strong></a>
-            <!-- |
-            <a href="?page={{ posts.paginator.num_pages }}">마지막 &raquo;</a>
-            -->
         {% endif %}
       </span>
     </div>
   </div>
 </div>
+-->
 <div style="height:70">
   <!-- 여백 -->
 </div>
