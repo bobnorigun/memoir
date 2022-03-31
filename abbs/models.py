@@ -83,12 +83,10 @@ class PapaAbb(models.Model):
             return True
         return False
 
-from gsheets import mixins
+
 from uuid import uuid4
 
-class GetWeb(mixins.SheetPullableMixin, models.Model):
-    spreadsheet_id = '1xHLMpzWPP_-fIuMMGM7N8XdSrKh04CMuPzbZkkj_sek'
-    model_id_field = 'guid'
+class GetWeb(models.Model):
 
     guid = models.CharField(max_length=200, default=uuid4)
 
