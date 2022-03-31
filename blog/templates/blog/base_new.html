@@ -63,7 +63,8 @@
         <div class="row justify-content-md-center">
         {% if user.is_authenticated %}
           <div class="col-8" style="font-size:20; font-weight:normal;">
-            <a href="{% url 'post_list' %}">블로그</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="/media/images/papamob_ico.png" style="width:26;">
+            <a href="{% url 'post_list' %}" style="padding-right:7;">블로그</a>
             <a href="{% url 'abbs' %}">PapaApps</a>
           </div>
           <div class="col-4" align="right">
@@ -74,6 +75,7 @@
           </div>
         {% else %}
           <div class="col-8" style="font-size:20; font-weight:normal;">
+            <img src="/media/images/papamob_ico.png" style="width:26;">
             <a href="{% url 'abbs' %}">PapaMob</a>
           </div>
           <div class="col-4" align="right">
