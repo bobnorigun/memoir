@@ -66,7 +66,7 @@ class PapaAbb(models.Model):
 
     #releasenote split, 소 뒷걸음치다가 쥐잡은 격._as_list가 명령어로군.
     def releasenote_as_list(self):
-        return self.releasenote.split('∗')
+        return self.releasenote.split('>')
 
     def __str__(self):
         """String for representing the Model object (in Admin site etc.)"""
@@ -82,3 +82,18 @@ class PapaAbb(models.Model):
         elif self.last_modified.date() == date.today() - timedelta(1):
             return True
         return False
+
+from gsheets import mixins
+from uuid import uuid4
+
+class GetWeb(mixins.SheetPullableMixin, models.Model):
+    spreadsheet_id = '1xHLMpzWPP_-fIuMMGM7N8XdSrKh04CMuPzbZkkj_sek'
+    model_id_field = 'guid'
+
+    guid = models.CharField(max_length=200, default=uuid4)
+
+    title = models.CharField(max_length=200)
+    summary = models.TextField()
+
+    def __str__(self):
+        return self.title
