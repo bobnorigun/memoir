@@ -64,8 +64,9 @@
         {% if user.is_authenticated %}
           <div class="col-8" style="font-size:20; font-weight:normal;">
             <img src="/media/images/papamob_ico.png" style="width:26;">
-            <a href="{% url 'post_list' %}" style="padding-right:7;">블로그</a>
-            <a href="{% url 'abbs' %}">PapaApps</a>
+            <a href="{% url 'abbs' %}" style="padding-right:7;">PapaApps</a>
+            <a href="{% url 'post_list' %}">블로그</a>
+
           </div>
           <div class="col-4" align="right">
               <a href="{% url 'read' %}">colorLang</a>&nbsp;|
