@@ -5,26 +5,25 @@
 {% endblock %}
 
 {% block content %}
-<div class="row justify-content-md-center">
-  <div class="card" style="width: 50rem; background-color:#e0fbfb;">
-    <div class="card-body" style="background-color:{{ cell4 }}; color:{{ cell3 }}; font-size:bold;">
-      <h1 class="card-title">RGB Color<br>HEX:{{ cell1 }}</h1>
+<div class="row" style="background-color:{{ cell1 }}; color:{{ cell2 }};">
+    <div class="col-12 px-4" style="background-color:{{ cell4 }}; color:{{ cell3 }};">
+      <p style="font-size:42; font-weight:bold; padding-top:8">RGB Color<br>HEX:{{ cell1 }}</p>
     </div>
-    <div class="card-body" style="background-color:{{ cell1 }}; color:{{ cell2 }};">
+    <div class="col-12 mt-3 mb-4 px-4" style="background-color:{{ cell1 }}; color:{{ cell2 }};">
       <h2 class="card-title">큰 제목입니다 h2</h2>
       <h5 class="card-title">작은 제목입니다 h5</h5>
-      <p> 내용입니다. 16<br><small>주석입니다.<br> 바뀐 색상을 적용하려면 화면을 다시 불러오기 해주세요.</small></p>
+      <p> 내용입니다. 16<br><small>주석입니다.<br> '컬러랑'앱에서 편집한 색상을 적용하려면 화면을 다시 불러오기 해주세요.</small></p>
       <a href="#" class="btn" style="background-color:{{ cell5 }}; color:{{ cell2 }};">버튼입니다.</a>
-
       <div style="height:70">
         <!-- 여백 -->
       </div>
     </div>
-  </div>
-  <div class="mt-3" style="height:55; font-size:14;" align=center> 배경색: {{ cell1 }} / 글자색: {{ cell2 }} / 테마글자색: {{ cell3 }} /
-    테마배경색: {{ cell4 }} / 버튼배경색: {{ cell5 }}
-  </div>
+    <div class="mt-3" style="height:55; font-size:14;" align=center> 배경색: {{ cell1 }} / 글자색: {{ cell2 }} / 테마글자색: {{ cell3 }} /
+      테마배경색: {{ cell4 }} / 버튼배경색: {{ cell5 }}
+    </div>
 </div>
+
+
 <!--
 {{ read |truncatechars:300 }}
 <div class="col-md-8 col-lg-7" style="background-color:{{ cell1 }}">
