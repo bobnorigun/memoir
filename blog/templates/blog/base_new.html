@@ -99,7 +99,7 @@
               {{ post.title|truncatechars:20 }}
             </a>
           {% endfor %}
-            <a onclick="onoffMenus()">...</a>
+            <a onclick="onoffMenus()" class="btn btn-light btn-md active mb-1" role="button" aria-pressed="true">...</a>
           </div>
           <div class="col-md-10 col-lg-8 col-xl-8 mb-4" id="moreMenus" style="font-size:14;line-height:2rem;display: none;">
           {% for post in modified|slice:"9:20" %}
