@@ -14,6 +14,7 @@
         <!-- 찾기 끝-->
       {% for post in modified|slice:":9" %}
         <div class="col">
+          <hr>
           <div class="date">
           {{ post.last_modified|date:'m/d h:m' }}
           </div>
