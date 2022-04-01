@@ -91,6 +91,9 @@
       <!--숏컷 -->
     <div class="container">
       <div class="row justify-content-md-center">
+        {% if app.abbs %}
+        <p> show me </p>
+        {% endif %}
 
         {% if user.is_authenticated %}
           <div class="col-md-10 col-lg-8 col-xl-8 mt-4 mb-4">
@@ -140,6 +143,7 @@
               {% else %}
               <a href="{% url 'login' %}" style="padding-right:8;">Login</a>
               {% endif %}
+              <a href="{% url 'privacypolicy' %}" style="padding-right:8;">Privacy policy</a>
               <a href="mailto:bobthedesigner@gmail.com">Contact</a>
           </div>
 
