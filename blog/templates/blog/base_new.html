@@ -62,7 +62,7 @@
       <div class="container">
         <div class="row justify-content-md-center">
         {% if user.is_authenticated %}
-          <div class="col-8" style="font-size:1.3rem; font-weight:normal;">
+          <div class="col-8" style="font-size:1.2rem; font-weight:normal;">
 
             <a href="{% url 'abbs' %}" style="font-weight:bolder; color:#24CCA1 ; background-color:#3B2E4F;">PapaApps</a>
             <a href="{% url 'post_list' %}" style="padding-left:7; padding-right:7;">블로그</a>
@@ -75,7 +75,7 @@
               <a href="{% url 'post_new' %}">새글</a>
           </div>
         {% else %}
-          <div class="col-8" style="font-size:1.3rem; font-weight:normal;">
+          <div class="col-8" style="font-size:1.2rem; font-weight:normal;">
 
             <a href="{% url 'abbs' %}" style="font-weight:bolder; color:#24CCA1 ; background-color:#3B2E4F;">PapaMob</a>
           </div>
