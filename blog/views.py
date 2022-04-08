@@ -9,17 +9,18 @@ from django.db.models import Q
 from django.db.models import Max
 
 # Create your views here.
+# modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
 def post_list(request):
     post_all = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     paginator = Paginator(post_all, 7)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
-    modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
+    modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
     return render(request, 'blog/post_list.html', {'posts': posts, 'modified': modified})
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    modified = Post.objects.annotate(max_activity=Max('last_modified', 'comments__created_date')).order_by('-max_activity')
+    modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
     return render(request, 'blog/post_detail.html', {'post': post, 'modified': modified})
 
 def post_layout(request):
@@ -119,6 +120,7 @@ def comment_remove(request, pk):
     comment.delete()
     return redirect('post_detail', pk=comment.post.pk)
 
+@login_required
 def post_search(request):
     modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
     global paginator
