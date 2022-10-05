@@ -1,1 +1,1 @@
-appupdaterTEST,2,nalciLang,148,tourLang,134,roadLang,852,malLang,30,voiceNote,2,colorLang,1,oraksil,1
+appupdaterTEST,2,nalciLang,148,tourLang,135,roadLang,852,malLang,30,voiceNote,2,colorLang,1,oraksil,1
