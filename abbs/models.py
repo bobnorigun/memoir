@@ -56,7 +56,7 @@ class PapaAbb(models.Model):
     badgeimage3 = models.ImageField(upload_to='images/', blank=True, null=True)
     #Download url
     downloadurl = models.URLField(max_length=200, blank=True, null=True)
-    videourl = models.URLField(max_length=200, blank=True, null=True)
+
 
 
     #Release Note
