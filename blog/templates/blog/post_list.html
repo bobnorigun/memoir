@@ -12,13 +12,13 @@
 </div>-->
 
 
-<div class="row">
-    <div class="col-12 col-lg-9 col-xl-10">
+<div class="row justify-content-center">
+    <div class="col-12 col-lg-8 col-xl-9 p-3">
 
         {% for post in posts %}
-          <div class="card border-light mb-3">
+          <div class="card border-light mb-4 p-3">
             <div class="card-body">
-              <h5>
+              <h5 class="fw-bold">
                 <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
               </h5>
               <p class="card-text mt-3">{{ post.text|linebreaksbr|urlize|truncatechars:300 }}</p>
@@ -28,31 +28,35 @@
         {% endfor %}
 
     </div>
-    <div class="col-12 col-lg-3 col-xl-2" style="font-size:14;">
-        <p style="font-size:20;">최근기록</p>
-        {% for post in modified|slice:":3" %}
-          <p class="card-text mt-3">
-            <strong><a href="{% url 'post_detail' pk=post.pk %}">
+    <div class="col-md-8 col-lg-4 col-xl-3 p-3">
+        <div class="card border-0 p-4">
+            <p class="display-7">최근기록</p>
+            {{ context }}
+            {% for post in posts|slice:":4" %}
+            <h6 class="card-title fw-bold">
+            <a href="{{ papaabb.get_absolute_url }}">
             {{ post.title }}
-            </a></strong>
+            </a>
             {% if post.is_new %}
             <span class="badge bg-danger"><small>N</small></span>
             {% endif %}
-            <br>
+            </h6>
+
+            <p class="card-text text-mute">
             {{ post.text|linebreaksbr|urlize|truncatechars:50 }}
-            <br>
-          </p>
-        {% endfor %}
+            </p>
+            {% endfor %}
+        </div>
     </div>
-    <div class="col mb-4">
-      <div class="pagination" style="margin-left:1.5rem;">
+
+    <div class="col-md-8 col-lg-8 col-xl-9 p-3 mb-5 text-center">
         <span class="step-links">
           {% if posts.has_previous %}
               <!-- <a href="?page=1">&laquo; 처음</a> | -->
               <a href="?page={{ posts.previous_page_number }}"><strong>이전</strong></a>
           {% endif %}
 
-          <span class="current">
+          <span class="current text-center">
               {{ posts.number }} / {{ posts.paginator.num_pages }}
           </span>
 
@@ -63,7 +67,6 @@
               -->
           {% endif %}
         </span>
-      </div>
     </div>
 </div>
 
@@ -105,9 +108,4 @@
     </div>
   </div>
 오른쪽 날개 끝 -->
-
-
-<div style="height:70">
-  <!-- 여백 -->
-</div>
 {% endblock %}
