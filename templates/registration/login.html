@@ -1,37 +1,38 @@
 {% extends "blog/base_new.html" %}
 
 {% block content %}
-<div class="row justify-content-md-center">
-  <div class="col-md-8 col-lg-4" style="height:300;font-size:30;" align="center">
-    <p>커뮤니티에 로그인</p>
-	{% if form.errors %}
-		<p>이름이나 암호가 일치하지 않습니다. 재시도</p>
-	{% endif %}
+<div class="row justify-content-center">
+    <div class="col-md-10 col-lg-6 m-5" align="center">
+        <h5 class="display-6">파파몹 커뮤니티 로그인</h5>
+      	{% if form.errors %}
+      	<p class="text-danger">이름이나 암호가 일치하지 않습니다. 재시도</p>
+      	{% endif %}
 
-  {% if next %}
-    {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
-    {% else %}
-      <p>Please login to see this page.</p>
-    {% endif %}
-  {% endif %}
-
-	<form method="POST" action="{% url 'login' %}">
-	{% csrf_token %}
-		<div class="mb-3">
-			<!--  {{ form.username.label_tag}}{{ form.username }} -->
-			<input class="form-control" id="{{ form.username.id_for_label }}" maxlength="15" name="{{ form.username.html_name }}" type="text" placeholder="아이디" />
-		</div>
-		<div class="mb-3">
-		  <input class="form-control" id="{{ form.password.id_for_label }}" maxlength="120" name="{{ form.password.html_name }}" type="password" placeholder="패스워드" />
-		</div>
-    <div align="center">
-  		<input type="submit" value="로그인" class="btn btn-primary btn-block" />
-  		<input type="hidden" name="next" value="{{ next }}" />
+        {% if next %}
+        {% if user.is_authenticated %}
+            <p class="text-danger">Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+        {% else %}
+            <p class="text-danger">Please login to see this page.</p>
+        {% endif %}
+        {% endif %}
+        <div class="card m-3 p-5">
+      	<form method="POST" action="{% url 'login' %}">
+      	{% csrf_token %}
+        		<div class="mb-3">
+        			<!--  {{ form.username.label_tag}}{{ form.username }} -->
+        			<input class="form-control" id="{{ form.username.id_for_label }}" maxlength="15" name="{{ form.username.html_name }}" type="text" placeholder="아이디" />
+        		</div>
+        		<div class="mb-3">
+        		  <input class="form-control" id="{{ form.password.id_for_label }}" maxlength="120" name="{{ form.password.html_name }}" type="password" placeholder="패스워드" />
+        		</div>
+            <div align="center">
+          		<input type="submit" value="로그인" class="btn btn-primary btn-block" />
+          		<input type="hidden" name="next" value="{{ next }}" />
+            </div>
+      	</form>
+        </div>
     </div>
-	</form>
-</div>
 </div>
 <!--
   <div class="col-md-8">
