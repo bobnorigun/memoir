@@ -6,13 +6,13 @@
 
 {% block content %}
 <div class="row justify-content-md-center m-5">
-
-    <div class="card col-md-8 p-5">
-      <h5>Contents since 2021</h5>
-      <p>Blog Posts: {{ num_posts }} | PapaApps: {{ num_abbs }}</p>
-      <hr>
-      <p style="mt-4">{{ read |truncatechars:500 }}</p>
+    <div class="card col-md-10 p-5">
+        <h5 class="display-6">업데이트 기록</h5>
+        <hr>
+        <p style="mt-4">{{ read | truncatechars:1000 | linebreaksbr }}</p>
+        <hr>
+        <p>진행중인 서비스: {{ num_abbs }} | 프로젝트 진행일지: {{ num_posts }}</p>
     </div>
-  </div>
+</div>
 
 {% endblock %}
