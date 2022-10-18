@@ -95,22 +95,23 @@
           <!-- justify-content-between -->
           <!-- justify-content-md-center -->
             <div class="row justify-content-center">
-                <div class="col-8 m-5 p-3 text-center">
+                <div class="col-8 m-5 text-center">
+
                     <h6 class="fw-bold">@2021-2022 PapaMob</h6>
-                    <p>
-                    <a href="{% url 'about' %}" class="px-1">About</a>
+                    <p><small>
+                    <a href="{% url 'about' %}" class="px-2">About</a>
                     <!--<a href="{% url 'abbs' %}" style="padding-right:8;">PapaApps</a>-->
                     {% if user.is_authenticated %}
-                    <a href="{% url 'post_list' %}" class="px-1">blog</a>
-                    <a href="{% url 'logout' %}" class="px-1">Logout</a>
+                    <a href="{% url 'post_list' %}" class="px-2">blog</a>
+                    <a href="{% url 'logout' %}" class="px-2">Logout</a>
                     {% else %}
-                    <a href="{% url 'login' %}" class="px-1">Login</a>
+                    <a href="{% url 'login' %}" class="px-2">Login</a>
                     {% endif %}
-                    <a href="{% url 'privacypolicy' %}" class="px-1">Privacy policy</a>
-                    <a href="mailto:bobthedesigner@gmail.com">Contact</a>
+                    <a href="{% url 'privacypolicy' %}" class="px-2">Privacy policy</a>
+                    <a href="mailto:bobthedesigner@gmail.com">Contact</a></small>
                     </p>
                 </div>
-                <div class="col-8 text-center">
+                <div class="col-8 mt-5 text-center">
 
                     <img src="/media/images/teamshot2.png" height="100" alt="papamob by Seong Ha">
                     <!--src="/media/images/papamob_footer.png" -->
