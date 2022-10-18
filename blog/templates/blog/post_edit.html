@@ -1,19 +1,15 @@
 {% extends 'blog/base_new.html' %}
 
 {% block content %}
-<div class="row justify-content-md-center">
-    <div class="col-12 col-lg-9 col-xl-10">
-
-	<form id="post-edit" method="POST" class="post-form">{% csrf_token %}
-		{{ form.as_p }}
-
-			<div class="col-12" align="center">
-			<button type="button" onclick="history.back()" class="btn btn-light btn-block">취소하기</button>
-			<button type="submit" class="btn btn-primary btn-block">저장하기</button>
-			</div>
-
-	</form>
-
-</div>
+<div class="row justify-content-center">
+    <div class="col-lg-9 col-xl-8 my-5">
+      	<form id="post-edit" method="POST" class="post-form">{% csrf_token %}
+        		{{ form.as_p }}
+      			<div class="col-12" align="center">
+      			<button type="button" onclick="history.back()" class="btn btn-light btn-block">취소하기</button>
+      			<button type="submit" class="btn btn-primary btn-block">저장하기</button>
+      			</div>
+      	</form>
+    </div>
 </div>
 {% endblock %}
