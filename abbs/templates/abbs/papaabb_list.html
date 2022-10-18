@@ -33,13 +33,13 @@
                         <div class="card-body text-center py-4">
                             <h5 class="card-title fw-bold"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>
                             {% if papaabb.is_new %}
-                            <span class="badge bg-danger"><small>N</small></span>
+                            <i class="bi bi-clock-fill text-danger"></i>
                             {% endif %}
                             </h5>
                             <p class="display-7">
                             {{ papaabb.summary|truncatechars:50 }}
                             </p>
-                            <a href="#" class="btn btn-light btn-sm">상세보기</a>
+                            <a href="{{ papaabb.get_absolute_url }}" class="btn btn-light btn-sm">상세보기</a>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 {{ papaabb.title }}
                 </a>
                 {% if papaabb.is_new %}
-                <span class="badge bg-danger"><small>N</small></span>
+                <i class="bi bi-clock-fill text-danger"></i>
                 {% endif %}
                 </h6>
 
