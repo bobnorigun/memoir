@@ -91,30 +91,30 @@
             <!-- 내용 끝 -->
         </div>
 
-        <div class="container-fluid" style="background-color:#FFF">
+        <div class="container-fluid" style="background-color:#FAFAFA">
           <!-- justify-content-between -->
           <!-- justify-content-md-center -->
-            <div class="row justify-content-center align-items-center">
-                <div class="col-6 col-lg-4 p-3">
+            <div class="row justify-content-center">
+                <div class="col-8 m-5 p-3 text-center">
                     <h6 class="fw-bold">@2021-2022 PapaMob</h6>
                     <p>
-                    <a href="{% url 'about' %}" style="padding-right:8;">About</a>
+                    <a href="{% url 'about' %}" class="px-1">About</a>
                     <!--<a href="{% url 'abbs' %}" style="padding-right:8;">PapaApps</a>-->
                     {% if user.is_authenticated %}
-                    <a href="{% url 'post_list' %}" style="padding-right:8;">blog</a>
-                    <a href="{% url 'logout' %}" style="padding-right:8;">Logout</a>
+                    <a href="{% url 'post_list' %}" class="px-1">blog</a>
+                    <a href="{% url 'logout' %}" class="px-1">Logout</a>
                     {% else %}
-                    <a href="{% url 'login' %}" style="padding-right:8;">Login</a>
+                    <a href="{% url 'login' %}" class="px-1">Login</a>
                     {% endif %}
-                    <a href="{% url 'privacypolicy' %}" style="padding-right:8;">Privacy policy</a>
+                    <a href="{% url 'privacypolicy' %}" class="px-1">Privacy policy</a>
                     <a href="mailto:bobthedesigner@gmail.com">Contact</a>
                     </p>
                 </div>
-                <div class="col-4 d-none d-md-inline">
-                    {% with "images/papamob_footer.png,images/papamob2.png"|random as image %}
-                    <img src="/media/images/papamob_footer.png" class="img-fluid" align="right" width="40%" alt="papamob by Seong Ha">
+                <div class="col-8 text-center">
+
+                    <img src="/media/images/teamshot2.png" height="100" alt="papamob by Seong Ha">
                     <!--src="/media/images/papamob_footer.png" -->
-                    {% endwith %}
+
                 </div>
             </div>
         </div>
