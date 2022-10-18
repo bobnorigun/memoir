@@ -1,8 +1,7 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    color: #005959;
-    background-color: #343A40;
+    background-color: #CEE5F9;
 }
 
 a, a:visited, a:active {
@@ -81,15 +80,6 @@ hr {
   opacity: .1;
 }
 
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-light { color: rgba(175, 175, 175, 1); }
-
 .form-control .lineless{
     border: 0px;
-}
-
-#map {
-  height: 100%;
 }
