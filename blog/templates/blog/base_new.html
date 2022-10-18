@@ -24,7 +24,7 @@
     </head>
     <body class="d-flex flex-column h-100">
         <!-- 네비메뉴 시작 -->
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color:#24CCA1;">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light mb-2" style="background-color:#24CCA1;">
             <div class="container-lg">
                 <a class="navbar-brand" href="{% url 'abbs' %}"><img src="/media/images/ico_papamob_n.png" height="20" alt="papamob icon"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,23 +65,27 @@
         <!-- 네비메뉴 끝 -->
         <div class="container-fluid" style="background-color:#D4EBFF">
             <!--태그들 시작  -->
-            {% if app.abbs %}
-                <p> show me </p>
-            {% endif %}
-            {% if user.is_authenticated %}
+
             <div class="container">
                 <div class="row justify-content-md-center">
-                    <div class="col-10 col-lg-8 mt-4 mb-4">
+
+                    <div class="col-10 col-lg-8 mt-3 mb-3">
+                    {% if app.abbs %}
+                        <p> show me </p>
+                    {% endif %}
+                    {% if user.is_authenticated %}
                     {% for post in modified|slice:":8" %}
                         <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-light btn-md mb-1" role="button" aria-pressed="true">
                           {{ post.title|truncatechars:20 }}
                         </a>
                     {% endfor %}
+                    {% else %}
+                    {% endif %}
                     </div>
+
                 </div>
             </div>
-            {% else %}
-            {% endif %}
+
             <!-- 태그들 끝 -->
             <!-- 내용 시작 -->
             <div class="container">
