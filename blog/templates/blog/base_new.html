@@ -74,7 +74,7 @@
                         <p> show me </p>
                     {% endif %}
                     {% if user.is_authenticated %}
-                    {% for post in modified|slice:":8" %}
+                    {% for post in modified|slice:":13" %}
                         <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-light btn-md mb-1" role="button" aria-pressed="true">
                           {{ post.title|truncatechars:20 }}
                         </a>
