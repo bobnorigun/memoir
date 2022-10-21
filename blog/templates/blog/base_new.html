@@ -11,16 +11,6 @@
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <link rel="icon" href="{% static 'favicon/favicon.ico' %}"/>
         <!-- 탑 바로가기 접었다 폈다 -->
-        <script>
-          function onoffMenus() {
-            var x = document.getElementById("moreMenus");
-            if (x.style.display === "none"){
-              x.style.display = "block";
-            } else {
-              x.style.display = "none";
-            }
-          }
-        </script>
     </head>
     <body class="d-flex flex-column h-100">
         <!-- 네비메뉴 시작 -->
@@ -74,11 +64,21 @@
                         <p> show me </p>
                     {% endif %}
                     {% if user.is_authenticated %}
-                    {% for post in modified|slice:":13" %}
+                    {% for post in modified|slice:":8" %}
                         <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-light btn-md mb-1" role="button" aria-pressed="true">
                           {{ post.title|truncatechars:20 }}
                         </a>
                     {% endfor %}
+                    <a class="btn btn-light" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                      ...
+                    </a>
+                    <div class="collapse" id="collapseExample">
+                          {% for post in modified|slice:"9:16" %}
+                              <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-light btn-md mb-1" role="button" aria-pressed="true">
+                                {{ post.title|truncatechars:20 }}
+                              </a>
+                          {% endfor %}
+                    </div>
                     {% else %}
                     {% endif %}
                     </div>
@@ -87,6 +87,7 @@
             </div>
 
             <!-- 태그들 끝 -->
+
             <!-- 내용 시작 -->
             <div class="container">
                 {% block content %}
