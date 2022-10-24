@@ -2,9 +2,11 @@
 from django.shortcuts import render
 from abbs.models import Genre, Book, PapaAbb
 from blog.models import Post
+from django.utils import timezone
 
 import requests
 import pandas as pd
+
 
 def about(request):
     """View function for home page of site."""
@@ -13,11 +15,13 @@ def about(request):
     # papaabb 내용 추가.
     num_posts = Post.objects.all().count()
     num_abbs = PapaAbb.objects.all().count()
+    modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
     # book instance와 author 내용은 제외.
     url = 'https://docs.google.com/spreadsheets/d/1xHLMpzWPP_-fIuMMGM7N8XdSrKh04CMuPzbZkkj_sek/export?format=csv'
-    readcsv = pd.read_csv(url)
+    readcsv = pd.read_csv(url, sep=",", index_col=None)
 
     context = {
+        'modified' : modified,
         'num_posts' : num_posts,
         'num_abbs' : num_abbs,
         'read' : readcsv,
@@ -27,7 +31,8 @@ def about(request):
     return render(request, 'about.html', context=context)
 
 def privacypolicy(request):
-    return render(request, 'privacypolicy.html')
+    modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
+    return render(request, 'privacypolicy.html', {'modified': modified})
 
 # Create your views here.
 from django.views import generic
@@ -37,7 +42,8 @@ import datetime
 class AbbListView(generic.ListView):
     model = PapaAbb
     ordering = ['-last_modified']
-
+    modified = Post.objects.filter(published_date__lte=timezone.now()).order_by('-last_modified')
+    
 # 레코드가 없으면 자동으로 404페이지 호출.
 class AbbDetailView(generic.DetailView):
     model = PapaAbb
