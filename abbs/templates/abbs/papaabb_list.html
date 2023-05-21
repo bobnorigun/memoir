@@ -28,14 +28,14 @@
                 {{ context }}
                 <div class="row justify-content-center">
                 {% for papaabb in papaabb_list|slice:":4" %}
-                    <div class="col-2">
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-2">
                       <h7 class="card-title border-1">
                         <a href="{{ papaabb.get_absolute_url }}">
                           <img src="{{ papaabb.iconimage.url }}" class="card-img-top" style="width:100%">
                         </a>
                       </h7>
                     </div>
-                    <div class="col-10">
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-10">
                     <!--<p class="card-text text-mute">-->
                       <a href="{{ papaabb.get_absolute_url }}">
                         <h5>
