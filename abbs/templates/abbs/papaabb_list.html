@@ -58,9 +58,12 @@
                 {% for papaabb in papaabb_list %}
                 <div class="col-sm-6 col-xl-4 p-1">
                     <div class="card border-light border-1">
-                      <a href="{{ papaabb.get_absolute_url }}">
-                      <img src="{{ papaabb.coverimage.url }}" class="card-img-top" style="width:100%">
-                      </a>
+
+                      <!--프로젝트 스크린샷-->
+                        <a href="{{ papaabb.get_absolute_url }}">
+                        <img src="{{ papaabb.coverimage.url }}" class="card-img-top" style="width:100%">
+                        </a>
+
                       <!--프로젝트 제목영역-->
                         <div class="card-body text-center p-3" style="background-color:#ffffff;">
                             <h7 class="card-title fw-bold"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>
@@ -79,6 +82,7 @@
                             {% else %}
                             {% endif %}
                         </div>
+
                     </div>
                 </div>
                 {% endfor %}

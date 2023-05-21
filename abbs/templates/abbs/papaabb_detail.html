@@ -1,76 +1,109 @@
 {% extends "blog/base_new.html" %}
 
 {% block content %}
-<div class="row justify-content-center align-items-center">
 
-    <div class="col-4 col-md-3 col-lg-3 m-5">
-        {% if papaabb.iconimage %}
-        <img class="img-fluid" src="{{ papaabb.iconimage.url }}" width="100%" height="auto"/>
-        {% else %}
-        {% endif %}
-    </div>
-    <div class="col-md-10 col-lg-6 text-center text-lg-start">
-        <h3 class="display-5 fw-bold">{{ papaabb.title }}</h3>
-        <h5 class="mb-4">{{ papaabb.subtitle }}</h5>
-        <p class="text-start">{{ papaabb.summary }}</p>
-        <p>
-        <img src="{{ papaabb.badgeimage.url }}" style="width:55">&nbsp;&nbsp;
-        <img src="{{ papaabb.badgeimage2.url }}" style="width:55">&nbsp;&nbsp;
-        <img src="{{ papaabb.badgeimage3.url }}" style="width:55">&nbsp;&nbsp;
-        {% if papaabb.downloadurl %}
-        <a href='{{ papaabb.downloadurl }}'>
-        <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="80px"/>
-        </a>
-        </p>
-        {% else %}
-        {% endif %}
-    </div>
-    <div class="row my-5 py-4 bg-light">
-        <div class="col-6 col-md-4 col-lg-3">
-          <img class="img-fluid" src="{{ papaabb.coverimage.url }}">
+<div class="container-lg">
+    <div class="row justify-content-center">
+        <!--App INFO-->
+        <div class="col-md-8 col-lg-4 col-xl-3 p-1">
+            <div class="card border-0 p-3 text-center">
+              <!--AppIcon-->
+                <a href="{{ papaabb.get_absolute_url }}">
+                  <img src="{{ papaabb.iconimage.url }}" class="card-img-top" style="width:100%">
+                </a>
+              <!--Title-->
+              <h3>
+                <b>{{ papaabb.title }}</b>
+                {% if papaabb.is_new %}
+                <i class="bi bi-clock-fill text-danger"></i>
+                {% endif %}
+              </h3>
+              <!--playStoreLink-->
+                {% if papaabb.downloadurl %}
+                <a href='{{ papaabb.downloadurl }}'>
+                <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="70px"/>
+                </a>
+                {% else %}
+                {% endif %}
+                <hr>
+              <!--업데이트 기록-->
+                <div class="m-2 p-2">
+                    {% if user.is_authenticated %}
+                    <p class="top-menu">
+                    <a href="{% url 'abb-update' pk=papaabb.pk %}"><button type="button" class="btn btn-secondary btn-sm">편집</button></a>
+                    </p>
+                    {% else %}
+                    {% endif %}
+                    <p style="font-size:18; font-weight:bold;">...ing</p>
+                    <ul class="list-group list-group-flush">
+                    {% for note in papaabb.releasenote_as_list %}
+                    <li class="list-group-item">
+                      {{ note }}
+                    </li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="col-6 col-md-4 col-lg-3">
-          <img class="img-fluid" src="{{ papaabb.coverimage2.url }}">
-        </div>
-        <div class="col-6 col-md-4 col-lg-3">
-          <img class="img-fluid" src="{{ papaabb.coverimage3.url }}">
-        </div>
-        <div class="col-6 col-md-4 col-lg-3">
-          <img class="img-fluid" src="{{ papaabb.coverimage4.url }}">
-        </div>
-    </div>
 
-    <!-- https://www.youtube.com/embed/h_xgLgXdLxU -->
-    <!-- -->
-    <div class="card bg-dark col-md-10 col-lg-8" align="center">
-        <iframe width="100%" height="400" src="{{ papaabb.videourl }}" title="투어랑: 사용하기 동영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <div class="card col-md-10 col-lg-8 my-5">
-        <div class="m-4 p-2">
-            {% if user.is_authenticated %}
-            <p class="top-menu">
-            <a href="{% url 'abb-update' pk=papaabb.pk %}"><button type="button" class="btn btn-secondary btn-sm">편집</button></a>
-            </p>
-            {% else %}
-            {% endif %}
-            <p style="font-size:24; font-weight:bold;">업데이트 기록</p>
-            <ul class="list-group list-group-flush">
-            {% for note in papaabb.releasenote_as_list %}
-            <li class="list-group-item">
-              {{ note }}
-            </li>
-            {% endfor %}
-            </ul>
-        </div>
-        <div class="m-4 p-3">
-            <script src="https://utteranc.es/client.js"
-                repo="bobnorigun/papamob_comments"
-                issue-term="pathname"
-                theme="github-light"
-                crossorigin="anonymous"
-                async>s
-            </script>
+        <!-- App Screenshots -->
+        <div class="col-lg-8 col-xl-9">
+            <div class="row">
+                <div class="col-sm-6 col-xl-4 p-1">
+                    <div class="card border-light border-1">
+                        <img class="img-fluid" src="{{ papaabb.coverimage.url }}">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4 p-1">
+                    <div class="card border-light border-1">
+                        <img class="img-fluid" src="{{ papaabb.coverimage2.url }}">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4 p-1">
+                    <div class="card border-light border-1">
+                        <img class="img-fluid" src="{{ papaabb.coverimage3.url }}">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4 p-1">
+                    <div class="card border-light border-1">
+                        <img class="img-fluid" src="{{ papaabb.coverimage4.url }}">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4 p-1">
+                    <div class="card border-light border-1">
+                        <img class="img-fluid" src="{{ papaabb.coverimage5.url }}">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xl-4 p-1">
+                    <div class="card border-light border-1">
+                        <img class="img-fluid" src="{{ papaabb.coverimage6.url }}">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<div style="height:70">
+  <!-- 여백 -->
+</div>
+
+      <!--제목, 소제목, 설명, 아이콘, 다운로드-->
+
+            <!--
+            <h5 class="mb-4">{{ papaabb.subtitle }}</h5>
+            <p class="text-start">{{ papaabb.summary }}</p>
+            <p>
+            <img src="{{ papaabb.badgeimage.url }}" style="width:55">&nbsp;&nbsp;
+            <img src="{{ papaabb.badgeimage2.url }}" style="width:55">&nbsp;&nbsp;
+            <img src="{{ papaabb.badgeimage3.url }}" style="width:55">&nbsp;&nbsp;
+            </p>
+            -->
+
+
+        <!-- https://www.youtube.com/embed/h_xgLgXdLxU -->
+        <!--동영상
+          <div class="card bg-dark col-md-10 col-lg-8" align="center">
+              <iframe width="100%" height="400" src="{{ papaabb.videourl }}" title="투어랑: 사용하기 동영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        -->
 {% endblock %}
