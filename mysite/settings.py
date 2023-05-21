@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'blog',
     'abbs.apps.AbbsConfig',
     'catalog.apps.CatalogConfig', #added app
+    'gsheets',
+    'weather',
     #'papamob',
     #'distsum',
 ]
@@ -55,6 +57,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 TEMPLATES = [
     {
@@ -132,3 +136,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+GSHEETS = {
+    'CLIENT_SECRETS': '<PATH TO DOWNLOADED CREDENTIALS>'
+}
