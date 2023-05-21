@@ -21,6 +21,39 @@
 
 <div class="container-lg">
     <div class="row justify-content-center">
+        <!-- 업데이트 -->
+        <div class="col-md-8 col-lg-9 col-xl-9 p-3">
+            <div class="card border-0 p-4">
+                <p class="display-2">...ing<hr></p>
+                {{ context }}
+                <div class="row justify-content-center">
+                {% for papaabb in papaabb_list|slice:":4" %}
+                    <div class="col-2">
+                      <h7 class="card-title border-1">
+                        <a href="{{ papaabb.get_absolute_url }}">
+                          <img src="{{ papaabb.iconimage.url }}" class="card-img-top" style="width:55px">
+                        </a>
+                      </h7>
+                    </div>
+                    <div class="col-10">
+                    <!--<p class="card-text text-mute">-->
+                      <a href="{{ papaabb.get_absolute_url }}">
+                        <h5>
+                          <b>{{ papaabb.title }}</b>
+                          {% if papaabb.is_new %}
+                          <i class="bi bi-clock-fill text-danger"></i>
+                          {% endif %}<br>
+                          {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
+                        </h5>
+                      </a>
+                    <!--</p>-->
+                    </div>
+                    <hr>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+        <!-- 프로젝트 목록보기 -->
         <div class="col-lg-8 col-xl-9">
             <div class="row">
               <!-- <div class="col">Column</div> -->
@@ -31,12 +64,12 @@
                         <img src="{{ papaabb.coverimage.url }}" class="card-img-top" style="width:100%">
                         </a>
                         <div class="card-body text-center py-4">
-                            <h5 class="card-title fw-bold"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>
+                            <h4 class="card-title fw-bold"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>
                             {% if papaabb.is_new %}
                             <i class="bi bi-clock-fill text-danger"></i>
                             {% endif %}
-                            </h5>
-                            <p class="display-7">
+                            </h4>
+                            <p>
                             {{ papaabb.summary|truncatechars:60 }}
                             </p>
                             <a href="{{ papaabb.get_absolute_url }}" class="btn btn-light btn-sm">상세보기</a>
@@ -46,28 +79,9 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-8 col-lg-4 col-xl-3 p-3">
-            <div class="card border-0 p-4">
-                <p class="display-7">업데이트 기록</p>
-                {{ context }}
-                {% for papaabb in papaabb_list|slice:":4" %}
-                <h6 class="card-title fw-bold">
-                <a href="{{ papaabb.get_absolute_url }}">
-                {{ papaabb.title }}
-                </a>
-                {% if papaabb.is_new %}
-                <i class="bi bi-clock-fill text-danger"></i>
-                {% endif %}
-                </h6>
 
-                <p class="card-text text-mute">
-                {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
-                </p>
-                {% endfor %}
-            </div>
-        </div>
         <div class="col-md-8 col-lg-7">
-            <p style="mt-4">{{ read |truncatechars:300 }}</p>
+            <p style="mt-4">{{ post.title }}</p>
         </div>
     </div>
 </div>
