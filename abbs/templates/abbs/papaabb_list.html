@@ -22,29 +22,27 @@
 <div class="container-lg">
     <div class="row justify-content-center">
         <!-- 업데이트 -->
-        <div class="col-md-8 col-lg-9 col-xl-9 p-1">
+        <div class="col-md-8 col-lg-4 col-xl-3 p-1">
             <div class="card border-0 p-3">
                 <p class="display-2">...ing<hr></p>
                 {{ context }}
                 <div class="row justify-content-center">
                 {% for papaabb in papaabb_list|slice:":4" %}
                     <div class="col-3 col-sm-3 col-md-3 col-lg-2">
-                      <h7 class="card-title border-1">
                         <a href="{{ papaabb.get_absolute_url }}">
                           <img src="{{ papaabb.iconimage.url }}" class="card-img-top" style="width:100%">
                         </a>
-                      </h7>
                     </div>
                     <div class="col-9 col-sm-9 col-md-9 col-lg-10">
                     <!--<p class="card-text text-mute">-->
                       <a href="{{ papaabb.get_absolute_url }}">
-                        <h5>
+                        <h7>
                           <b>{{ papaabb.title }}</b>
                           {% if papaabb.is_new %}
                           <i class="bi bi-clock-fill text-danger"></i>
                           {% endif %}<br>
                           {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
-                        </h5>
+                        </h7>
                       </a>
                     <!--</p>-->
                     </div>
@@ -59,20 +57,27 @@
               <!-- <div class="col">Column</div> -->
                 {% for papaabb in papaabb_list %}
                 <div class="col-sm-6 col-xl-4 p-1">
-                    <div class="card border-light border-0">
-                        <a href="{{ papaabb.get_absolute_url }}">
-                        <img src="{{ papaabb.coverimage.url }}" class="card-img-top" style="width:100%">
-                        </a>
-                        <div class="card-body text-center py-4">
-                            <h4 class="card-title fw-bold"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>
+                    <div class="card border-light border-1">
+                      <a href="{{ papaabb.get_absolute_url }}">
+                      <img src="{{ papaabb.coverimage.url }}" class="card-img-top" style="width:100%">
+                      </a>
+                      <!--프로젝트 제목영역-->
+                        <div class="card-body text-center p-3" style="background-color:#ffffff;">
+                            <h7 class="card-title fw-bold"><a href="{{ papaabb.get_absolute_url }}">{{ papaabb.title }}</a>
                             {% if papaabb.is_new %}
                             <i class="bi bi-clock-fill text-danger"></i>
                             {% endif %}
-                            </h4>
-                            <p>
-                            {{ papaabb.summary|truncatechars:60 }}
-                            </p>
-                            <a href="{{ papaabb.get_absolute_url }}" class="btn btn-light btn-sm">상세보기</a>
+                            <br>
+                            </h7>
+                            <!--<p>
+                            {{ papaabb.summary|truncatechars:50 }}
+                            </p>-->
+                            {% if papaabb.downloadurl %}
+                            <a href='{{ papaabb.downloadurl }}'>
+                            <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="60px"/>
+                            </a>
+                            {% else %}
+                            {% endif %}
                         </div>
                     </div>
                 </div>
