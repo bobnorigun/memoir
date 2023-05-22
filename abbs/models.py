@@ -51,8 +51,6 @@ class PapaAbb(models.Model):
     coverimage2 = models.ImageField(upload_to='images/', blank=True, null=True)
     coverimage3 = models.ImageField(upload_to='images/', blank=True, null=True)
     coverimage4 = models.ImageField(upload_to='images/', blank=True, null=True)
-    coverimage5 = models.ImageField(upload_to='images/', blank=True, null=True)
-    coverimage6 = models.ImageField(upload_to='images/', blank=True, null=True)
     badgeimage = models.ImageField(upload_to='images/', blank=True, null=True)
     badgeimage2 = models.ImageField(upload_to='images/', blank=True, null=True)
     badgeimage3 = models.ImageField(upload_to='images/', blank=True, null=True)
