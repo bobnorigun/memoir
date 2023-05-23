@@ -28,20 +28,34 @@
                 <hr>
               <!--업데이트 기록-->
                 <div class="m-2 p-2">
+                  <!--edit menu-->
                     {% if user.is_authenticated %}
-                    <p class="top-menu">
-                    <a href="{% url 'abb-update' pk=papaabb.pk %}"><button type="button" class="btn btn-secondary btn-sm">편집</button></a>
-                    </p>
+                      <p class="top-menu">
+                        <a href="{% url 'abb-update' pk=papaabb.pk %}">
+                          <button type="button" class="btn btn-secondary btn-sm">
+                            편집
+                          </button>
+                        </a>
+                      </p>
                     {% else %}
                     {% endif %}
-                    <p style="font-size:18; font-weight:bold;">...ing</p>
-                    <ul class="list-group list-group-flush">
+                  <!--text-->
+                    <p style="font-size:24;" align="left">
+                      <b>...ing</b>
+                    </p>
+                    <p style="font-size:18;" align="left">
+
+                      {% for note in papaabb.releasenote_as_list %}
+                        {{ note }}
+                      {% endfor %}
+                    </p>
+                    <!--<ul class="list-group list-group-flush">
                     {% for note in papaabb.releasenote_as_list %}
                     <li class="list-group-item">
                       {{ note }}
                     </li>
                     {% endfor %}
-                    </ul>
+                    </ul>-->
                 </div>
             </div>
         </div>
