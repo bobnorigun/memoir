@@ -12,10 +12,10 @@
         <link rel="icon" href="{% static 'favicon/favicon.ico' %}"/>
         <!-- 탑 바로가기 접었다 폈다 -->
     </head>
-    <body class="d-flex flex-column h-100">
+    <body class="d-flex flex-column h-100" style="background-color:#297dc5;">
         <!-- 네비메뉴 시작 -->
         <!-- 배너 붙이기위해 mb-2를 mb-0으로 변경함-->
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light mb-2" style="background-color:#24CCA1;">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light mb-2" style="background-color:#297dc5;">
             <div class="container-lg">
                 {% if user.is_authenticated %}
                 <a class="navbar-brand" href="{% url 'post_list' %}"><img src="/media/images/ico_papamob_n.png" height="20" alt="papamob icon"></a>
@@ -65,7 +65,7 @@
                 <a href="https://play.google.com/store/apps/details?id=appinventor.ai_bobthedesigner.Exchange_Expense"><img src="/media/images/banner1712530_tourlang.png" width="100%" height="auto"/ alt="banner"></a>
             </div>-->
         <!-- 네비메뉴 끝 -->
-        <div class="container-fluid" style="background-color:#D4EBFF">
+        <div class="container-fluid">
 
             <!--태그들 시작  -->
             <div class="container">
