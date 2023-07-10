@@ -12,10 +12,10 @@
         <link rel="icon" href="{% static 'favicon/favicon.ico' %}"/>
         <!-- 탑 바로가기 접었다 폈다 -->
     </head>
-    <body class="d-flex flex-column h-100" style="background-color:#297dc5;">
+    <body class="d-flex flex-column h-100" style="background-color:#f8e684;">
         <!-- 네비메뉴 시작 -->
         <!-- 배너 붙이기위해 mb-2를 mb-0으로 변경함-->
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light mb-2" style="background-color:#297dc5;">
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light mb-2">
             <div class="container-lg">
                 {% if user.is_authenticated %}
                 <a class="navbar-brand" href="{% url 'post_list' %}"><img src="/media/images/ico_papamob_n.png" height="20" alt="papamob icon"></a>
