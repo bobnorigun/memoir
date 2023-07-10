@@ -5,18 +5,18 @@
 <div class="container-lg">
     <div class="row justify-content-center">
         <!--App INFO-->
-        <div class="col-md-8 col-lg-4 col-xl-3 p-3">
+        <div class="col-md-8 col-lg-4 col-xl-3 p-3 text-center">
             <div class="card border-0 p-3">
-              <p style="background-color:black;">
-                &nbsp;■
+              <p style="background-color:black; text-align:left;">
+                &nbsp;
               </p>
               <!--Title-->
-              <h5 style="text-align:center;">
+              <h5>
                 {{ papaabb.title }}
               </h5>
 
               <!--AppIcon-->
-              <p style="text-align:center;">
+              <p>
                 <a href="{{ papaabb.get_absolute_url }}">
                   <img src="{{ papaabb.iconimage.url }}" class="card-img" style="width:70%; align:center;">
                 </a>
@@ -35,7 +35,7 @@
 
                   <!--edit menu-->
                     {% if user.is_authenticated %}
-                      <p style="text-align:center;">
+                      <p>
                         <a href="{% url 'abb-update' pk=papaabb.pk %}">
                           <button type="button" class="btn btn-light btn-sm">
                             진행내용편집
