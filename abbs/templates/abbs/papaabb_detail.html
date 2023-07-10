@@ -6,28 +6,30 @@
     <div class="row justify-content-center">
         <!--App INFO-->
         <div class="col-md-8 col-lg-4 col-xl-3 p-3">
-            <div class="card border-0 p-3 text-center">
-              <!--AppIcon-->
-                <a href="{{ papaabb.get_absolute_url }}">
-                  <img src="{{ papaabb.iconimage.url }}" class="card-img" style="width:70%">
-                </a>
+            <div class="card border-0 p-3">
+              <p style="background-color:black; color:#555;">
+                &nbsp;■
+              </p>
               <!--Title-->
-              <h5>
-                <b>{{ papaabb.title }}</b>
-                {% if papaabb.is_new %}
-                <i class="bi bi-clock-fill text-danger"></i>
-                {% endif %}
+              <h5 style="text-align:center;">
+                {{ papaabb.title }}
               </h5>
-              <!--playStoreLink-->
-                {% if papaabb.downloadurl %}
-                <a href='{{ papaabb.downloadurl }}'>
-                <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="60px"/>
+
+              <!--AppIcon-->
+              <p style="text-align:center;">
+                <a href="{{ papaabb.get_absolute_url }}">
+                  <img src="{{ papaabb.iconimage.url }}" class="card-img" style="width:70%; align:center;">
                 </a>
-                {% else %}
-                {% endif %}
-                <hr>
-              <!--업데이트 기록-->
-                <div class="m-2 p-3">
+                <!--playStoreLink-->
+                  {% if papaabb.downloadurl %}
+                  <a href="{{ papaabb.downloadurl }}">
+                  <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="60px"/>
+                  </a>
+                  {% else %}
+                  {% endif %}
+                </p>
+                <!--업데이트 기록-->
+
                   <!--edit menu-->
                     {% if user.is_authenticated %}
                       <p class="top-menu">
@@ -39,8 +41,8 @@
                       </p>
                     {% else %}
                     {% endif %}
-                  <!--text-->
-                    <p style="font-size:22;" align="left">
+                  <!--
+                    <p style="background-color:#999999; color:#f8e684;">
                       <b>...ing</b>
                     </p>
                     <p style="font-size:16;" align="left">
@@ -48,7 +50,7 @@
                       {% for note in papaabb.releasenote_as_list %}
                         {{ note }}
                       {% endfor %}
-                    </p>
+                    </p>text-->
                     <!--<ul class="list-group list-group-flush">
                     {% for note in papaabb.releasenote_as_list %}
                     <li class="list-group-item">
@@ -56,7 +58,7 @@
                     </li>
                     {% endfor %}
                     </ul>-->
-                </div>
+
             </div>
         </div>
 

@@ -24,13 +24,11 @@
         <!-- 업데이트 -->
         <div class="col-md-8 col-lg-4 col-xl-3 p-3">
             <div class="card border-0 p-3">
-                <h5 style="background-color:black; color:#999999;">
+                <p style="background-color:black; color:#555;">
+                  &nbsp;■
+                </p>
 
-                  > ing...
 
-                </h5>
-                <br>
-                {{ context }}
                 <div class="row justify-content-center">
                 {% for papaabb in papaabb_list|slice:":4" %}
                     <div class="col-3 col-sm-3 col-md-3 col-lg-3">
@@ -41,15 +39,18 @@
                     <div class="col-9 col-sm-9 col-md-9 col-lg-9">
                     <!--<p class="card-text text-mute">-->
                       <a href="{{ papaabb.get_absolute_url }}">
-                          <b>{{ papaabb.title }}</b>
                           {% if papaabb.is_new %}
-                          <i class="bi bi-clock-fill text-danger"></i>
-                          {% endif %}<br>
-                          {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
+                            <p><b>{{ papaabb.title }}</b><br>
+                              {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
+                            </p>
+                          {% else %}
+                            <p style="color: #BFBFBF;"><b>{{ papaabb.title }}</b><br>
+                            {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
+                            </p>
+                          {% endif %}
                       </a>
                     <!--</p>-->
                     </div>
-                    <hr>
                 {% endfor %}
                 </div>
             </div>
@@ -68,29 +69,33 @@
                         </a>
 
                       <!--프로젝트 제목영역-->
-                        <div class="card-body text-center p-3" style="background-color:#ffffff;">
+                        <div class="card-body text-left p-3" style="background-color:#ffffff;">
                             <a href="{{ papaabb.get_absolute_url }}">
-                              <img src="{{ papaabb.iconimage.url }}" class="card-img" style="width:17%">
+                              <img src="{{ papaabb.iconimage.url }}" class="card-img" style="width:15%">
                             </a>
 
                             <h7 class="card-title fw-bold">
-                              <a href="{{ papaabb.get_absolute_url }}">
-                                {{ papaabb.title }}
-                              </a>
-                            {% if papaabb.is_new %}
-                            <i class="bi bi-clock-fill text-danger"></i>
-                            {% endif %}
+                              &nbsp;
+                              {% if papaabb.is_new %}
+                                <b>{{ papaabb.title }}</b>
+                              {% else %}
+                                <b style="color: #BFBFBF;">{{ papaabb.title }}</b>
+                              {% endif %}
                             <br>
                             </h7>
                             <!--<p>
                             {{ papaabb.summary|truncatechars:50 }}
                             </p>-->
+
                             {% if papaabb.downloadurl %}
+                            <br><p style="text-align:center;">
                             <a href='{{ papaabb.downloadurl }}'>
                             <img alt='다운로드하기 Google Play' src='https://play.google.com/intl/ko/badges/static/images/badges/ko_badge_web_generic.png' width="auto" height="60px"/>
                             </a>
+                            </p>
                             {% else %}
                             {% endif %}
+
                         </div>
 
                     </div>
