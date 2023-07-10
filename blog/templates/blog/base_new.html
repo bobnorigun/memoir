@@ -73,11 +73,20 @@
                   <!--tag들-->
                     <div class="col-10 col-lg-8 mt-3 mb-3">
                     {% if user.is_authenticated %}
-                        {% for post in modified|slice:":8" %}
+                      {% if request.get_full_path == "/blog/recent/" %}
+                        {% for post in modified|slice:":16" %}
                             <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-light btn-md mb-1" role="button" aria-pressed="true">
                               {{ post.title|truncatechars:20 }}
                             </a>
                         {% endfor %}
+                      {% else %}
+                      {% for post in modified|slice:":10" %}
+                          <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-light btn-md mb-1" role="button" aria-pressed="true">
+                            {{ post.title|truncatechars:20 }}
+                          </a>
+                      {% endfor %}
+                      {% endif %}
+                    <!--펼치기, 사용하지 않음
                     <a class="btn btn-light" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                       ...
                     </a>
@@ -88,6 +97,7 @@
                             </a>
                         {% endfor %}
                     </div>
+                  -->
                     {% else %}
                     <!-- 사용하지 않음
                         {% for papaabb in papaabb_list|slice:":4" %}
