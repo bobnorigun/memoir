@@ -41,11 +41,11 @@
                       <a href="{{ papaabb.get_absolute_url }}">
                           {% if papaabb.is_new %}
                             <p><b>{{ papaabb.title }}</b><br>
-                              {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
+                              {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:100 }}
                             </p>
                           {% else %}
                             <p style="color: #BFBFBF;"><b>{{ papaabb.title }}</b><br>
-                            {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:50 }}
+                            {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:100 }}
                             </p>
                           {% endif %}
                       </a>
