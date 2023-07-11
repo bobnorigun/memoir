@@ -80,13 +80,13 @@
                       {% if request.get_full_path == "/blog/recent/" %}
                         {% for post in modified|slice:":16" %}
                             <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-light btn-md mb-1" role="button" aria-pressed="true">
-                              {{ post.title|truncatechars:16 }}
+                              {{ post.title|truncatechars:15 }}
                             </a>
                         {% endfor %}
                       {% else %}
-                      {% for post in modified|slice:":10" %}
+                      {% for post in modified|slice:":9" %}
                           <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-light btn-md mb-1" role="button" aria-pressed="true">
-                            {{ post.title|truncatechars:16 }}
+                            {{ post.title|truncatechars:15 }}
                           </a>
                       {% endfor %}
                       {% endif %}
