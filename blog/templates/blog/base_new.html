@@ -12,7 +12,11 @@
         <link rel="icon" href="{% static 'favicon/favicon.ico' %}"/>
         <!-- 탑 바로가기 접었다 폈다 -->
     </head>
-    <body class="d-flex flex-column h-100" style="background-color:#f8e684;">
+    {% if request.get_full_path == "/abb/15" %}
+      <body class="d-flex flex-column h-100" style="background-color:#f8e684; background-image: url('/media/images/bg_placeLang.png'); background-repeat: no-repeat;">
+    {% else %}
+      <body class="d-flex flex-column h-100" style="background-color:#f8e684;">
+    {% endif %}
         <!-- 네비메뉴 시작 -->
         <!-- 배너 붙이기위해 mb-2를 mb-0으로 변경함-->
         <nav class="navbar sticky-top navbar-expand-lg navbar-light mb-2">
