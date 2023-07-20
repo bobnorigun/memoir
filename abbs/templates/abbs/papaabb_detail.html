@@ -121,9 +121,9 @@
                       </p>
                       {% for comment in papaabb.comments.all %}
                           <div class="comment">
-                              <div class="date">{{ comment.created_date }}</div>
+                              
                               <strong>{{ comment.author }}</strong>
-                              <p>{{ comment.text|linebreaks }}</p>
+                              <br><small>{{ comment.text|linebreaks }}</small>
                           </div>
                       {% empty %}
                           <p class="p-3">No comments here yet :(</p>
