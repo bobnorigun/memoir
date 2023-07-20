@@ -112,9 +112,10 @@
                         <img class="card-img" src="{{ papaabb.badgeimage3.url }}">
                     </div>
                 </div>
+                {% if request.get_full_path == "/abb/15" %}
+                <!--여행지도 게시판-->
                 <div class="col-sm-6 col-xl-4 p-3 mb-3">
                     <div class="card border-light border-0">
-                      <!--여행지도 게시판-->
                       <p class="p-3">
                         <b>여행지도모음</b><br><small>링크를 복사해서 여행지도앱 주소란에 붙여넣고 내려받기합니다.</small>
                       </p>
@@ -129,6 +130,8 @@
                       {% endfor %}
                     </div>
                 </div>
+                {% else %}
+                {% endif %}
 
             </div>
         </div>
