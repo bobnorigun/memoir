@@ -68,71 +68,70 @@
         <!-- App Screenshots -->
         <div class="col-lg-8 col-xl-9">
             <div class="row">
-                <!--동영상-->
-                  {% if papaabb.videourl %}
-                    <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                      <div class="ratio" style="--bs-aspect-ratio: 178%;">
-                        <iframe src="{{ papaabb.videourl }}" title="파파몹 앱들 소개하기" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                      </div>
-                    </div>
-                  {% else %}
-                  {% endif %}
-                <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                    <div class="card border-light border-0">
-                        <img class="card-img" src="{{ papaabb.coverimage.url }}">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                    <div class="card border-light border-0">
-                        <img class="card-img" src="{{ papaabb.coverimage2.url }}">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                    <div class="card border-light border-0">
-                        <img class="card-img" src="{{ papaabb.coverimage3.url }}">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                    <div class="card border-light border-0">
-                        <img class="card-img" src="{{ papaabb.coverimage4.url }}">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                    <div class="card border-light border-0">
-                        <img class="card-img" src="{{ papaabb.badgeimage.url }}">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                    <div class="card border-light border-0">
-                        <img class="card-img" src="{{ papaabb.badgeimage2.url }}">
-                    </div>
-                </div>
-                <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                    <div class="card border-light border-0">
-                        <img class="card-img" src="{{ papaabb.badgeimage3.url }}">
-                    </div>
-                </div>
-                {% if request.get_full_path == "/abb/15" %}
-                <!--여행지도 게시판-->
-                <div class="col-sm-6 col-xl-4 p-3 mb-3">
-                    <div class="card border-light border-0">
-                      <p class="p-3">
-                        <b>여행지도모음</b><br><small>링크를 복사해서 여행지도앱 주소란에 붙여넣고 내려받기합니다.</small>
-                      </p>
-                      {% for comment in papaabb.comments.all %}
-                          <div class="comment">
-                              
-                              <strong>{{ comment.author }}</strong>
-                              <br><small>{{ comment.text|linebreaks }}</small>
-                          </div>
-                      {% empty %}
-                          <p class="p-3">No comments here yet :(</p>
-                      {% endfor %}
-                    </div>
-                </div>
-                {% else %}
-                {% endif %}
+              <!--여행지도 게시판-->
+              {% if request.get_full_path == "/abb/15" %}
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                  <div class="card border-light border-0">
+                    <p class="p-3">
+                      <b>여행지도모음</b><br><small>링크를 복사해서 여행지도앱 주소란에 붙여넣고 내려받기합니다.</small>
+                    </p>
+                    {% for comment in papaabb.comments.all %}
+                        <div class="comment">
 
+                            <strong>{{ comment.author }}</strong>
+                            <br><small>{{ comment.text|linebreaks }}</small>
+                        </div>
+                    {% empty %}
+                        <p class="p-3">No comments here yet :(</p>
+                    {% endfor %}
+                  </div>
+              </div>
+              {% else %}
+              {% endif %}
+              <!--동영상-->
+              {% if papaabb.videourl %}
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                <div class="ratio" style="--bs-aspect-ratio: 178%;">
+                  <iframe src="{{ papaabb.videourl }}" title="파파몹 앱들 소개하기" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
+              {% else %}
+              {% endif %}
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                  <div class="card border-light border-0">
+                      <img class="card-img" src="{{ papaabb.coverimage.url }}">
+                  </div>
+              </div>
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                  <div class="card border-light border-0">
+                      <img class="card-img" src="{{ papaabb.coverimage2.url }}">
+                  </div>
+              </div>
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                  <div class="card border-light border-0">
+                      <img class="card-img" src="{{ papaabb.coverimage3.url }}">
+                  </div>
+              </div>
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                  <div class="card border-light border-0">
+                      <img class="card-img" src="{{ papaabb.coverimage4.url }}">
+                  </div>
+              </div>
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                  <div class="card border-light border-0">
+                      <img class="card-img" src="{{ papaabb.badgeimage.url }}">
+                  </div>
+              </div>
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                  <div class="card border-light border-0">
+                      <img class="card-img" src="{{ papaabb.badgeimage2.url }}">
+                  </div>
+              </div>
+              <div class="col-sm-6 col-xl-4 p-3 mb-3">
+                  <div class="card border-light border-0">
+                      <img class="card-img" src="{{ papaabb.badgeimage3.url }}">
+                  </div>
+              </div>
             </div>
         </div>
     </div>
