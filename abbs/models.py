@@ -82,7 +82,7 @@ class PapaAbb(models.Model):
     def is_new(self):
         if self.last_modified.date() == date.today():
             return True
-        elif self.last_modified.date() == date.today() - timedelta(1):
+        elif self.last_modified.date() == date.today() - timedelta(7):
             return True
         return False
 
