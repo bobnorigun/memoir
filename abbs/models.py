@@ -80,11 +80,12 @@ class PapaAbb(models.Model):
         return reverse('abb-detail', args=[str(self.id)])
 
     def is_new(self):
-        if self.last_modified.date() == date.today():
+        """if self.last_modified.date() == date.today():
             return True
-        elif self.last_modified.date() == date.today() - timedelta(7):
+            elif self.last_modified.date() == date.today() - timedelta(7):
             return True
-        return False
+        return False"""
+        return self.last_modified.date() >= date.today() - timedelta(7)
 
 
 from uuid import uuid4
