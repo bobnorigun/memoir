@@ -21,47 +21,14 @@
 
 <div class="container-lg">
     <div class="row justify-content-center">
-        <!-- 업데이트 -->
-        <div class="col-md-8 col-lg-4 col-xl-3 p-3">
-            <div class="card border-0 p-3">
-                <p style="background-color:black;">
-                  &nbsp;
-                </p>
 
-
-                <div class="row justify-content-center">
-                {% for papaabb in papaabb_list|slice:":4" %}
-                    <div class="col-3 col-sm-3 col-md-3 col-lg-3">
-                        <a href="{{ papaabb.get_absolute_url }}">
-                          <img src="{{ papaabb.iconimage.url }}" class="card-img" style="width:100%">
-                        </a>
-                    </div>
-                    <div class="col-9 col-sm-9 col-md-9 col-lg-9">
-                    <!--<p class="card-text text-mute">-->
-                      <a href="{{ papaabb.get_absolute_url }}">
-                          {% if papaabb.is_new %}
-                            <p><b>{{ papaabb.title }}</b><br>
-                              {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:200 }}
-                            </p>
-                          {% else %}
-                            <p style="color: #BFBFBF;"><b>{{ papaabb.title }}</b><br>
-                            {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:200 }}
-                            </p>
-                          {% endif %}
-                      </a>
-                    <!--</p>-->
-                    </div>
-                {% endfor %}
-                </div>
-            </div>
-        </div>
         <!-- 프로젝트 목록보기 -->
         <div class="col-lg-8 col-xl-9">
             <div class="row">
               <!-- <div class="col">Column</div> -->
                 {% for papaabb in papaabb_list %}
                 <div class="col-sm-6 col-xl-4 p-3">
-                    <div class="card border-0 mb-5">
+                    <div class="card border-0 mb-3">
 
                       <!--프로젝트 스크린샷-->
                         <a href="{{ papaabb.get_absolute_url }}">
@@ -101,6 +68,41 @@
                     </div>
                 </div>
                 {% endfor %}
+            </div>
+        </div>
+
+        <!-- 업데이트 -->
+        <div class="col-md-8 col-lg-4 col-xl-3 p-3">
+            <div class="card border-0 p-3">
+                <p style="background-color:black;">
+                  &nbsp;
+                </p>
+
+
+                <div class="row justify-content-center">
+                {% for papaabb in papaabb_list|slice:":4" %}
+                    <div class="col-3 col-sm-3 col-md-3 col-lg-3">
+                        <a href="{{ papaabb.get_absolute_url }}">
+                          <img src="{{ papaabb.iconimage.url }}" class="card-img" style="width:100%">
+                        </a>
+                    </div>
+                    <div class="col-9 col-sm-9 col-md-9 col-lg-9" style="font-size:14px;">
+                    <!--<p class="card-text text-mute">-->
+                      <a href="{{ papaabb.get_absolute_url }}">
+                          {% if papaabb.is_new %}
+                            <p><b>{{ papaabb.title }}</b><br>
+                              {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:200 }}
+                            </p>
+                          {% else %}
+                            <p style="color: #BFBFBF;"><b>{{ papaabb.title }}</b><br>
+                            {{ papaabb.releasenote|linebreaksbr|urlize|truncatechars:200 }}
+                            </p>
+                          {% endif %}
+                      </a>
+                    <!--</p>-->
+                    </div>
+                {% endfor %}
+                </div>
             </div>
         </div>
 
