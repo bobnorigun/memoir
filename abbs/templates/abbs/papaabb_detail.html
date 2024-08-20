@@ -6,15 +6,13 @@
     <div class="row justify-content-center">
         <!--App INFO-->
         <div class="col-md-8 col-lg-4 col-xl-3 p-3 text-center">
-            <div class="card border-0 p-3">
-              <p style="background-color:black; text-align:left;">
-                &nbsp;
-              </p>
+            <div class="card border-0 pt-5 p-3">
               <!--Title-->
+
               <h5>
                 {{ papaabb.title }}
               </h5>
-
+              <small>{{ papaabb.created_date }} 시작</small>
               <!--AppIcon-->
               <p>
                 <a href="{{ papaabb.get_absolute_url }}">
